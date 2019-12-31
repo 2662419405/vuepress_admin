@@ -10,6 +10,5 @@ script:
 notifications:
   email:
     - 2662419405@qq.com
-    - qq2662419405@163.com
   on_success: change
   on_failure: always
