@@ -6,7 +6,8 @@ before_install:
 install:
   - yarn install # npm ci
 script:
-  - ./deploy.sh
+  - ./
+  deploy.sh
 notifications:
   email:
     - 2662419405@qq.com
