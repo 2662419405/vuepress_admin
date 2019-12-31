@@ -32,6 +32,12 @@ module.exports = {
 			'/home/': [
 				'',     /* /foo/ */
 				'css', // 44道面试题难题
+				'jquery',
+				'webpack',
+				'vue',
+				'react',
+				'php',
+				'node',
 			  ],
 			'/code/': [
 				'first',      /* /bar/ */
