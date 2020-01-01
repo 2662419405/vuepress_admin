@@ -1,10 +1,6 @@
-## 44道JS难题
+# 44道JS难题
 
-时间: *2019-04-13*阅读: *29*标签: *js知识*
-
-大家可以通过自己的技术去尝试着解析一下这里面的44道题
-
-# 1. parseInt 遇上 map
+## 1. parseInt 遇上 map
 
 ------
 
@@ -26,7 +22,7 @@
 - MDN: [Array.prototype.map()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 - MDN: [parseInt](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
-# 2. 神奇的null
+## 2. 神奇的null
 
 ------
 
@@ -47,7 +43,7 @@
 - MDN：[instanceof](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
 - CSDN博客：[null instanceof Object 求解？](https://link.jianshu.com/?t=http://bbs.csdn.net/topics/370040293)
 
-# 3. 愤怒的reduce
+## 3. 愤怒的reduce
 
 ------
 
@@ -68,7 +64,7 @@
 
 - MDN：[Array.prototype.reduce()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 
-# 4. 该死的优先级
+## 4. 该死的优先级
 
 ------
 
@@ -86,9 +82,9 @@ console.log('Value is ' + (val === 'smtg') ? 'Something' : 'Nothing');
 
 **参考资料：**
 
-- MDN：[运算符优先级](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7(Operator_precedence))
+- MDN：[运算符优先级](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Expressions_and_Operators##%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7(Operator_precedence))
 
-# 5. 神鬼莫测之变量提升
+## 5. 神鬼莫测之变量提升
 
 ------
 
@@ -135,7 +131,7 @@ var name = 'World!';
 - MDN：[变量提升](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Glossary/Hoisting)
 - 这篇博客解释的比较详细：[js变量提升](https://link.jianshu.com/?t=http://zha-zi.iteye.com/blog/2037026)
 
-# 6. 死循环陷阱
+## 6. 死循环陷阱
 
 ------
 
@@ -156,7 +152,7 @@ console.log(count);
 
 答案是D。在JavaScript中，2^53 是最大的值，没有比这更大的值了。所以 2^53 + 1 == 2^53，所以这个循环无法终止。
 
-# 7. 过滤器魔法
+## 7. 过滤器魔法
 
 ------
 
@@ -181,7 +177,7 @@ ary.filter(function(x) {
 
 - MDN：[Array.prototype.filter()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
-# 8. 警惕IEEE 754标准
+## 8. 警惕IEEE 754标准
 
 ------
 
@@ -204,7 +200,7 @@ var six = 0.6;
 
 - Wiki：[Double-precision floating-point format](https://link.jianshu.com/?t=https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
 
-# 9. 字符串陷阱
+## 9. 字符串陷阱
 
 ------
 
@@ -240,9 +236,9 @@ showCase(new String('A'));
 
 **参考资料：**
 
-- MDN：[String](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String#%E5%AF%B9%E5%8E%9F%E5%A7%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C_String_%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%86)
+- MDN：[String](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String##%E5%AF%B9%E5%8E%9F%E5%A7%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C_String_%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%86)
 
-# 10. 再一次的字符串陷阱
+## 10. 再一次的字符串陷阱
 
 ------
 
@@ -272,7 +268,7 @@ showCase(String('A'));
 
 答案显然是A。与上面唯一不同的是没有使用 new 关键字，所以直接返回字符串，实际上，typeof string("A") === "string" 的结果是 true。解释参见第9条的解释。
 
-# 11. 并非都是奇偶
+## 11. 并非都是奇偶
 
 ------
 
@@ -300,7 +296,7 @@ values.map(isSane);
 
 答案是C。-9 % 2 = -1 以及 Infinity % 2 = NaN，求余运算符会保留符号，所以只有 isEven 的判断是可靠的。
 
-# 12. parseInt小贼
+## 12. parseInt小贼
 
 ------
 
@@ -317,7 +313,7 @@ parseInt(3, 0);
 
 答案是D。实际结果是 3, NaN, 3，这个在第一个问题中解释的很清楚了。
 
-# 13. 数组原型是数组
+## 13. 数组原型是数组
 
 ------
 
@@ -336,7 +332,7 @@ Array.isArray( Array.prototype )
 
 - MDN：[Array.isArray()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 
-# 14. 一言难尽的强制转换
+## 14. 一言难尽的强制转换
 
 ------
 
@@ -362,10 +358,10 @@ if ([0]) {
 
 **参考资料：**
 
-- ES5规范：[11.9.3](https://link.jianshu.com/?t=http://es5.github.io/#x11.9.3)
+- ES5规范：[11.9.3](https://link.jianshu.com/?t=http://es5.github.io/##x11.9.3)
 - 《你不知道的JavaScript-中卷》
 
-# 15. 撒旦之子“==”
+## 15. 撒旦之子“==”
 
 ------
 
@@ -382,10 +378,10 @@ if ([0]) {
 
 **参考资料：**
 
-- ES5规范：[11.9.3.1](https://link.jianshu.com/?t=http://es5.github.io/#x11.9.3)
+- ES5规范：[11.9.3.1](https://link.jianshu.com/?t=http://es5.github.io/##x11.9.3)
 - 《你不知道的JavaScript-中卷》
 
-# 16. 加号 VS 减号
+## 16. 加号 VS 减号
 
 ------
 
@@ -405,7 +401,7 @@ if ([0]) {
 
 - 《你不知道的JavaScript-中卷》，第四章：4.4.2 字符串和数字之间的隐式强制类型转换
 
-# 17. 打死那个疯子
+## 17. 打死那个疯子
 
 ------
 
@@ -420,7 +416,7 @@ if ([0]) {
 
 答案是A。这个只能出现在示例代码中，如果你发现哪个疯子写了这个在生产代码中，打死他就行了。你只要知道 + 1 = 1和- 1 = -1，注意符号之间的空格。两个减号抵消，所以最终结果等效于 1 + 1 = 2。或者你也可以在符号之间插入 0 来理解，即 1 + 0 - 0 + 0 + 0 + 0 - 0 + 1，这样你就一目了然了吧！**千万别写这样的代码，因为可能会被打死！**
 
-# 18. 淘气的map
+## 18. 淘气的map
 
 ------
 
@@ -445,7 +441,7 @@ ary.map(function(elem) {
 
 - MDN: [Array.prototype.map()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
-# 19. 统统算我的
+## 19. 统统算我的
 
 ------
 
@@ -470,7 +466,7 @@ bar(1, 1, 1);
 
 答案是D。实际上结果是 21。**在JavaScript中，参数变量和 arguments 是双向绑定的**。改变参数变量，arguments 中的值会立即改变；而改变 arguments 中的值，参数变量也会对应改变。
 
-# 20. 损失精度的IEEE 754
+## 20. 损失精度的IEEE 754
 
 ------
 
@@ -491,7 +487,7 @@ console.log(a + b);
 
 - Wiki：[Double-precision floating-point format](https://link.jianshu.com/?t=https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
 
-# 21. 反转世界
+## 21. 反转世界
 
 ------
 
@@ -515,7 +511,7 @@ x();
 
 - MDN：[Array.prototype.reverse()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
 
-# 22. 最小的正值
+## 22. 最小的正值
 
 ------
 
@@ -541,7 +537,7 @@ Number.MIN_VALUE > 0
 
 - MDN：[Number.MIN_VALUE](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_VALUE)
 
-# 23. 谨记优先级
+## 23. 谨记优先级
 
 ------
 
@@ -560,7 +556,7 @@ Number.MIN_VALUE > 0
 
 - MDN：[运算符优先级](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 
-# 24. 坑爹中的战斗机
+## 24. 坑爹中的战斗机
 
 ------
 
@@ -576,7 +572,7 @@ Number.MIN_VALUE > 0
 
 答案是A。根据ES5规范，**如果比较的两个值中有一个是数字类型，就会尝试将另外一个值强制转换成数字，再进行比较。**而数组强制转换成数字的过程会先调用它的 toString方法转成字符串，然后再转成数字。所以 [2]会被转成 "2"，然后递归调用，最终 [[[2]]] 会被转成数字 2。
 
-# 25. 小数点魔术
+## 25. 小数点魔术
 
 ------
 
@@ -593,7 +589,7 @@ Number.MIN_VALUE > 0
 
 答案是C。点运算符会被优先识别为数字常量的一部分，然后才是对象属性访问符。所以 3.toString() 实际上被JS引擎解析成 (3.)toString()，显然会出现语法错误。但是如果你这么写 (3).toString()，人为加上括号，这就是合法的。
 
-# 26. 自动提升为全局变量
+## 26. 自动提升为全局变量
 
 ------
 
@@ -612,7 +608,7 @@ console.log(x);
 
 答案是C。很经典的例子，在函数中没有用 var 声明变量 y，所以 y 会被自动创建在全局变量 window下面，所以在函数外面也可以访问得到。而 x 由于被 var 声明过，所以在函数外部是无法访问的。
 
-# 27. 正则表达式实例
+## 27. 正则表达式实例
 
 ------
 
@@ -630,7 +626,7 @@ a === b;
 
 答案是C。每个字面的正则表达式都是一个单独的实例，即使它们的内容相同。
 
-# 28. 数组也爱比大小
+## 28. 数组也爱比大小
 
 ------
 
@@ -652,7 +648,7 @@ a < c;
 
 答案是A。数组也是对象，ES5规范指出如果两个对象进行相等比较，只有在它们指向同一个对象的情况下才会返回 true，其他情况都返回 false。而对象进行大小比较，会调用 toString 方法转成字符串进行比较，所以结果就变成了字符串 "1,2,3" 和 "1,2,4"按照字典序进行比较了（你若不信，可以重现两个变量的 toString 方法，进行测试）。
 
-# 29. 原型把戏
+## 29. 原型把戏
 
 ------
 
@@ -670,7 +666,7 @@ var b = Object.prototype;
 
 答案是A。对象是没有 prototype 属性的，所以 a.prototype 是 undefined，但我们可以通过 Object.getPrototypeOf 方法来获取一个对象的原型。
 
-# 30. 构造函数的函数
+## 30. 构造函数的函数
 
 ------
 
@@ -709,7 +705,7 @@ console.log(d === e, d === f, e === f);
 
 **我解释的不是很好，如果读者有更好的解释，欢迎评论。**
 
-# 31. 禁止修改函数名
+## 31. 禁止修改函数名
 
 ------
 
@@ -731,7 +727,7 @@ foo.name = "bar";
 
 - MDN：[Function.name](https://link.jianshu.com/?t=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name)
 
-# 32. 替换陷阱
+## 32. 替换陷阱
 
 ------
 
@@ -748,9 +744,9 @@ foo.name = "bar";
 
 **参考资料：**
 
-- MDN：[String.prototype.replace()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0)
+- MDN：[String.prototype.replace()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace##%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0)
 
-# 33. Function的名字
+## 33. Function的名字
 
 ------
 
@@ -778,7 +774,7 @@ function () {
 
 它的 name 属性是 ""，所以你 eval("")是得不到任何东西的。
 
-# 34. 正则测试陷阱
+## 34. 正则测试陷阱
 
 ------
 
@@ -794,7 +790,7 @@ var lowerCaseOnly = /^[a-z]+$/;
 
 答案是C。test 方法的参数如果不是字符串，会经过抽象 ToString操作强制转成字符串，因此实际上测试的是字符串 "null" 和 "undefined"。
 
-# 35. 逗号定义数组
+## 35. 逗号定义数组
 
 ------
 
@@ -815,7 +811,7 @@ var lowerCaseOnly = /^[a-z]+$/;
 
 - MDN：[Array.prototype.join()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 
-# 36. 保留字 class
+## 36. 保留字 class
 
 ------
 
@@ -831,7 +827,7 @@ console.log(a.class);
 
 答案是D。实际上真正的答案**取决于浏览器**。class 是保留字，但是在Chrome、Firefox和Opera中可以作为属性名称，在IE中是禁止的。另一方面，其实所有浏览器基本接受大部分的关键字（如：int、private、throws等）作为变量名，而class是禁止的。
 
-# 37. 无效日期
+## 37. 无效日期
 
 ------
 
@@ -846,7 +842,7 @@ var a = new Date("epoch");
 
 答案是D。实际结果是 Invalid Date，它实际上是一个Date对象，因为 a instance Date的结果是 true，但是它是无效的Date。Date对象内部是用一个数字来存储时间的，在这个例子中，这个数字是 NaN。
 
-# 38. 神鬼莫测的函数长度
+## 38. 神鬼莫测的函数长度
 
 ------
 
@@ -877,7 +873,7 @@ console.log(a === b);
 
 - MDN：[Function.length](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/length)
 
-# 39. Date的面具
+## 39. Date的面具
 
 ------
 
@@ -903,7 +899,7 @@ var c = new Date();
 
 - MDN：[Date](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
-# 40. min与max共舞
+## 40. min与max共舞
 
 ------
 
@@ -931,7 +927,7 @@ console.log(min < max);
 - MDN：[Math.min](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/min)
 - MDN：[Math.max](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
 
-# 41. 警惕全局匹配
+## 41. 警惕全局匹配
 
 ------
 
@@ -966,7 +962,7 @@ var numRe = /num=(\d+)/ig,
 
 - MDN：[RegExp.prototype.exec()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
 
-# 42. 最熟悉的陌生人
+## 42. 最熟悉的陌生人
 
 ------
 
@@ -991,7 +987,7 @@ var b = new Date(2014, 03, 19);
 
 - MDN：[Date](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
-# 43. 匹配隐式转换
+## 43. 匹配隐式转换
 
 ------
 
@@ -1019,7 +1015,7 @@ if("http://giftwrapped.com/picture.jpg".match(".gif")) {
 
 - MDN：[String.prototype.match()](https://link.jianshu.com/?t=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match)
 
-# 44. 重复声明变量
+## 44. 重复声明变量
 
 ------
 

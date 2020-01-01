@@ -33,14 +33,24 @@ module.exports = {
 				'',     /* /foo/ */
 				'css', // 44道面试题难题
 				'jquery',
-				'webpack',
-				'vue',
-				'react',
-				'php',
+				'jsgao',
+				'ts',
 				'node',
+				'git',
+				'es6',
+				'sheji',
+				'this',
+				'npm',
+				'webpack',
+				'rn',
+				'react',
+				'nodebao',
+				'vscode',
 			  ],
 			'/code/': [
 				'first',      /* /bar/ */
+				'second',
+				'third',
 			],
 		}
 	},

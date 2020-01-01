@@ -14,7 +14,7 @@
 - 可继承`babel`工具,实现`ECMAScript6`和5的转换,解决兼容问题
 - 可以进行模块热加载,当代码发生改变的时候,自动刷新浏览器
 
-![webpack](E:\node\md\webpack.png)
+<img src="/webpack.png"/>
 
 
 

@@ -127,8 +127,6 @@
 >
 > 在ctx中一般使用异步函数(ES8)关键字,并且配合Promise来使用
 >
-> ![1565876074087](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1565876074087.png)
->
 > #### `ctx.request`常用方法
 >
 > - `ctx.request.url`
@@ -292,12 +290,6 @@ db.orders.aggregate([
 - 私钥  存在服务器的唯一解公钥加密的方式
 - 签名  确保数据的一致性
 - 证书  确保当前发送数据单位可信
-
-
-
-#### 扩展知识（使用mongodb实现附近的人）
-
-- ![location](E:/%E5%89%8D%E6%AE%B5%E6%95%B4%E4%BD%93%E5%AD%A6%E4%B9%A0/assets/location.jpg)
 
 
 

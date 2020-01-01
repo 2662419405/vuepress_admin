@@ -17,4 +17,4 @@ JS基础系列会参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/Jav
 
 4. **面试题整理** 
 分享常见面试题，主要以 JavaScript 为主，这部分目前还没有开始。
-[img](/cute-javascript-world.jpg)
+<img src="/cute-javascript-world.jpg" />
