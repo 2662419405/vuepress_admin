@@ -6,7 +6,16 @@ before_install:
 install:
   - yarn install # npm ci
 script:
-  - npm run deploy
+  - npm run docs:build
+after_success:
+  - cd docs/.vuepress/dist
+  - git init
+  - git add .
+  - git commit -m ":apple:TravisCI 自动部署"
+  - git push --force --quiet "https://${githubblog}@${GH_REF}" master:master
+env:
+  global:
+    - GH_REF: github.com/2662419405/vuepress.git
 notifications:
   email:
     - 2662419405@qq.com

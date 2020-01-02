@@ -16,7 +16,7 @@ module.exports = {
 		nav: [
 		  { text: '首页', link: '/' },
 		  { text: '笔记文档', link: '/home/' },
-		  { text: '面试题整理', link: '/code/' },
+		  { text: '面试题和技巧', link: '/code/' },
 		  {
 			text: 'Languages',
 			items: [
@@ -51,6 +51,7 @@ module.exports = {
 				'first',      /* /bar/ */
 				'second',
 				'third',
+				'fan',
 			],
 		}
 	},
