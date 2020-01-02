@@ -95,4 +95,4 @@ On-call (电话值班)的计划或者规定是什么？值班或者遇到问题�
 照顾小孩的政策如何？
 无薪休假政策是什么样的？
 
-> 此反问技巧<a href="https://github.com/yifeikong/reverse-interview-zh">整理</a>
+> 此反问技巧是<a href="https://github.com/yifeikong/reverse-interview-zh">整理</a>
