@@ -9,6 +9,7 @@ script:
   - npm run docs:build
 after_success:
   - cd docs/.vuepress/dist
+  - git init
   - git add .
   - git commit -m ":apple:TravisCI 自动部署"
   - git push --force --quiet "https://${githubblog}@${GH_REF}" master:master
