@@ -779,3 +779,14 @@ XHR Multipart Streaming
 不可见的 Iframe 
 <script>标签的长时间连接(可跨域)
 ```
+
+## 54.简述svg原理和优点以及如何使用
+
+svg 本质上是一个文本文件,体积较小,不管放大或者缩小都不会失真
+```js
+<svg width="300" height="180">
+  <circle cx="30"  cy="50" r="25" />
+  <circle cx="90"  cy="50" r="25" class="red" />
+  <circle cx="150" cy="50" r="25" class="fancy" />
+</svg>
+```
