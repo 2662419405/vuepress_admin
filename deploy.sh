@@ -12,6 +12,6 @@ cd docs/.vuepress/dist
 git init
 git add -A
 git commit -m ':apple:脚本持续集成'
-git push -f git@github.com:2662419405/vuepress.git master:gh-pages
+git push -f https://github.com/2662419405/vuepress_admin.git master:gh-pages
 
 cd -
