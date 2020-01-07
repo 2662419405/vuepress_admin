@@ -9,6 +9,7 @@ script:
   - npm run docs:build
 after_success:
   - cd docs/.vuepress/dist
+  - echo 'shstudy.top' > CNAME
   - git init
   - git add .
   - git commit -m ":apple:TravisCI 自动部署"
