@@ -13,9 +13,11 @@ after_success:
   - git add .
   - git commit -m ":apple:TravisCI 自动部署"
   - git push --force --quiet "https://${githubblog}@${GH_REF}" master:master
+  - git push --force --quiet "https://${gitee}@${GITEE}" master:master
 env:
   global:
     - GH_REF: github.com/2662419405/vuepress.git
+    - GITEE: gitee.com/itstusy/vuepress.git
 notifications:
   email:
     - 2662419405@qq.com
