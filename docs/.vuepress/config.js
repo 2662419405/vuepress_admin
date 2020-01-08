@@ -54,6 +54,7 @@ module.exports = {
 				'first',      /* /bar/ */
 				'second',
 				'third',
+				'fourth',
 				'fan',
 				'chen',
 			],
