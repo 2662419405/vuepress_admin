@@ -46,7 +46,7 @@ module.exports = {
 				'react',
 				'nodebao',
 				'vscode',
-				'test'
+				'test1'
 			  ],
 			'/code/': [
 				'first',      /* /bar/ */
