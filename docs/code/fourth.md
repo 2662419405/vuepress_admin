@@ -389,6 +389,7 @@ var func2=outer();
 	func2();//输出1
 	func2();//输出2
 ```
+<img src="../.vuepress/public/bibao.jpg">
 
 ### 3.闭包的作用
 
