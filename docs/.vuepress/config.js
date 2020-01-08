@@ -32,6 +32,7 @@ module.exports = {
 			'/home/': [
 				'',     /* /foo/ */
 				'css', // 44道面试题难题
+				'html',
 				'jquery',
 				'jsgao',
 				'ts',
