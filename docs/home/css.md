@@ -78,7 +78,7 @@
 
 ## 隐藏内容
 
-`visibility:hidden|visibility`  内容隐藏 
+`visibility:hidden|visible`  内容隐藏 
 
 
 
