@@ -54,6 +54,7 @@ module.exports = {
 				'second',
 				'third',
 				'fan',
+				'chen',
 			],
 		}
 	},
