@@ -16,6 +16,6 @@ JS基础系列会参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/Jav
 关于React和Vue框架的一些知识整理,目前只整理了React,可能是个人更偏向或者喜欢React
 
 4. **面试题整理** 
-分享常见面试题，主要以 JavaScript 为主，这部分目前还没有开始。
+分享常见面试题，主要以 JavaScript 为主
 <img src="/cute-javascript-world.jpg" />
 
