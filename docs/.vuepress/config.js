@@ -32,6 +32,7 @@ module.exports = {
 			'/home/': [
 				'',     /* /foo/ */
 				'css', 
+				'html',
 				'fullpage',
 				'jquery',
 				'jsgao',
