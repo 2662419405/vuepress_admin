@@ -31,30 +31,31 @@ module.exports = {
 		sidebar: {
 			'/home/': [
 				'',     /* /foo/ */
-				'css', // 44道面试题难题
+				'css', 
 				'html',
+				'fullpage',
 				'jquery',
 				'jsgao',
+				'git',
+				'bootstrap',
+				'this',
+				'es6',
 				'ts',
 				'node',
-				'git',
-				'es6',
 				'sheji',
-				'this',
 				'npm',
 				'webpack',
 				'rn',
 				'react',
 				'nodebao',
 				'vscode',
-				'test1',
-				'fullpage',
 			  ],
 			'/code/': [
 				'first',      /* /bar/ */
 				'second',
 				'third',
 				'fan',
+				'chen',
 			],
 		}
 	},

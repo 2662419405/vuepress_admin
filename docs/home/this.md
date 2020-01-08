@@ -166,7 +166,7 @@ console.log(bar.a) // 2
 
 分析： 使用 new 调用 foo() 时，我们构造一个对象并把它绑定到 foo() 调用的 this 上
 
-\####new 绑定总结： new 绑定中 this 绑定的就是新生成的对象
+#### new 绑定总结： new 绑定中 this 绑定的就是新生成的对象
 
 ## 总结
 
