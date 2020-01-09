@@ -33,6 +33,7 @@ module.exports = {
 				'',     /* /foo/ */
 				'css', 
 				'html',
+				'jscj',
 				'fullpage',
 				'jquery',
 				'jsgao',
