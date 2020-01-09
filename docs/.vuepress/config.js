@@ -37,6 +37,7 @@ module.exports = {
 				'fullpage',
 				'jquery',
 				'jsgao',
+				'svn',
 				'git',
 				'bootstrap',
 				'this',
