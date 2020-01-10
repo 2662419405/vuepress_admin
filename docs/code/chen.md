@@ -341,3 +341,46 @@
     9,  避免跳转
 
     10, 使用get来完成Ajax请求
+
+## 11,  null和 undefined的区别？
+
+首先先看一个判断:二者之间是否全等
+
+``` js
+
+console.log(null == undefined)  //true
+
+console.log(null === undefined)  //false  
+
+```
+
+* 观察可以发现: null 和 undefined 两者比较数值相等,比较类型不等;
+
+* **原因**: 
+
+    null: Null类型,代表"空值",代表一个空的对象指针, typeof 返回 "object" 
+
+    undefined: Undefined类型 ,当声明了一个标量未初始化, 就会返回undefined
+
+* 那么什么时候是 null ,什么时候是 undefined 呢
+
+    **`null`表示"没有对象"    ,即该处不应该有值, 典型用法是:**
+
+    > **作为函数的参数,表示该函数的参数不是对象**
+
+    > **作为对象原型链的终点**
+
+    **`undefined`表示"缺少值" , 就是此处应该有一个值 ,但是还没有定义**
+
+    > **变量被声明了,但是没有复制 , 就等于undefined ;**
+
+    > **调用函数时, 应该提供的参数没有提供 , 该参数等于 undefined ;**
+
+    > **对象没有赋值的属性 , 该属性的值为undefined ;**
+
+    > **函数没有返回值时,  默认返回undefined ;**
+
+::: tip 扩展理解
+:rainbow:[JS中的null , undefined , NaN](https://www.w3cplus.com/javascript/understanding-null-undefined-and-nan.html)
+:::
+
