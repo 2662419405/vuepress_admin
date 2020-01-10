@@ -1,3 +1,43 @@
 body{
     text-shadow: 0 3px 6px rgba(0,0,0,.1)!important;
 }
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  border-radius: 10px;
+  /* 线性渐变 */
+  background-image: -webkit-gradient(linear, 
+  left bottom, left top,
+   color-stop(0.44, rgb(60,186,146)), 
+   color-stop(0.72, rgb(253,187,45)), 
+   color-stop(0.86, rgb(253,187,45)));
+  transition: 0.3s ease-in-out;
+}
+/*定义滑块悬浮样式*/
+::-webkit-scrollbar-thumb:hover{
+  background-image: -webkit-gradient(linear, 
+  left bottom, left top, 
+  color-stop(0.44, rgb(253,187,45)), 
+  olor-stop(0.72, rgb(253,187,45)), 
+  color-stop(0.86, rgb(60,186,146)));
+  transition: 0.3s ease-in-out;
+}

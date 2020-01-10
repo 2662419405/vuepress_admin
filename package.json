@@ -13,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.2.0",
-    "@vuepress/plugin-back-to-top": "^1.2.0"
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "vuepress": "^1.0.0-rc.1"
   }
 }
