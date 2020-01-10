@@ -215,7 +215,9 @@ module.exports = {
 			title: "基础面试题(二)",
 			collapsable: true,
 			children: [
-			"fourth",
+			"fourth/first.md",
+			"fourth/second.md",
+			"fourth/third.md",
 			]
 		}
 		,{
