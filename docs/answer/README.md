@@ -237,14 +237,14 @@ $(document).ready(function () {
 ## 12.原生js实现无缝滚动?
 
 ``` js
-$('div').children().children().clone().appendTo($('div').children()) //克隆一遍结点
-	setInterval(function(){
-		if($('div').scrollLeft()>=800){
-			$('div').scrollLeft(0)
-		}
-		$('div').scrollLeft($('div').scrollLeft()+3)
-	},10)
-
+setInterval(function(){
+	if(document.getElementById("ou").scrollLeft>=110){
+        document.getElementById("in").appendChild(document.getElementById("in").firstChild);
+        document.getElementById("ou").scrollLeft=0;
+    }else{
+        document.getElementById("ou").scrollLeft+=10;
+    }
+},500)
 ```
 * **感谢航仔的巨简洁版无缝滚动**
 
@@ -381,11 +381,11 @@ box.addEventListener('click', function (event) { //绑定监听事件
 ```
 
     在javaScript中，添加到页面上的事件处理程序的数量，将直接关系到页面的整体运行性能。
-
+    
     `<li>`标签的数量很大时，循环为每个子元素添加事件，绝非好方法。
-
+    
     有一种优雅的方法，就是事件委托。
-
+    
     使用事件委托只为`<ul>`元素添加一个onclick事件处理程序。
-
+    
     因为有事件冒泡机制，单击每个`<li>`标签时，都会被这个函数处理。

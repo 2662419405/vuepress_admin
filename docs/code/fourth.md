@@ -1,5 +1,71 @@
 # 基础面试题's brother
 
+## 网站知识 :bangbang::bangbang::bangbang:
+
+网站的面试题也很重要！！！请不要忽略他的重要性！！！所以才放在最上面:clap::clap::clap:
+
+### 1.请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+
+* cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。 
+
+* cookie数据始终在同源的http请求中携带（即使不需要），即会在浏览器和服务器间来回传递。 
+
+* sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。 
+
+  
+
+* 存储大小：
+
+  * cookie数据大小不能超过4k。 
+
+  * sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。 
+
+* 有期时间： 
+
+  * localStorage 		存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
+
+  * sessionStorage 数据在当前浏览器窗口关闭后自动删除。 
+
+  * cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
+
+### 2.请你谈谈Cookie的缺点以及优点
+
+缺点： 
+
+1. Cookie数量和长度的限制。每个特定域名下最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉。 
+
+   ```
+   细节:
+   1.IE6或更低版本最多20个cookie
+   2.IE7和之后的版本最后可以有50个cookie。
+   3.Firefox最多50个cookie
+   4.chrome和Safari没有做硬性限制
+   5.IE和Opera 会清理近期最少使用的cookie，Firefox会随机清理cookie。 
+   6.cookie的最大大约为4096字节，为了兼容性，一般不能超过4095字节。
+   7.IE 提供了一种存储可以持久化用户数据，叫做uerData，从IE5.0就开始支持。每个数据最多128K，每个域名下最多1M。这个持久化数据放在缓存中，如果缓存没有清理，那么会一直存在。 
+   ```
+
+2. 安全性问题。如果cookie被人拦截了，那人就可以取得所有的session信息。即使加密也与事无补，因为拦截者并不需要知道cookie的意 义，他只要原样转发cookie就可以达到目的了。 
+
+3. 有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器。如果我们把这个计数器保存在客户 端，那么它起不到任何作用。 
+
+4. 任何以cookie形式存储的数据，不论服务器端是否需要，每一次http请求都会把这些数据传输到服务器端。
+
+优点：极高的扩展性和可用性 
+
+1. 通过良好的编程，控制保存在cookie中的session对象的大小。 
+2. 通过加密和安全传输技术（SSL），减少cookie被破解的可能性。 
+3. 只在cookie中存放不敏感数据，即使被盗也不会有重大损失。 
+4. 控制cookie的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的cookie。 
+
+
+
+
+
+
+
+
+
 ## HTML :pushpin:
 
 ### 1.行内元素有哪些？块级元素有哪些？空(void)元素有哪些？
@@ -15,6 +81,14 @@
 3. 常见的空元素：`<br> <hr> <img> <input> <link> <meta>`
 
    鲜为人知的是：`<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>`
+
+### 2.src和href各用在哪些标签，区别是什么?
+
+* src 表示来源地址，在 img、script、iframe 等元素上。src 的内容，是页面必不可少的一部分，是引入。 
+* href 表示超文本引用（hypertext reference），在 link和a 等元素上使用。href 的内容，是与该页面有关联，是引用。 区别就是，引入和引用。
+
+
+
 
 
 ## CSS :round_pushpin:
@@ -32,8 +106,6 @@ img { -ms-interpolation-mode: bicubic; }
 1. <b>属性前缀法</b>(即类内部Hack)：例如 `IE6能识别下划线"_"和星号" * "，IE7能识别星号" * "，但不能识别下划线"_"，IE6~IE10都认 识"\9"，但firefox前述三个都不能认识`
 2. <b>选择器前缀法</b>(即选择器Hack)：例如 `IE6能识别html .class{}，IE7能识别*+html .class{}或者*:first-child+html .class{}`
 3. <b>IE条件注释法</b>(即HTML条件注释Hack)：`针对所有IE(注:IE10+已经不再支持条件注释)：IE浏览器显示的内容 ，针对IE6及以下版本。这类Hack不仅对CSS生效，对写在判断语句里面的所有代码都会生效。`
-
-
 
 ### 3.CSS3新增特性
 
@@ -346,6 +418,52 @@ input : -webkit-autofill {
 -webkit-font-smoothing: antialiased;
 ```
 
+### 21.font-style属性可以让它赋值为“oblique” oblique是什么意思？
+
+要搞清楚这个问题，首先要明白字体是怎么回事。一种字体有粗体、斜体、下划线、删除线等诸多属性。 但是并不是所有字体都做了这些，一些不常用的字体，或许就只有个正常体，如果你用Italic，就没有效果了~这时候你就要用Oblique. 可以理解成Italic是使用文字的斜体，Oblique是让没有斜体属性的文字倾斜！ 
+
+另外附上CSS2.0上边的解释你参考下： italic和oblique都是向右倾斜的文字, 但区别在于Italic是指斜体字，而Oblique是倾斜的文字，对于没有斜体的字体应该使用Oblique属 性值来实现倾斜的文字效果.
+
+### 22.position:fixed;在android下无效怎么处理？
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+```
+
+### 23.页面中的iframe如何实现自适应宽高
+
+```js
+parent.document.all("框架ID名").style.height=document.body.scrollHeight;
+parent.document.all("框架ID名").style.width=document.body.scrollWidth;
+```
+
+### 24.什么是WEB标准？
+
+* WEB标准，即网站标准。目前所通常所说的WEB标准一般指网站建设采用基于XHTML语言的网站设计语言,WEB标准中典型的应用模式是 “css+div”（什么是css+div）。实际上，WEB标准并不是某一个标准，而是一系列标准的集合。
+
+### 25.请描述一下display:none与visibility:hidden相同和不同的地方是什么？
+
+* 相同点：都是将元素隐藏起来。 
+
+* 不同点：
+
+  `visibility: hidden`----将元素隐藏，但是在网页中该占的位置还是占着。（可见度为零） `display:none`----将元素的显示设为无，即在网页中不占任何的位置。
+
+### 26.CSS选择符有哪些？哪些属性可以继承？
+
+1. id选择器`(#myid) `
+2. 类选择器`(.myclassname)`
+3. 标签选择器`(div, h1, p)`
+4. 相邻选择器`(h1 + p)`
+5. 子选择器`(ul > li)`
+6. 后代选择器`(li a)`
+7. 通配符选择器`(*)`
+8. 属性选择器`(a[rel = "external"])`
+9. 伪类选择器`(a:hover, li:nth-child)`
+
+* 可继承的样式： `font-size` `font-family` `color` `ul` `li` `dl` `dd` `dt`
+* 不可继承的样式：`border` `padding` `margin` `width` `height `
+
 ## JS :rainbow_flag:
 
 ### 1.请至少写出2种方法，不通过第三个中间变量，交换2变量的值
@@ -442,7 +560,7 @@ var func2=outer();
 3. 原型链继承
 4. 构造函数继承
 5. 组合继承
-6. 计生组合继承
+6. 寄生组合继承
 
 ```js
 1.属性继承
@@ -669,6 +787,95 @@ var person={
 }
 console.log(person.children[1].name);
 ```
+
+### 8.JavaScript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
+
+`hasOwnProperty`
+
+* JavaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否 具有该属性；该属性必须是对象本身的一个成员。 使用方法：
+
+  object.hasOwnProperty(proName) 其中参数object是必选项。一个对象的实例。 proName是必选项。一个属性名称的字符串值。 如果 object 具有指定名称的属性，那么JavaScript中hasOwnProperty函数方法返回 true，反之则返回 false。
+
+### 9.JSON的了解？
+
+JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
+
+如：`{"age":"12", "name":"back"}`
+
+```js
+JSON字符串转换为JSON对象:
+var obj = eval('('+ str +')'); //不推荐使用
+var obj = str.parseJSON();
+var obj = JSON.parse(str);
+```
+
+```js
+JSON对象转换为JSON字符串：
+var last=obj.toJSONString();
+var last=JSON.stringify(obj);
+```
+
+### 10.写出您知道的JS的 Array对象方法
+
+javascript数组属性：`length`、`prototype`、`constructor`
+
+javascript数组方法： `concat()`、`pop()`、`push()`、`reverse()`、`sort()`、`join()`、`toString()`、`shift()`、`slice()`、`splice()`、`unshift()`
+
+
+
+
+
+## jQuery:heart_eyes_cat:
+
+### 1.jQuery绑定事件的三种方法以及区别
+
+```js
+1.target.click(function(){}); 一次绑定一个事件
+2.target.bind("click",function(){}); 可以同时绑定多个事件
+3.target.live("click",function(){}); 委派事件（1.7以下版本支持）
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
