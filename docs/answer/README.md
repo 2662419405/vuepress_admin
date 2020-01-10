@@ -5,7 +5,7 @@
 
 **:fire:十分感谢以下同学对本次文档的支持:heart:** 
 
-**:rofl:陶志斌:rofl:王慧妍:rofl:陈旭:rofl:邱航**
+**:rofl:陶志斌:rofl:王慧妍:rofl:孙航:rofl:邱航:rofl:黄海鹏**
 
 ::: danger 声明
     所有内容仅供参考
@@ -31,10 +31,9 @@
   var obj = [];
   var arr = ["1","2","1"];
  for(var i = 0; i< arr.length; i++){
-  if(!obj[arr[i]]){ 
-      //如果能查找到，证明数组元素重复了,同样使用indexof也可以
-   obj[arr[i]] = 1;
-   arr.push(arr[i]);
+  if(obj.indexof(arr[i]) == -1){ 
+      //如果能查找到，证明数组元素重复了,
+        obj.push(arr[i]);//添加到新数组
   }
  }
 ```
@@ -85,6 +84,10 @@
     > **持久性：一般的函数，调用完毕之后，系统自动注销函数，而对于闭包来说，在外部函数被调 用之后，闭包结构依然保存在；**
 
     > **使用闭包会占有内存资源，过多的使用闭包会导致内存溢出等。**
+
+*   扩展解决方法 :
+
+    > 将已经使用过的变量赋值为`null`空即可释放内存
 
 ::: tip 扩展
 :rainbow:[闭包](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures);
