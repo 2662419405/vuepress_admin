@@ -23,14 +23,14 @@ JS基础系列会参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/Jav
 
 5. **贡献者** 感谢每一个贡献的朋友!!!
    
-<a href="https://github.com/2209951505" target="_blank">
-    <img width=50 src="https://avatars3.githubusercontent.com/u/59152700?s=400&v=4">
+<a href="https://github.com/2209951505" target="_blank" >
+    <img width=60 height="60" src="https://cdn.jsdelivr.net/gh/2662419405/imgPlus/89AAF7BBE667E8E89D4217B3104F4D6D.jpg">
 </a>
 <a href="https://github.com/lushengyunzuo" target="_blank">
-    <img width=50 src="https://avatars0.githubusercontent.com/u/57390550?s=400&v=4">
+    <img width=60 height="60" src="https://cdn.jsdelivr.net/gh/2662419405/imgPlus/chen.jpg">
 </a>
 <a href="https://github.com/Wangjiateng666" target="_blank">
-    <img width=50 src="https://avatars3.githubusercontent.com/u/42726981?s=400&v=4">
+    <img width=60 height="60" src="https://cdn.jsdelivr.net/gh/2662419405/imgPlus/5.jpg">
 </a>
 
 * **从前，有一个程序猿，他得到了一盏神灯。灯神答应实现他一个愿望。然后他向神灯许愿，希望在有生之年能写一个好项目。**
