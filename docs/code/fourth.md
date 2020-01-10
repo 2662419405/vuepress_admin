@@ -1,32 +1,33 @@
 # 基础面试题's brother
 
-## 网站知识 :bangbang::bangbang::bangbang:
+::: tip 写在前面的话
 
-网站的面试题也很重要！！！请不要忽略他的重要性！！！所以才放在最上面:clap::clap::clap:
+屏幕前的你既然打开了这套面试题，相信你一定会陪我到底吧(scrollBottom()  :o)，在题与题之间还会发现一些小彩蛋，希望能给屏幕前的你继续向前的勇气:muscle:，请相信芝士(知识)就是力量！！！
+
+:::
+
+## 网站知识 :point_down::point_down::point_down:
+
+:::tip 友情提示
+
+网站的面试题也很重要！！！请不要忽略他的重要性！！！所以放在最上面
+
+:::
 
 ### 1.请描述一下 cookies，sessionStorage 和 localStorage 的区别？
 
-* cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。 
+1. `cookie`是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。 
+2. `cookie`数据始终在同源的http请求中携带（即使不需要），即会在浏览器和服务器间来回传递。 
+3. `sessionStorage`和`localStorage`不会自动把数据发给服务器，仅在本地保存。 
+4. 存储大小：
+   * `cookie`数据大小不能超过4k。 
+   * `sessionStorage`和`localStorage`虽然也有存储大小的限制，但比`cookie`大得多，可以达到5M或更大。 
+5. 有期时间： 
+   * `localStorage` 			存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
 
-* cookie数据始终在同源的http请求中携带（即使不需要），即会在浏览器和服务器间来回传递。 
+   * `sessionStorage`        数据在当前浏览器窗口关闭后自动删除。 
 
-* sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。 
-
-  
-
-* 存储大小：
-
-  * cookie数据大小不能超过4k。 
-
-  * sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。 
-
-* 有期时间： 
-
-  * localStorage 		存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
-
-  * sessionStorage 数据在当前浏览器窗口关闭后自动删除。 
-
-  * cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
+   * `cookie`                      设置的`cookie`过期时间之前一直有效，即使窗口或浏览器关闭
 
 ### 2.请你谈谈Cookie的缺点以及优点
 
@@ -34,7 +35,7 @@
 
 1. Cookie数量和长度的限制。每个特定域名下最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉。 
 
-   ```
+   ```css
    细节:
    1.IE6或更低版本最多20个cookie
    2.IE7和之后的版本最后可以有50个cookie。
@@ -58,9 +59,19 @@
 3. 只在cookie中存放不敏感数据，即使被盗也不会有重大损失。 
 4. 控制cookie的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的cookie。 
 
+### 3.简单说一下浏览器本地存储是怎样的
 
+1. 在较高版本的浏览器中，js提供了sessionStorage和globalStorage。在HTML5中提供了localStorage来取代globalStorage。 
+2. html5中的Web Storage包括了两种存储方式：sessionStorage和localStorage。
+3. sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之 销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。 而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的
 
+### 4.Web storage和cookie的区别
 
+1. Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候 Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。 
+2. 除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。 
+3. 但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在，而Web Storage仅仅是为了在本地“存 储”数据而生 
+4. 浏览器的支持除了IE７及以下不支持外，其他标准浏览器都完全支持(ie及FF需在web服务器里运行)，值得一提的是IE总是办好事，例如 IE7、IE6中的UserData其实就是javascript本地存储的解决方案。通过简单的代码封装可以统一到所有的浏览器都支持web storage。 
+5. localStorage和sessionStorage都具有相同的操作方法，例如setItem、getItem和removeItem等
 
 
 
@@ -87,9 +98,46 @@
 * src 表示来源地址，在 img、script、iframe 等元素上。src 的内容，是页面必不可少的一部分，是引入。 
 * href 表示超文本引用（hypertext reference），在 link和a 等元素上使用。href 的内容，是与该页面有关联，是引用。 区别就是，引入和引用。
 
+### 3.说说你对语义化的理解？
 
+1. 去掉或者丢失样式的时候能够让页面呈现出清晰的结构
+2. 有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重
+3. 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页
+4. 便于团队开发和维护，语义化更具可读性，是下一版网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化
 
+### 4.Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?
 
+1. 声明位于文档中的最前面，处于标签之前。告知浏览器以何种模式来渲染文档。 
+2. 严格模式的排版和 JS 运作模式是以该浏览器支持的最高标准运行。
+3. 在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
+4. DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。
+
+### 5.你知道多少种Doctype文档类型？
+
+1. 该标签可声明三种 DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。
+2. HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。
+3. XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。
+4. Standards（标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，而 Quirks（包容）模式（也就是松散呈现模式或者兼 容模式）用于呈现为传统浏览器而设计的网页。
+
+### 6.HTML与XHTML二者有什么区别
+
+1. 所有的标记都必须要有一个相应的结束标记
+
+2. 所有标签的元素和属性的名字都必须使用小写 
+
+3. 所有的 XML 标记都必须合理嵌套
+
+4. 所有的属性必须用引号 `"" `括起来
+
+5. 把所有 `<` 和 `&` 特殊符号用编码表示 
+
+6. 给所有属性赋一个值 
+
+7. 不要在注释内容中使用 `"--"` 
+
+8. 图片必须有说明文字 
+
+   XHTML是HTML向XML的一个过渡语言，它比HTML严谨性会高点，然后基本语言都还是沿用的HTML的标签，只不过废除了部分表现层的标 签，同时在标准上要求高了点比如标签的严格嵌套，标签结束等等！
 
 ## CSS :round_pushpin:
 
@@ -110,52 +158,76 @@ img { -ms-interpolation-mode: bicubic; }
 ### 3.CSS3新增特性
 
 1. 新增选择器:`nth-child(even)`、`nth-child(odd)`、`:not(.textinput)`、`E:empty`、`E:checked `、`E:enabled` 、`E:disabled`、`E::selection`、`E:not(s)`等； 
+
 2. @Font-face使用服务器字体； 
-3. Word-wrap（字母断行不分开） & Text-overflow（clip、ellipsis裁剪） 样式、文字渲染Text-decoration； 
-4. CSS3 的多列布局（multi-column layout）； 
-5. 边框和颜色（支持透明度和圆角） rgba(255, 0, 0, 0.75)、border-radius: 15px； 
-6. CSS3 的水平、径向渐变效果（Gradient）； 
-7. 阴影（Shadow）和反射（Reflect）效果； 
+
+   ```css
+   @font-face {
+   	font-family: BorderWeb;
+   	src:url(BORDERW0.eot);
+   } 
+   ```
+
+3. `Word-wrap:break-word;`（字母断行不分开）`Text-overflow:ellipsis(省略号)/clip（简单裁剪）`、文字渲染Text-decoration； 
+
+4. CSS3 的多列布局（`multi-column` `layout`）； 
+
+5. 边框和颜色（支持透明度和圆角） `rgba(255, 0, 0, 0.75)`、`border-radius: 15px;` 
+
+6. CSS3 的水平、径向渐变效果（`gradient`）、文字特效（`text-shadow`）
+
+7. 阴影（`box-shadow`）和反射（Reflect）效果； 
+
 8. 多背景效果； 
-9. Transitions, Transforms 和 Animation；
+
+9.  `transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);`旋转、缩放、定位、倾斜
+
+10. `animation` 动画
+
 
 ### 4.经常遇到的浏览器的兼容性有哪些？原因？解决方法是什么，常用hack的技巧？
 
-* png24位的图片在iE6浏览器上出现背景
+1. png24位的图片在iE6浏览器上出现背景
 
-  解决方案：做成PNG8
+   解决方案：做成PNG8
 
-* 浏览器默认的margin和padding不同
+2. 浏览器默认的margin和padding不同
 
-  解决方案：加一个全局的`*{margin:0;padding:0;}`来统一。 
+   解决方案：加一个全局的`*{margin:0;padding:0;}`来统一。 
 
-* IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。浮动ie产生的双倍距离 `#box{ float:left; width:10px; margin:0 0 0 100px;} `这种情况之下IE会产生20px的距离
+3. IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。浮动ie产生的双倍距离 `#box{ float:left; width:10px; margin:0 0 0 100px;} `这种情况之下IE会产生20px的距离
 
-  解决方案：在float的标签样式控制中加入 ——`_display:inline;`将其转化为行内属性。(_这个符号只有ie6会识别) 渐进识别的方式，从总体中逐渐排除局部。 首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。 接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。
+   解决方案：在float的标签样式控制中加入 ——`_display:inline;`将其转化为行内属性。(_这个符号只有ie6会识别) 渐进识别的方式，从总体中逐渐排除局部。 首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。 接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。
 
-  ```css
-  例如：
-   	.bb{
-   		background-color:#f1ee18;/*所有识别*/
-   		.background-color:#00deff\9; /*IE6、7、8识别*/
-   		+background-color:#a200ff;/*IE6、7识别*/
-   		_background-color:#1e0bd1;/*IE6识别*/
-   	}
-  ```
+   ```css
+   例如：
+    	.bb{
+    		background-color:#f1ee18;/*所有识别*/
+    		.background-color:#00deff\9; /*IE6、7、8识别*/
+    		+background-color:#a200ff;/*IE6、7识别*/
+    		_background-color:#1e0bd1;/*IE6识别*/
+    	}
+   ```
 
-* IE下,可以使用获取常规属性的方法来获取自定义属性, 也可以使用`getAttribute()`获取自定义属性; Firefox下,只能使用`getAttribute()`获取自定义属性。 
+4. IE下,可以使用获取常规属性的方法来获取自定义属性, 也可以使用`getAttribute()`获取自定义属性; Firefox下,只能使用`getAttribute()`获取自定义属性。 
 
-  解决方法：统一通过`getAttribute()`获取自定义属性。
+   解决方法：统一通过`getAttribute()`获取自定义属性。
 
-* IE下,even对象有x,y属性,但是没有`pageX`,`pageY`属性; Firefox下,event对象有`pageX`,`pageY`属性,但是没有x,y属性。 
+5. IE下,even对象有x,y属性,但是没有`pageX`,`pageY`属性; Firefox下,event对象有`pageX`,`pageY`属性,但是没有x,y属性。 
 
-  解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。 Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 `-webkit-text-size-adjust: none;` 解决。
+   解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。 Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 `-webkit-text-size-adjust: none;` 解决。
 
-* 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了
+6. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有`hover`和`active`了
 
-  解决方法：改变CSS属性的排列顺序: `L-V-H-A : a:link {} a:visited {} a:hover {} a:active {} `
+   解决方法：改变CSS属性的排列顺序: `L-V-H-A : a:link {} a:visited {} a:hover {} a:active {} `
 
 ### 5.CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？
+
+::: tip 提示
+
+有一点点长，那也要耐心看完哦！<a href="http://endless.horse/">:candy::egg::学习之路</a>
+
+:::
 
 * 当一个元素的visibility属性被设置成collapse值后，对于一般的元素，它的表现跟hidden是一样的。但例外的是，如果这个元素是table 相关的元素，例如table行，table group，table列，table column group，它的表现却跟display: none一样，也就是说，它们占用的空间 也会释放。 在谷歌浏览器里，使用collapse值和使用hidden值没有什么区别。 在火狐浏览器、Opera和IE11里，使用collapse值的效果就如它的字面意思：table的行会消失，它的下面一行会补充它的位置。
 
@@ -338,7 +410,13 @@ r.onchange = function () {
 
 ### 16.如何修改chrome记住密码后自动填充表单的黄色背景 ？
 
-chrome 表单自动填充后，input文本框的背景会变成黄色的，通过审查元素可以看到这是由于chrome会默认给自动填充的input表单加上input:-webkit-autofill私有属性，然后对其赋予以下样式：
+:::tip Do you know?
+
+使用火狐打开`about:mozilla` 你将看到Mozilla之书
+
+:::
+
+1. chrome 表单自动填充后，input文本框的背景会变成黄色的，通过审查元素可以看到这是由于chrome会默认给自动填充的input表单加上input:-webkit-autofill私有属性，然后对其赋予以下样式：
 
 ```css
 input : -webkit-autofill {
@@ -359,7 +437,7 @@ input : -webkit-autofill {
 }
 ```
 
-如果你有使用圆角等属性，或者发现输入框的长度高度不太对，可以对其进行调整，除了chrome默认定义的background-color，background-image，color不能用!important提升其优先级以外，其他的属性均可使用!important提升其优先级，如：
+2. 如果你有使用圆角等属性，或者发现输入框的长度高度不太对，可以对其进行调整，除了chrome默认定义的background-color，background-image，color不能用!important提升其优先级以外，其他的属性均可使用!important提升其优先级，如：
 
 ```css
 input : -webkit-autofill {
@@ -396,15 +474,15 @@ input : -webkit-autofill {
 
 ### 17.你对line-height是如何理解的？
 
-* line－height是用来设置字体的行高，可以理解为设置文字高度的占位大小，单位可以是数字，或者像素
-* 数字：更具文字的大小来决定  1.5相当于文字大小的1.5倍
-* 像素：就是通常的px大小了
+1. line－height是用来设置字体的行高，可以理解为设置文字高度的占位大小，单位可以是数字，或者像素
+2. 数字：更具文字的大小来决定  1.5相当于文字大小的1.5倍
+3. 像素：就是通常的px大小了
 
 > <a href="https://www.zhangxinxu.com/wordpress/2009/11/css行高line-height的一些深入理解及应用/">觉得解释有些牵强？想更深入理解？点我试试？</a>:100::eyeglasses:
 
 ### 18.设置元素浮动后，该元素的display值是多少？
 
-自动变成`display:block`
+* 自动变成`display:block`
 
 ### 19.怎么让Chrome支持小于12px 的文字？
 
@@ -420,9 +498,8 @@ input : -webkit-autofill {
 
 ### 21.font-style属性可以让它赋值为“oblique” oblique是什么意思？
 
-要搞清楚这个问题，首先要明白字体是怎么回事。一种字体有粗体、斜体、下划线、删除线等诸多属性。 但是并不是所有字体都做了这些，一些不常用的字体，或许就只有个正常体，如果你用Italic，就没有效果了~这时候你就要用Oblique. 可以理解成Italic是使用文字的斜体，Oblique是让没有斜体属性的文字倾斜！ 
-
-另外附上CSS2.0上边的解释你参考下： italic和oblique都是向右倾斜的文字, 但区别在于Italic是指斜体字，而Oblique是倾斜的文字，对于没有斜体的字体应该使用Oblique属 性值来实现倾斜的文字效果.
+1. 要搞清楚这个问题，首先要明白字体是怎么回事。一种字体有粗体、斜体、下划线、删除线等诸多属性。 但是并不是所有字体都做了这些，一些不常用的字体，或许就只有个正常体，如果你用Italic，就没有效果了~这时候你就要用Oblique. 可以理解成Italic是使用文字的斜体，Oblique是让没有斜体属性的文字倾斜！ 
+2. 另外附上CSS2.0上边的解释你参考下： italic和oblique都是向右倾斜的文字, 但区别在于Italic是指斜体字，而Oblique是倾斜的文字，对于没有斜体的字体应该使用Oblique属 性值来实现倾斜的文字效果.
 
 ### 22.position:fixed;在android下无效怎么处理？
 
@@ -463,6 +540,67 @@ parent.document.all("框架ID名").style.width=document.body.scrollWidth;
 
 * 可继承的样式： `font-size` `font-family` `color` `ul` `li` `dl` `dd` `dt`
 * 不可继承的样式：`border` `padding` `margin` `width` `height `
+
+### 27.CSS中 link 和@import 的区别是？
+
+1. link属于HTML标签，而@import是CSS提供的
+2. 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
+3. import只在IE5以上才能识别，而link是HTML标签，无兼容问题
+4. link方式的样式的权重 高于@import的权重
+5. link支持使用Javascript控制DOM去改变样式；而@import不支持
+
+### 28.position的absolute与fixed共同点与不同点
+
+A：共同点： 
+
+1. 改变行内元素的呈现方式，display被置为block
+2. 让元素脱离普通流，不占据空间；
+3. 默认会覆盖到非定位元素上 
+
+B：不同点： 
+
+1. absolute的“根元素”是可以设置的，而fixed的“根元素”固定为浏览器窗口。 当你滚动网页，fixed元素与浏览器窗口之间的距离是不变的
+
+### 29.列出display的值，说明他们的作用。
+
+* `display` 的值和作用：
+  1. `block` 像块类型元素一样显示。
+  2. `inline` 缺省值。像行内元素类型一样显示。
+  3. `inline-block` 像行内元素一样显示，但其内容象块类型元素一样显示，并且具有`width`、`height`属性
+  4. `list-item` 像块类型元素一样显示，并添加样式列表标记
+
+### 30.position的值，relative和absolute分别相对于谁进行定位？
+
+* `position` 的值的定位区别： 
+  1. `absolute`生成绝对定位的元素，相对于 `static `定位以外的第一个祖先元素进行定位。外层是`relative`, `absolute`是相对于`relative`， 外层没有`relative`时，相对于`body`定位
+  2. `fixed` 生成绝对定位的元素，相对于浏览器窗口进行定位（老IE不支持）
+  3. `relative` 生成相对定位的元素，相对于其在普通流中的位置（自身）进行定位
+  4. `static` 默认值。没有定位，元素出现在正常的流中（忽略 `top`, `bottom`, `left`,`right` `z-index` 声明）
+  5. `inherit` 规定从父元素继承`position`属性的值
+
+### 31.CSS3如何居中一个元素？
+
+1. margin：0 auto；和width实现水平居中
+2. inline-block实现水平居中方法
+3. 浮动实现水平居中的方法（50%）
+4. display：table-cell
+5. width：fit-content
+6. transform：translate（-50%，-50%）
+
+### 32.为什么要初始化CSS样式
+
+* 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。 当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。 
+* 最简单的初始化方法就是（不建议）： `*{padding: 0; margin: 0;}`
+
+### 33.解释下 CSS sprites，以及你要如何在页面或网站中使用它。
+
+* CSS Sprites 其实就是把网页中一些背景图片整合到一张图片文件中，再利用 CSS 的`background-image`，`backgroundrepeat`，`background-position` 的组合进行背景定位，`background-position` 可以用数字能精确的定位出背景图片的位置。这样可以减少很多图片请求的开销，因为请求耗时比较长；请求虽然可以并发，但是也有限制，一般浏览器都是6个。对于未来而言，就不需要这样做了，因为有了http2。
+
+### 34.
+
+
+
+
 
 ## JS :rainbow_flag:
 
@@ -792,13 +930,15 @@ console.log(person.children[1].name);
 
 `hasOwnProperty`
 
-* JavaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否 具有该属性；该属性必须是对象本身的一个成员。 使用方法：
+* JavaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否 具有该属性；该属性必须是对象本身的一个成员。 
+
+* 使用方法：
 
   object.hasOwnProperty(proName) 其中参数object是必选项。一个对象的实例。 proName是必选项。一个属性名称的字符串值。 如果 object 具有指定名称的属性，那么JavaScript中hasOwnProperty函数方法返回 true，反之则返回 false。
 
 ### 9.JSON的了解？
 
-JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
+* JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。 它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
 
 如：`{"age":"12", "name":"back"}`
 
@@ -817,11 +957,56 @@ var last=JSON.stringify(obj);
 
 ### 10.写出您知道的JS的 Array对象方法
 
-javascript数组属性：`length`、`prototype`、`constructor`
+* javascript数组属性：`length`、`prototype`、`constructor`
 
-javascript数组方法： `concat()`、`pop()`、`push()`、`reverse()`、`sort()`、`join()`、`toString()`、`shift()`、`slice()`、`splice()`、`unshift()`
+* javascript数组方法： `concat()`、`pop()`、`push()`、`reverse()`、`sort()`、`join()`、`toString()`、`shift()`、`slice()`、`splice()`、`unshift()`
 
+### 11.编写一个函数判断undefined、null、与NaN
 
+```js
+//判断undefined:
+var tmp = undefined;
+alert("undefined");
+if (typeof(tmp) == "undefined"){
+}
+```
+
+```js
+//判断null:
+var tmp = null;
+alert("null");
+if (!tmp && typeof(tmp)!="undefined" && tmp!=0){
+}
+```
+
+```js
+//判断NaN:
+var tmp = 0/0;
+alert("NaN");
+if(isNaN(tmp)){
+}
+```
+
+```js
+//判断undefined和null:
+var tmp = undefined;
+alert("null or undefined");
+if (tmp == undefined){
+}
+var tmp = undefined;
+alert("null or undefined");
+if (tmp == null){
+}
+//说明：null==undefined
+```
+
+```js
+//判断undefined、null与NaN:
+var tmp = parseInt("sdfe");
+alert("null or undefined or NaN");
+if ((!tmp)&&(tmp!=0)){
+}
+```
 
 
 
