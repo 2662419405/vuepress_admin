@@ -5,7 +5,7 @@
 
 **:fire:十分感谢以下同学对本次文档的支持:heart:** 
 
-**:rofl:陶志斌:rofl:王慧妍:rofl:狗旭:rofl:邱航**
+**:rofl:陶志斌:rofl:王慧妍:rofl:陈旭:rofl:邱航**
 
 ::: danger 声明
     所有内容仅供参考
