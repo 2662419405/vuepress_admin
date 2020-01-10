@@ -27,7 +27,8 @@ module.exports = {
     nav: [
       { text: "首页", link: "/" },
       { text: "笔记文档", link: "/home/" },
-      { text: "面试题和技巧", link: "/code/" },
+	  { text: "面试题和技巧", link: "/code/" },
+	  { text: "期末考试答案=-=", link: "/answer/" },
       { text: "源码", link: "https://github.com/2662419405/vuepress_admin" },
       {
         text: "SunHang",
@@ -238,7 +239,10 @@ module.exports = {
 			"third",
 			]
 		},
-      ]
+	  ],
+	  "/answer/": [
+		  "",
+	  ]
     }
   },
   markdown: {
