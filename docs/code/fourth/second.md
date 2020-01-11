@@ -204,12 +204,6 @@ B：不同点：
 
 * CSS Sprites 其实就是把网页中一些背景图片整合到一张图片文件中，再利用 CSS 的`background-image`，`backgroundrepeat`，`background-position` 的组合进行背景定位，`background-position` 可以用数字能精确的定位出背景图片的位置。这样可以减少很多图片请求的开销，因为请求耗时比较长；请求虽然可以并发，但是也有限制，一般浏览器都是6个。对于未来而言，就不需要这样做了，因为有了http2。
 
-## 34.
-
-
-
-
-
 ## JS :rainbow_flag:
 
 ## 1.请至少写出2种方法，不通过第三个中间变量，交换2变量的值

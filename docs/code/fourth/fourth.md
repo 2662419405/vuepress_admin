@@ -264,6 +264,146 @@ HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存�
 <![endif]--> 
 ```
 
+```html
+如何区分：
+DOCTYPE声明新增的结构元素、功能元素 
+```
+
+### 10.iframe的优缺点？
+
+```html
+优点：
+1. 解决加载缓慢的第三方内容如图标和广告等的加载问题
+2. Security sandbox
+3. 并行加载脚本
+```
+
+```html
+缺点：
+1. iframe会阻塞主页面的Onload事件
+2. 即时内容为空，加载也需要时间
+3. 没有语意
+4. 影响页面的并行加载
+（并行加载：同一时间针对同一域名下的请求。一般情况，iframe和所在页面在同一个域下面，而浏览器的并加载的数量是有限制的）
+```
+
+```html
+解决办法：
+使用js动态给iframe的src加载页面内容，示例代码如下：
+<iframe id="fram"></iframe>
+document.getelementbyid("fram").src="a2.html" 
+```
+
+### 11.如何实现浏览器内多个标签页之间的通信?
+
+* 调用 localstorage、cookies 等本地存储方式
+
+```js
+1.使用localStorage.setItem(key,value);添加内容
+使用storage事件监听添加、修改、删除的动作
+window.addEventListener("storage",function(event){
+ $("#name").val(event.key+”=”+event.newValue);
+}); 
+```
+
+```js
+2.使用cookie+setInterval
+HTML代码
+<input id ="name"><input type="button" id="btnOK"value="发送">
+JS代码-页面1
+$(function(){
+ $("#btnOK").click(function(){
+ var name=$("#name").val();
+ document.cookie="name=" + name;
+ });
+ });
+JS代码-页面2
+//获取Cookie天的内容
+function getKey(key) {
+ return JSON.parse("{\""+ document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") +"\"}")[key];
+}
+//每隔1秒获取Cookie的内容
+setInterval(function(){
+ console.log(getKey("name"));
+},1000); 
+```
+
+### 12. ::before 和:before有什么区别？
+
+* 相同点：
+
+1. 都可以用来表示伪类对象，用来设置对象前的内容 
+2. `:before`和`::before`写法是等效的
+
+* 不同点
+
+1. `:before`是Css2的写法，`::before`是Css3的写法 
+2. `:before`的兼容性要比`::before`好，不过在H5开发中建议使用`::before`比较好
+
+* 加分项
+
+1. 伪类对象要配合`content`属性一起使用
+2. 伪类对象不会出现在DOM中，所以不能通过js来操作，仅仅是在 CSS 渲染层加入
+3. 伪类对象的特效通常要使用`:hover`伪类样式来激活
+
+```css
+.test:hover::before { /* 这时animation和transition才生效 */ } 
+```
+
+### 13.千位分隔符代码
+
+```html
+<span style="font-size:14px;">
+function format (num) {
+ var reg=/\d{1,3}(?=(\d{3})+$)/g;
+ return (num + '').replace(reg, '$&,');
+}
+</span> 
+```
+
+### 14.JavaScript window.onload 事件和 jQuery ready 函数有何不同？
+
+1. `JavaScript window.onload`事件和`jQuery ready`函数之间的主要区别是，前者除了要等待 DOM 被创建还要等到包括大型图片、音频、视频在内的所有外部资源都完全加载。如果加载图片和媒体内容花费了大量时间，用户就会感受到定义在`window.onload`事件上的代码在
+   执行时有明显的延迟。
+2. 另一方面，`jQuery ready()`函数只需对 DOM 树的等待，而无需对图像或外部资源加载的等待，从而执行起来更快。使用 jQuery`$(document).ready()` 的另一个优势是你可以在网页里多次使用它，浏览器会按它们在 HTML 页面里出现的顺序执行它们，相反对于onload 技术而言，只能在单一函数里使用。鉴于这个好处，用 `jQuery ready() `函数比用 `JavaScript` `window.onload`事件要更好些。
+
+### 15.如何找到所有 HTML select 标签的选中项？
+
+* 这是面试里比较棘手的`jQuery`问题之一。这是个基础的问题，但是别期望每个`jQuery `初学者都知道它。
+* 你能用下面的 jQuery 选择器获 取所有具备`multiple=true`的  标签的选中项： `$('[name=NameOfSelectedTag] :selected')`这段代码结合使用了属性选择器和`:selected`选择器，结果只返回被选中的选项。你可按需修改它，比如用`id`属性而不是`name`属性来获取标签。
+
+### 16.jQuery 里的 each() 是什么函数？你是如何使用它的？
+
+* 它允许你遍历一个元素集合。你可以传一个函数给`each()`方法，被调用的`jQuery`对象会在其每个元素上执行传入的函数。有时这个问题会紧接着上面一个问题，
+
+* 举个例子，如何在`alert`框里显示所有选中项。我们可以用上面 的选择器代码找出所有选中项，然后我们在`alert`框中用`each()`方法来一个个打印它们，代码如下： 
+
+  ```js
+  $('[name=NameOfSelectedTag] :selected').each(function(selected){ alert($(selected).text()); 
+  });//其中 text() 方法返回选项的文本。
+  ```
+
+### 17.你是如何将一个 HTML 元素添加到 DOM 树中的？
+
+* 你可以用`jQuery`方法`appendTo()`将一个 HTML 元素添加到 DOM 树中。这是`jQuery`提供的众多操控 DOM 的方法中的一个。你可以通过`appendTo()`方法在指定的 DOM 元素末尾添加一个现存的元素或者一个新的HTML元素。
+
+### 18.$(this) 和 this 关键字在 jQuery 中有何不同？
+
+* `$(this)` 返回一个` jQuery` 对象，你可以对它调用多个 `jQuery` 方法，比如用 `text() `获取文本，用`val()` 获取值等等。而 `this` 代表当前元素，它是` JavaScript` 关键词中的一个，表示上下文中的当前 DOM 元素。你不能对它调用` jQuery `方法，直到它被 `$() `函数包裹，例如 `$(this)`。
+
+### 19.使用 CDN 加载 jQuery 库的主要优势是什么 ?
+
+* 除了报错节省服务器带宽以及更快的下载速度这许多的好处之外
+* 最重要的是，如果浏览器已 经从同一个`CDN`下载类相同的 `jQuery `版本, 那么它就不会再去下载它一次. 因此今时今日，许多公共的网站都将`jQuery`用于用户交互和动 画, 如果浏览器已经有了下载好的`jQuery`库，网站就能有非常好的展示机会。
+
+### 20.jQuery.get() 和 jQuery.ajax() 方法之间的区别是什么?
+
+* `ajax()` 方法更强大，更具可配置性, 让你可以指定等待多久，以及如何处理错误。`get() `方法是一个只获取一些数据的专门化方法。
+
+
+
+
+
 
 
 
