@@ -1,4 +1,4 @@
-# 基础面试题's brother(三)
+# 基础面试题's brother(part3)
 
 ## 4.说几条写JS的基本规范
 

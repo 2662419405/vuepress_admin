@@ -218,6 +218,7 @@ module.exports = {
 			"fourth/first.md",
 			"fourth/second.md",
 			"fourth/third.md",
+			"fourth/fourth.md",
 			]
 		}
 		,{

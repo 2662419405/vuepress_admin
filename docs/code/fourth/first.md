@@ -1,8 +1,10 @@
-# 基础面试题's brother(一)
+# 基础面试题's brother(part1)
 
 ::: tip 写在前面的话
 
 屏幕前的你既然打开了这套面试题，相信你一定会陪我到底吧(scrollBottom()  :o)，在题与题之间还会发现一些小彩蛋，希望能给屏幕前的你继续向前的勇气:muscle:，请相信芝士(知识)就是力量！！！
+
+友情提示：基础面试题's brother(part1)到(part3)都是按照分类进行排序的，从(part4)开始将不再进行分类，在此希望您能提出宝贵的意见，在网页的最下方有`发现问题!及时纠正`您可以给我们反馈哦~
 
 :::
 
@@ -72,6 +74,61 @@
 3. 但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在，而Web Storage仅仅是为了在本地“存 储”数据而生 
 4. 浏览器的支持除了IE７及以下不支持外，其他标准浏览器都完全支持(ie及FF需在web服务器里运行)，值得一提的是IE总是办好事，例如 IE7、IE6中的UserData其实就是javascript本地存储的解决方案。通过简单的代码封装可以统一到所有的浏览器都支持web storage。 
 5. localStorage和sessionStorage都具有相同的操作方法，例如setItem、getItem和removeItem等
+
+### 5.什么是URL？host、port、path、query、fragment
+
+* URL
+
+  统一资源定位符 (Uniform Resource Locator, URL) 
+
+  完整的URL由这几个部分构成： scheme://host:port/path?query#fragment scheme:通信协议 常用的http,ftp,maito等
+
+* host:主机。服务器(计算机)域名系统 (DNS) 主机名或 IP 地址。
+
+* port:端口号 整数，可选，省略时使用方案的默认端口，如http的默认端口为80。
+
+* path:路径 由零或多个"/"符号隔开的字符串，一般用来表示主机上的一个目录或文件地址
+
+* query:查询 可选，用于给动态网页（如使用CGI、ISAPI、PHP/JSP/ASP/ASP.NET等技术制作的网页）传递参数，可有多个参数，用"&"符号隔开，每个参 数的名和值用"="符号隔开。
+
+* fragment:信息片断 字符串，用于指定网络资源中的片断。例如一个网页中有多个名词解释，可使用fragment直接定位到某一名词解释。(也称为锚点.)
+
+```js
+例:
+对于这样一个URL
+http://www.maidq.com/index.html?ver=1.0&id=6#imhere
+我们可以用javascript获得其中的各个部分
+1.
+window.location.href
+整个URl字符串(在浏览器中就是完整的地址栏)
+本例返回值: http://www.maidq.com/index.html?ver=1.0&id=6#imhere
+2.
+window.location.protocol
+URL 的协议部分
+本例返回值:http:
+3.
+window.location.host
+URL 的主机部分
+本例返回值:www.maidq.com
+4.
+window.location.port
+URL 的端口部分
+如果采用默认的80端口(update:即使添加了:80)，那么返回值并不是默认的80而是空字符
+本例返回值:""
+5.
+window.location.pathname
+URL 的路径部分(就是文件地址)
+本例返回值:/fisker/post/0703/window.location.html
+6.
+window.location.search
+查询(参数)部分
+除了给动态语言赋值以外，我们同样可以给静态页面,并使用javascript来获得相信应的参数值
+本例返回值:?ver=1.0&id=6
+7.
+window.location.hash
+锚点
+本例返回值:#imhere
+```
 
 
 
@@ -197,7 +254,11 @@ img { -ms-interpolation-mode: bicubic; }
 
 3. IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。浮动ie产生的双倍距离 `#box{ float:left; width:10px; margin:0 0 0 100px;} `这种情况之下IE会产生20px的距离
 
-   解决方案：在float的标签样式控制中加入 ——`_display:inline;`将其转化为行内属性。(_这个符号只有ie6会识别) 渐进识别的方式，从总体中逐渐排除局部。 首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。 接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。
+   解决方案：在float的标签样式控制中加入 ——`_display:inline;`将其转化为行内属性。(_这个符号只有ie6会识别) 
+
+4. 渐进识别的方式，从总体中逐渐排除局部。 
+
+   首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。 接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。
 
    ```css
    例如：
@@ -209,17 +270,37 @@ img { -ms-interpolation-mode: bicubic; }
     	}
    ```
 
-4. IE下,可以使用获取常规属性的方法来获取自定义属性, 也可以使用`getAttribute()`获取自定义属性; Firefox下,只能使用`getAttribute()`获取自定义属性。 
+5. IE下,可以使用获取常规属性的方法来获取自定义属性, 也可以使用`getAttribute()`获取自定义属性; Firefox下,只能使用`getAttribute()`获取自定义属性。 
 
    解决方法：统一通过`getAttribute()`获取自定义属性。
 
-5. IE下,even对象有x,y属性,但是没有`pageX`,`pageY`属性; Firefox下,event对象有`pageX`,`pageY`属性,但是没有x,y属性。 
+6. IE下,even对象有x,y属性,但是没有`pageX`,`pageY`属性; Firefox下,event对象有`pageX`,`pageY`属性,但是没有x,y属性。 
 
-   解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。 Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 `-webkit-text-size-adjust: none;` 解决。
+   解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。 
 
-6. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有`hover`和`active`了
+7. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有`hover`和`active`了
 
    解决方法：改变CSS属性的排列顺序: `L-V-H-A : a:link {} a:visited {} a:hover {} a:active {} `
+
+8. Chrome 中文界面下默认会将小于 `12px` 的文本强制按照 `12px` 显示
+
+   解决方法：可通过加入 CSS 属性 `-webkit-text-size-adjust: none;` 解决。
+
+9. 怪异模式问题：漏写 DTD 声明，Firefox 仍然会按照标准模式来解析网页，但在 IE 中会触发怪异模式。
+
+   解决方法：为避免怪异模式给我们带来不必要的麻烦，最好养成书写 DTD 声明的好习惯。现在可以使用[html5](http://www.w3.org/TR/html5/single-page.html) 推荐的写法：
+
+   ```html
+   <!DOCTYPE html> 
+   ```
+
+10. 上下`margin`重合问题：`ie`和`ff`都存在，相邻的两个`div`的`margin-left`和`margin-right`不会重合，但是`margin-top`和`margin-bottom`却会 发生重合。 
+
+    解决方法：养成良好的代码编写习惯，同时采用`margin-top`或者同时采用`margin-bottom`
+
+11. `ie6`对`png`图片格式支持不好
+
+    解决方案：引用一段脚本处理 
 
 ### 5.CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？
 
