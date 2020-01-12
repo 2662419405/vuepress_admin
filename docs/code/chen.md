@@ -47,7 +47,7 @@
 
 5.优先级
 
-    不管是还是@import ，优先级按加载顺序为参考，后加载的优先级高
+    不管是link还是@import ，优先级按加载顺序为参考，后加载的优先级高
 
 6.可控性
     
@@ -344,7 +344,7 @@
 
 ## 11,  null和 undefined的区别？
 
-首先先看一个判断:二者之间是否全等
+* 首先先看一个判断:二者之间是否全等
 
 ``` js
 
@@ -383,4 +383,126 @@ console.log(null === undefined)  //false
 ::: tip 扩展理解
 :rainbow:[JS中的null , undefined , NaN](https://www.w3cplus.com/javascript/understanding-null-undefined-and-nan.html)
 :::
+
+## 12,  new 操作符具体干了什么呢? 
+
+
+* 先看代码 :eyes:
+
+``` js
+    var Func=function(){};
+
+    var func=new Func ();
+```
+
+* `new`一共经历四个阶段
+
+**1,创建一个空对象**
+
+``` js
+var obj = new object();
+```
+
+**2,设置原型链**
+
+``` js
+obj.__proto__ = func.prototype;
+```
+
+**3,让Func中的this指向obj，并执行Func的函数体。**
+
+``` js
+var result =Func.call(obj);
+```
+
+**4, 判断Func的返回值类型：**
+
+如果是值类型，返回obj。如果是引用类型，就返回这个引用类型的对象。
+
+``` js
+if (typeof(result) == "object"){
+  func=result;
+}
+else{
+    func=obj;;
+}
+```
+
+## 13,  documen.write和 innerHTML的区别 
+
+* **document.write是直接将内容写入页面的内容流，会导致页面全部重绘**
+
+* **innerHTML将内容写入某个DOM节点，不会导致页面全部重绘**
+
+## 14,  哪些操作会造成内存泄漏？
+
+* **首先, 什么是内存泄漏**
+
+    内存泄漏：指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束。
+
+* **其次, 你要了解JS垃圾回收机制**
+
+    JavaScript垃圾回收的机制很简单：找出不再使用的变量，然后释放掉其占用的内存，但是这个过程不是实时的，因为其开销比较大，所以垃圾回收系统（GC）会按照固定的时间间隔,周期性的执行。
+
+    到底哪个变量是没有用的？所以垃圾收集器必须跟踪到底哪个变量没用，对于不再有用的变量打上标记，以备将来收回其内存。用于标记的无用变量的策略可能因实现而有所区别，通常情况下有两种实现方式：<font style="color:red">标记清除</font>和<font style="color:red">引用计数</font>。引用计数不太常用，标记清除较为常用。   
+
+* **那些操作会造成内存泄漏**
+
+    1 , 意外的全局变量引起的内存泄漏
+
+    ``` js
+    function run(){
+        move = "xxx"; //这时候move为全局变量 不会被回收
+        // this.move = "xxx" this指向window
+        var go = "yyy" //var创建为局部变量
+    }
+    run(); //调用一次
+    console.log(move) //打印字符串 xxx
+    console.log(go) // not defined 找不到函数内部的局部变量
+    ```
+
+    2   , 被遗忘的定时器或者回调
+
+    ``` js
+    var someResouce=getData();
+    setInterval(function(){
+        var node=document.getElementById('Node');
+        if(node){
+            node.innerHTML=JSON.stringify(someResouce)
+        }
+    },1000)
+    ```
+
+    如果 id 为 Node 的元素从 DOM 中移除, 该定时器仍会存在, 同时, 因为回调函数中包含对 someResource 的引用, 定时器外面的 someResource 也不会被释放。
+
+    3 , 闭包
+
+    > 匿名函数可以访问父级作用域中的变量
+
+    ``` js
+        function assignHandler(){
+            var element = document.getElementById('someElement') //该变量被闭包引用，引用次数至少为1，不会被回收
+            element.onclick=function(){
+                alert(element.id)
+            }
+             element=null;
+             //解决办法即使用完毕时 及时将无用变量赋值空
+        }
+    ```
+
+    4 , 子元素引起的内存泄漏
+
+    > **举个例子**
+
+    ``` js
+    //id名为 a & b 为父级与子级关系,
+    var A = document.getelementById("a");
+    var B = document.getelementById("b");
+    //id名为a & b 储存在内存中 
+    document.body.removeChild(A);
+    //a被移除,但是 内存中依旧还拥有他的位置
+    A = null; // 父级从内存中释放,子级依然存在,关系链依然存在
+    B = null; // 子级从内存释放 ,整体移除
+    ```
+    > **子元素 B 由于 parentNode 的间接引用，只要它不被删除，它所有的父元素都不会被删除**
 
