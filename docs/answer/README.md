@@ -200,7 +200,7 @@ $(document).ready(function () {
 
     p:nth-child(x)
 
-    p:frist-of-type
+    p:first-of-type
 
     p:last-of-type
 
