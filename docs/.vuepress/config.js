@@ -1,7 +1,27 @@
 module.exports = {
   title: "学习笔记文档",
   description: "每天学一点,进步多一点",
-  plugins: ["@vuepress/back-to-top"],
+  extend: '@vuepress/theme-default',
+  plugins: [
+    "@vuepress/back-to-top"
+    // [
+    //   "vuepress-plugin-comment",
+    //   {
+    //     choosen: "valine",
+    //     // options选项中的所有参数，会传给Valine的配置
+    //     options: {
+    //       el: "#valine-vuepress-comment",
+    //       appId: "DxU5fgMdilCKbdcuzHAXAOhF-gzGzoHsz",
+		//   appKey: "YVvhfTkk07VtbJLpOLBzYbdu",
+		//   placeholder: "发现错误,纠正一下",
+		//   notify: true,
+		//   verify: true,
+		//   pageSize: 5,
+		//   visitor: true
+    //     }
+    //   }
+    // ]
+  ],
   base: "/",
   head: [
     [
@@ -21,14 +41,15 @@ module.exports = {
     docsRepo: "https://github.com/2662419405/vuepress_admin",
     docsDir: "docs",
     docsBranch: "master",
+    activeHeaderLinks: true,
     editLinks: true,
     lastUpdated: "上次更新 ",
     editLinkText: "发现问题!即使纠正",
     nav: [
       { text: "首页", link: "/" },
       { text: "笔记文档", link: "/home/" },
-	  { text: "面试题和技巧", link: "/code/" },
-	  { text: "期末考试答案=-=", link: "/answer/" },
+      { text: "面试题和技巧", link: "/code/" },
+      { text: "期末考试答案=-=", link: "/answer/" },
       { text: "源码", link: "https://github.com/2662419405/vuepress_admin" },
       {
         text: "SunHang",
@@ -36,8 +57,8 @@ module.exports = {
           {
             text: "博客园",
             link: "https://www.cnblogs.com/sunhang32"
-		  },
-		  {
+          },
+          {
             text: "个人博客",
             link: "https://sunhang.top/"
           },
@@ -55,198 +76,148 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: {
       "/home/": [
-		  "",{
-			  title: "css基础",
-			  collapsable: true,
-			  children: [
-				"css",
-			  ]
-		  },
-		  {
-			title: "html基础",
-			collapsable: true,
-			children: [
-			  "html",
-			]
-		  },
-		  {
-			title: "js初级",
-			collapsable: true,
-			children: [
-			  "jscj",
-			]
-		  },
-		  {
-			title: "fullpage初级",
-			collapsable: true,
-			children: [
-			  "fullpage",
-			]
-		  },
-		  {
-			title: "jquery初级",
-			collapsable: true,
-			children: [
-			  "jquery",
-			]
-		  },
-		  {
-			title: "js高级",
-			collapsable: true,
-			children: [
-			  "jsgao",
-			]
-		  },
-		  {
-			title: "svn命令",
-			collapsable: true,
-			children: [
-			  "svn",
-			]
-		  },
-		  {
-			title: "git命令",
-			collapsable: true,
-			children: [
-			  "git",
-			]
-		  },
-		  {
-			title: "bootstarp初级",
-			collapsable: true,
-			children: [
-			  "bootstrap",
-			]
-		  },
-		  {
-			title: "我真的懂this吗",
-			collapsable: true,
-			children: [
-			  "this",
-			]
-		  },
-		  {
-			title: "es6初级",
-			collapsable: true,
-			children: [
-			  "es6",
-			]
-		  },
-		  {
-			title: "typescript初级",
-			collapsable: true,
-			children: [
-			  "ts",
-			]
-		  },
-		  {
-			title: "node入门",
-			collapsable: true,
-			children: [
-			  "node",
-			]
-		  },
-		  {
-			title: "设计模式",
-			collapsable: true,
-			children: [
-			  "sheji",
-			]
-		  },
-		  {
-			title: "npm包管理",
-			collapsable: true,
-			children: [
-			  "npm",
-			]
-		  },
-		  {
-			title: "webpack打包",
-			collapsable: true,
-			children: [
-			  "webpack",
-			]
-		  },
-		  {
-			title: "reactNative开发",
-			collapsable: true,
-			children: [
-			  "rn",
-			]
-		  },
-		  {
-			title: "React入门",
-			collapsable: true,
-			children: [
-			  "react",
-			]
-		  },
-		  {
-			title: "node宝典",
-			collapsable: true,
-			children: [
-			  "nodebao",
-			]
-		  },
-		  {
-			title: "vscode入门",
-			collapsable: true,
-			children: [
-			  "vscode",
-			]
-		  }
+        "",
+        {
+          title: "css基础",
+          collapsable: true,
+          children: ["css"]
+        },
+        {
+          title: "html基础",
+          collapsable: true,
+          children: ["html"]
+        },
+        {
+          title: "js初级",
+          collapsable: true,
+          children: ["jscj"]
+        },
+        {
+          title: "fullpage初级",
+          collapsable: true,
+          children: ["fullpage"]
+        },
+        {
+          title: "jquery初级",
+          collapsable: true,
+          children: ["jquery"]
+        },
+        {
+          title: "js高级",
+          collapsable: true,
+          children: ["jsgao"]
+        },
+        {
+          title: "svn命令",
+          collapsable: true,
+          children: ["svn"]
+        },
+        {
+          title: "git命令",
+          collapsable: true,
+          children: ["git"]
+        },
+        {
+          title: "bootstarp初级",
+          collapsable: true,
+          children: ["bootstrap"]
+        },
+        {
+          title: "我真的懂this吗",
+          collapsable: true,
+          children: ["this"]
+        },
+        {
+          title: "es6初级",
+          collapsable: true,
+          children: ["es6"]
+        },
+        {
+          title: "typescript初级",
+          collapsable: true,
+          children: ["ts"]
+        },
+        {
+          title: "node入门",
+          collapsable: true,
+          children: ["node"]
+        },
+        {
+          title: "设计模式",
+          collapsable: true,
+          children: ["sheji"]
+        },
+        {
+          title: "npm包管理",
+          collapsable: true,
+          children: ["npm"]
+        },
+        {
+          title: "webpack打包",
+          collapsable: true,
+          children: ["webpack"]
+        },
+        {
+          title: "reactNative开发",
+          collapsable: true,
+          children: ["rn"]
+        },
+        {
+          title: "React入门",
+          collapsable: true,
+          children: ["react"]
+        },
+        {
+          title: "node宝典",
+          collapsable: true,
+          children: ["nodebao"]
+        },
+        {
+          title: "vscode入门",
+          collapsable: true,
+          children: ["vscode"]
+        }
       ],
-	  "/code/": [
-		"",{
-			title: "44道js难题",
-			collapsable: true,
-			children: [
-			"first",
-			]
-		}
-		,{
-			title: "基础面试题(一)",
-			collapsable: true,
-			children: [
-			"second",
-			]
-		}
-		,{
-			title: "基础面试题(二)",
-			collapsable: true,
-			children: [
-			"fourth/first.md",
-			"fourth/second.md",
-			"fourth/third.md",
-			"fourth/fourth.md",
-			"fourth/fifth.md",
-			]
-		}
-		,{
-			title: "基础面试题(三)",
-			collapsable: true,
-			children: [
-			"chen",
-			]
-		}
-		,{
-			title: "反问面试官?",
-			collapsable: true,
-			children: [
-			"fan",
-			]
-		}
-		,{
-			title: "2018大厂面试题汇总",
-			collapsable: true,
-			children: [
-			"third",
-			]
-		},
-	  ],
-	  "/answer/": [
-		  "",
-	  ]
+      "/code/": [
+        "",
+        {
+          title: "44道js难题",
+          collapsable: true,
+          children: ["first"]
+        },
+        {
+          title: "基础面试题(一)",
+          collapsable: true,
+          children: ["second"]
+        },
+        {
+          title: "基础面试题(二)",
+          collapsable: true,
+          children: [
+            "fourth/first.md",
+            "fourth/second.md",
+            "fourth/third.md",
+            "fourth/fourth.md",
+            "fourth/fifth.md"
+          ]
+        },
+        {
+          title: "基础面试题(三)",
+          collapsable: true,
+          children: ["chen"]
+        },
+        {
+          title: "反问面试官?",
+          collapsable: true,
+          children: ["fan"]
+        },
+        {
+          title: "2018大厂面试题汇总",
+          collapsable: true,
+          children: ["third"]
+        }
+      ],
+      "/answer/": [""]
     }
   },
   markdown: {

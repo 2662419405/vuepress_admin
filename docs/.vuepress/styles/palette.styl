@@ -1,3 +1,5 @@
+$defaultWidth = 900px!important;  //pc端全局高度
+
 body{
     text-shadow: 0 3px 6px rgba(0,0,0,.1)!important;
 }
@@ -43,5 +45,16 @@ body{
 }
 
 .theme-default-content:not(.custom){
-  max-width: 900px!important;  
+  max-width: $defaultWidth;  
+}
+
+// 修改valine 
+
+#valine-vuepress-comment{
+  width: $defaultWidth;
+  margin: 0 auto;  
+}
+
+.page-edit, .page-nav{
+  max-width: $defaultWidth;  
 }
