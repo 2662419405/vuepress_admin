@@ -506,3 +506,170 @@ else{
     ```
     > **子元素 B 由于 parentNode 的间接引用，只要它不被删除，它所有的父元素都不会被删除**
 
+## 15 , JavaScript中的作用域与变量声明提升？
+
+> **这几天刷题频繁碰见变量提升以及作用域问题,这里总结一下**
+
+* **先看题 , <font style="color : red ;">思考</font> : 每次输出的值是什么**
+
+``` js
+var a = 100
+function fun() {
+  console.log(a);
+  var a = 200;
+  console.log(a);
+}
+
+fun();
+console.log(a);
+
+var a;
+console.log(a);
+
+var a = 200;
+console.log(a);
+
+for(i = 0;i < 5;i ++) {
+  var a = i;
+}
+console.log(a);
+```
+
+* **紧接着我们来理解什么是<font style="color : red ;">变量作用域</font>**
+
+    ::: tip 你要了解
+        javascript中，是以function为单位。所谓块级，就是{}花括号括起来为一块，以function为单位，就是指变量的作用域上限就是当前所在的函数
+    :::
+
+    变量作用域无非两种 : **全局变量** 和 **局部变量**
+
+    * * **全局变量**
+
+        > 每一个在函数外部声明或者定义的变量都是一个全局对象，
+          所以这个变量可以在任何地方被使用
+
+    ``` js
+    var a = "js";
+    function ts(){
+        console.log(a);
+    } 
+    ts()
+    ```
+
+    *  a 为全局变量 , 所以可以在任何地方调用
+
+    * * **局部变量**
+
+        > 在一个函数内定义的变量只能在函数内部访问或者这个函数内部的函数访问
+
+* * **我们来看例子:+1:**
+
+    * **如果没有用var关键字声明局部变量，它们就是全局范围的一部分**
+
+    ``` js
+    var name = "小明";
+ 
+    function showoneName () {
+        console.log (name);
+    }
+ 
+    function showtwoName () {    
+        name = "小红"; //并没有使用var ,所以为全局变量赋值
+        console.log (name);
+    }
+    showoneName (); // 小明
+ 
+    // name 不是局部变量，它只是改变全局名称变量
+    showtwoName (); // 小红
+ 
+    // 全局变量现在是小红
+    showoneName (); // 小红
+ 
+    // 解决方法是用var关键字声明您的局部变量
+    function users () {
+    // 这里，名称变量是局部变量，它优先于全局变量中的相同名称变量
+        var name = "Jack";
+ 
+    // 试图在全局范围内查看函数外部之前，名称搜索就从函数内部开始
+    console.log (name); 
+    }
+
+    users (); // Jack
+    ```
+
+* **<font style="color:red">变量的声明提升</font>**
+
+* 当对变量的声明出现在了相同作用域的靠后的位置的时候，变量的声明被自动提升到作用域开头。
+
+    我们一般在声明变量的时候，会这样操作：
+
+        var a = 100;
+
+    实际上，这个动作完成了三件事：声明一个变量，定义这个变量的数据类型，赋值（初始化）。
+
+    那么当这个动作出现在同一个作用域的靠后的位置，javascript会把代码解释为什么情况呢
+
+        alert(a);
+        var a = 100;
+    
+    事实上 ,会如此解读
+
+        var a;
+        alert(a);
+        var a = 100;
+
+    所以`alert(a)`的值为undefined;
+
+* **所谓变量声明提升，就是被声明动作如果发生在靠后的位置，会被自动提升到作用域的最前面。**
+
+* **<font style="color:blue;">例子</font>**
+
+    ``` js
+        var a = 100;
+        console.log(a);
+        var a = 200;
+        console.log(a);
+        function fun2() {
+            console.log(a);
+            var a = 3;
+            console.log(a)
+        }
+        fun2();
+        console.log(typeof a);
+
+        var a = function() {}
+        console.log(typeof a);
+    ```
+
+    * 上面的代码 出现多次声明,我们呀要进行区分每一个`a`的作用域,然后再进行变量提升
+
+
+    * 解读如下
+
+    ``` js
+    a = 100;
+    alert(a); //输出100
+
+    a = 200;
+    alert(a); //输出200
+
+    function fun2() {
+        var a;
+        alert(a);
+        a = 3;
+    }
+
+    fun2(); // 输出undefined
+
+    alert(typeof a); //输出 number
+
+    a = function(){}
+    alert(typeof a); // 输出 function
+    ```
+::: tip 别忘了
+    现在回头看看一开始的,是不是直接就想出答案
+:::
+
+
+
+* **更多详情=>:fire:[唐霜的博客](https://www.tangshuang.net/2384.html):fire:**
