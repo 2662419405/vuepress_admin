@@ -220,6 +220,7 @@ module.exports = {
 			"fourth/third.md",
 			"fourth/fourth.md",
 			"fourth/fifth.md",
+			"fourth/sixth.md",
 			]
 		}
 		,{
