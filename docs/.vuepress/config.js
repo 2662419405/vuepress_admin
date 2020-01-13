@@ -4,23 +4,6 @@ module.exports = {
   extend: '@vuepress/theme-default',
   plugins: [
     "@vuepress/back-to-top"
-    // [
-    //   "vuepress-plugin-comment",
-    //   {
-    //     choosen: "valine",
-    //     // options选项中的所有参数，会传给Valine的配置
-    //     options: {
-    //       el: "#valine-vuepress-comment",
-    //       appId: "DxU5fgMdilCKbdcuzHAXAOhF-gzGzoHsz",
-		//   appKey: "YVvhfTkk07VtbJLpOLBzYbdu",
-		//   placeholder: "发现错误,纠正一下",
-		//   notify: true,
-		//   verify: true,
-		//   pageSize: 5,
-		//   visitor: true
-    //     }
-    //   }
-    // ]
   ],
   base: "/",
   head: [
