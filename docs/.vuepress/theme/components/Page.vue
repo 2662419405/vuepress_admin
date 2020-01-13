@@ -58,6 +58,14 @@
     </div>
 
     <slot name="bottom"/>
+    <div class="warning custom-block juzhong">
+      <p class="custom-block-title">
+        关于评论
+      </p>
+      <p>
+        评论前请填好“昵称”、“邮箱”这两栏内容，否则不会收到回复，谢谢！
+      </p>
+    </div>
     <div id="valine-vuepress-comment">
       <Comments v-bind:is="viewComments"></Comments>
     </div>
