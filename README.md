@@ -29,3 +29,9 @@
 - [x] less & sass
 
 :tada: 希望可以一直坚持下去
+
+## 安装
+
+1. `git clone https://github.com/2662419405/vuepress_admin.git`
+2. `cd vuepress_admin && npm i`
+3. `vuepress dev docs`
