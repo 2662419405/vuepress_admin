@@ -323,26 +323,107 @@ else{
 ### 16.Ajax怎样去交互，返回的信息是什么？
 
 * `ajax`技术之中，最核心的技术就是`XMLHttpRequest`，它最初的名称叫做`XMLHTTP`，是微软公司为了满足开发者的需要，1999 年在`IE5.0`浏览器中率先推出的。后来这个技术被上述的规范命名为`XMLHttpRequest`。它正是 `Ajax` 技术之所以与众不同的地方。简而言之， `XMLHttpRequest` 为运行于浏览器中的 `JavaScript`脚本提供了一种在页面之内与服务器通信的手段。页面内的`JavaScript`可以在不刷新页 面的情况下从服务器获取数据，或者向服务器提交数据。`XMLHttpRequest`的出现为`Web`开发提供了一种全新的可能性，甚至整个改变了人户 提供更好的交互体验。
-* 与传统的`Web`开发不同，`Ajax `并不是以一种基于静态页面的方式来看待`Web`应用，从`Ajax`的角度看来，`Web`应用应由少量的页面组成， 其中每个页面其实是一个更小型的`Ajax`应用。每个页面上面都包括有一些使用`JavaScript`开发的`Ajax`组件。这些组件使用`XMLHttpRequest `对象以异步的方式与服务器通信，从服务器获取需要的数据后使用`DOM API`来更新页面中的一部分内容。因此`Ajax` 应用与 传统的`Web `应用的区别主要在三个地方：
+* 与传统的`Web`开发不同，`Ajax `并不是以一种基于静态页面的方式来看待`Web`应用，从`Ajax`的角度看来，`Web`应用应由少量的页面组成， 其中每个页面其实是一个更小型的`Ajax`应用。每个页面上面都包括有一些使用`JavaScript`开发的`Ajax`组件。这些组件使用`XMLHttpRequest `对象以异步的方式与服务器通信，从服务器获取需要的数据后使用`DOM API`来更新页面中的一部分内容。因此s`Ajax` 应用与 传统的`Web `应用的区别主要在三个地方：
   1. 不刷新整个页面，在页面内与服务器通信。
   2. 使用异步方式与服务器通信，不需要打断用户的操作，具有更加迅速的的响应能力。 
   3. 应用仅由少量页面组成。大部分交互在页面之内完成，不需要切换整个页面。
 
+### 17.谈谈你对this的理解
 
+1. 函数(仅限于普通函数)创建时产生一个this,指向window
+2. (谁调用指向谁)当有事件绑定,并执行了事件处理程序时,谁绑定的事件,事件处理程序中的this就指向谁
+3. 回调函数中的this指向window
+4. 匿名函数可以使用bind()改变this的指向,call()和apply()可以改变函数中的this指向
+5. 使用new关键字创建一个实例对象,构造函数中的this指向了该实例对象,同时实例对象的this指向构造函数的原型对象
 
+* 加分项
 
+  1. 用于区分全局变量和局部变量,需要使用this
 
+     ```js
+     var age=20;
+     function show(age){
+     	this.age=age;
+     }
+     ```
 
+  2. 返回函数当前的对象，看jquery1.8.3源码
 
+     ```js
+     live:function(types,data,fn){
+     	jQuery(this.context).on(types,this.selector,data,fn);
+     	return this;
+     }
+     ```
 
+  3. 将当前的对象传递到下一个函数，看jquery1.8.3源码
 
+     ```js
+     each:function(callback,args){
+     	return jQuery.each(this,callback,args);
+     }
+     ```
 
+### 18.JS事件绑定方式(主要有三种):
 
+1. 行内绑定(不建议)：无法实现标记和动作分离`(onclick=" ")`
 
+2. `对象名.事件名=function() { 语句; 语句; }`
 
+3. `对象名.addEventListener(“事件名”,函数名,捕获过程true/冒泡过程false)`
 
+    `说明:IE6/7/8 的兼容方式是: 对象名. attachEvent(“on事件名”,函数);`
 
+### 19.label的作用
 
+1. 实现语义化
+
+* label的for属性input中name、id达成一致，实现label标签for的互换。
+* 这对标签的的微妙之处在于，当想选中文本框，不必非得在框内点击鼠标，直接点击由lable 标签标记的文本上即可, 相 当于给form 表单的input 元素添加了一个感应区。
+
+```Html
+例子1: 点击" 用户名:" 就可以定位光标到输入框
+<form>
+<label for="myid "> 用户名:</label>
+<input type="text" id="myid" />
+</form>
+```
+
+```html
+例子2: 点击" 用户名:" 或按键alt+1, 都可以定位光标到输入框
+<form>
+<label for="myid" accesskey="1"> 用户名:</label>
+<input type="text" id="myid" tabindex="1" />
+</form>
+```
+
+* 总结: 
+* `FOR`属性 
+  * 功能：表示`Label`标签要绑定的`HTML`元素，你点击这个标签的时候，所绑定的元素将获取焦点。 
+  * 用法：`<label for="inputbox">`姓名`</label><input id="inputbox" type="text>`
+* `ACCESSKEY`属性： 
+  * 功能：表示访问`Label`标签所绑定的元素的热键，当您按下热键，所绑定的元素将获取焦点。 
+  * 用法：`<label for="inputbox" accesskey="N">`姓名`</label>` `<input id="inputBox" tabindex="N" type="text">`局限性：accessKey 属性所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键。 
+  * PS: 这种用法并不仅仅局限于`input`元素, 其它的也是可以的
+
+### 20.模块化开发怎么做？
+
+```js
+立即执行函数,不暴露私有成员
+ var module1 = (function(){
+ var _count = 0;
+ var m1 = function(){
+ //...
+ };
+ var m2 = function(){
+ //...
+ };
+ return {
+ m1 : m1,
+ m2 : m2
+ };
+ })();
+```
 
 
 
