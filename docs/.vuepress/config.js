@@ -1,10 +1,8 @@
 module.exports = {
   title: "学习笔记文档",
   description: "每天学一点,进步多一点",
-  extend: '@vuepress/theme-default',
-  plugins: [
-    "@vuepress/back-to-top"
-  ],
+  extend: "@vuepress/theme-default",
+  plugins: ["@vuepress/back-to-top"],
   base: "/",
   head: [
     [
@@ -200,7 +198,47 @@ module.exports = {
           children: ["third"]
         }
       ],
-      "/answer/": [""]
+      "/answer/": [""],
+      "/code/": [
+        "",
+        {
+          title: "44道js难题",
+          collapsable: true,
+          children: ["first"]
+        },
+        {
+          title: "基础面试题(一)",
+          collapsable: true,
+          children: ["second"]
+        },
+        {
+          title: "基础面试题(二)",
+          collapsable: true,
+          children: [
+            "fourth/first.md",
+            "fourth/second.md",
+            "fourth/third.md",
+            "fourth/fourth.md",
+            "fourth/fifth.md",
+            "fourth/sixth.md"
+          ]
+        },
+        {
+          title: "基础面试题(三)",
+          collapsable: true,
+          children: ["chen"]
+        },
+        {
+          title: "反问面试官?",
+          collapsable: true,
+          children: ["fan"]
+        },
+        {
+          title: "2018大厂面试题汇总",
+          collapsable: true,
+          children: ["third"]
+        }
+      ]
     }
   },
   markdown: {
