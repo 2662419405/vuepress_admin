@@ -1,3 +1,4 @@
+@require './config'
 $defaultWidth = 900px!important;  //pc端全局高度
 
 body{
@@ -73,4 +74,45 @@ body{
   .juzhong{
     width: 85%;
   }
+}
+
+// 夜晚主题样式表
+.night{
+  color: $blackColor;
+  background-color: $blackBackColor;
+}
+.night .sidebar{
+  color: $blackColor;
+  background-color: $blackBackColor;
+}
+.night .navbar{
+  color: $blackColor;
+  background-color: $blackBackColor;
+}
+.night .sidebar-heading{
+  color: $blackColor;
+}
+.night a.sidebar-link{
+  color: $blackColor;
+}
+.night .navbar .site-name{
+  color: $blackColor;
+}
+.night .navbar .links{
+  background-color: $blackBackColor;
+}
+.night .nav-item > a:not(.external):hover, .nav-item > a:not(.external).router-link-active{
+  color: #1dd1a1;
+}
+.night .search-box input{
+  background: $blackBackColor url(/assets/img/search.83621669.svg) 0.6rem 0.5rem no-repeat;
+}
+.night a.sidebar-link.active{
+  color: #1dd1a1;
+}
+.night a.sidebar-link:hover{
+  color: #1dd1a1;
+}
+.night .v *{
+  color: $blackColor;
 }
