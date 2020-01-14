@@ -33,7 +33,7 @@
 export default {
   data() {
     return {
-      fontSize: localStorage.getItem("font") || 16
+      fontSize: 16
     };
   },
   mounted() {
@@ -48,24 +48,25 @@ export default {
       }
     });
     document.getElementsByTagName(
-        "body"
-      )[0].style.cssText = `font-size:${this.fontSize}px;`;
+      "body"
+    )[0].style.cssText = `font-size:${this.fontSize}px;`;
   },
   methods: {
     bigSize() {
+      if (this.fontSize > 30) {
+        return false;
+      }
       this.fontSize++;
-      localStorage.setItem("font",this.fontSize)
     },
     smallSize() {
+      if (this.fontSize < 12) {
+        return false;
+      }
       this.fontSize--;
-      localStorage.setItem("font",this.fontSize)
     }
   },
   watch: {
     fontSize: function(newValue, oldValue) {
-      if (newValue > 30 || newValue < 12) {
-        return false;
-      }
       document.getElementsByTagName(
         "body"
       )[0].style.cssText = `font-size:${newValue}px;`;
@@ -76,6 +77,9 @@ export default {
 
 <style lang="stylus" scoped>
 .rightTop{
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
     right: -45px;
     position: fixed;
     bottom: 60px;
