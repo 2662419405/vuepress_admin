@@ -51,7 +51,7 @@ body{
 // 修改valine 
 
 #valine-vuepress-comment{
-  width: 85%;
+  width: 70%;
   margin: 0 auto;  
 }
 
@@ -60,7 +60,16 @@ body{
 }
 
 .juzhong{
-  width: 85%;
+  width: 70%;
   margin: 1rem auto!important;
   box-sizing: border-box;
+}
+
+@media screen and ( max-width:768px ){
+    #valine-vuepress-comment{
+    width: 85%; 
+  }
+  .juzhong{
+    width: 85%;
+  }
 }
