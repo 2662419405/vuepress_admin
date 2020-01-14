@@ -1,5 +1,8 @@
 # Less笔记
 ::: tip
+
+less和sass的区别：
+
 都是css的拓展语言，less和sass最主要的区别是less是通过Javascript编译，而sass是通过ruby编译的，如果没有引入前端工程化，less会消耗客户端性能，sass会消耗服务端性能，但是引入前端工程化的话，gunt，gulp，webpack等，less和sass在打包阶段都会转化成css，所以不会有区别，只是sass是基于ruby，所以每次npm的时候相对慢一点点
 :::
 
