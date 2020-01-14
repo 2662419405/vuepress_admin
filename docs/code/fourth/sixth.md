@@ -144,26 +144,116 @@
 ### 5.POST、GET区别
 
 1.  get是从服务器上获取数据，post是向服务器传送数据。
-2.  get是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。post是通过HTTP post机制，将表单内各个字段与其内容放置在HTML HEADER内一起传送到ACTION属性所指的URL地址。用户看不到这个过程
-3.  对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据
-4.  get传送的数据量较小，不能大于2KB。post传送的数据量较大，一般被默认为不受限制。但理论上，IIS4中最大量为80KB，IIS5中为 100KB
+2.  get是把参数数据队列加到提交表单的`ACTION`属性所指的`URL`中，值和表单内各个字段一一对应，在URL中可以看到。post是通过`HTTP post`机制，将表单内各个字段与其内容放置在`HTML HEADER`内一起传送到`ACTION`属性所指的`URL`地址。用户看不到这个过程
+3.  对于get方式，服务器端用`Request.QueryString`获取变量的值，对于post方式，服务器端用`Request.Form`获取提交的数据
+4.  get传送的数据量较小，不能大于`2KB`。post传送的数据量较大，一般被默认为不受限制。但理论上，`IIS4`中最大量为80KB，`IIS5`中为 100KB
 5.  get安全性非常低，post安全性较高。但是执行效率却比Post方法好
 
+### 6.BOM和DOM
 
+BOM中的对象
 
+<img src="https://raw.githubusercontent.com/Wangjiateng666/img/master/sixth-6.jpg"/>
 
+1. Window对象：是整个BOM的核心，所有对象和集合都以某种方式回接到window对象。Window对象表示整个浏览器窗口，但不必表示其中包含 的内容。 
+2. Document对象：实际上是window对象的属性。这个对象的独特之处是唯一一个既属于BOM又属于DOM的对象。从BOM角度看，document对象由 一系列集合构成，这些集合可以访问文档的各个部分。 
+3. Location对象：它是window对象和document对象的属性。Location对象表示载入窗口的URL，此外它还可以解析URI. 
+4. Navigator对象：Navigator包含大量Web浏览器相关的信息。各种浏览器支持该对象的属性和方法不尽相同。 
+5. Screen对象：通过其可以获取用户屏幕相关的信息
 
+DOM文档对象模型
 
+* DOM是针对XML的基于树的API。描述了处理网页内容的方法和接口，是HTML和XML的API，DOM把整个页面规划成由节点层级构成的文档。 DOM本身是与语言无关的API，它并不与Java，JavaScript或其他语言绑定。
+* <a href="<http://blog.csdn.net/zhangzeyuaaa/article/details/17414711">来源</a>
 
+### 7.call和apply的区别是什么？第一个参数都有什么意义？
 
+1. call方法:
 
+   语法：`call(thisObj，Object)` 
 
+   定义：调用一个对象的一个方法，以另一个对象替换当前对象。 
 
+   说明： `call`方法可以用来代替另一个对象调用一个方法。`call`方法可将一个函数的对象上下文从初始的上下文改变为由`thisObj`指定的新对 象。 
 
+   如果没有提供`thisObj`参数，那么`Global`对象被用作`thisObj`。
 
+2. apply方法：
 
+   语法：`apply(thisObj，[argArray]) `
 
+   定义：应用某一对象的一个方法，用另一个对象替换当前对象。 
 
+   说明： 如果`argArray`不是一个有效的数组或者不是`arguments`对象，那么将导致一个 `TypeError`。 
+
+   如果没有提供`argArray`和`thisObj`任何一个参数，那么`Global`对象将被用作`thisObj`， 并且无法被传递任何参数。
+
+* 代码示例
+
+```js
+function Animal(name) {
+this.name = name;
+this.showName = function() {
+console.log(this.name);
+};
+}
+
+function Cat(name) {
+Animal.call(this, name);
+}
+Cat.prototype = new Animal();
+
+function Dog(name) {
+Animal.apply(this, name);
+}
+Dog.prototype = new Animal();
+
+var cat = new Cat("Black Cat"); //call必须是object
+
+var dog = new Dog(["Black Dog"]); //apply必须是array
+
+cat.showName();
+dog.showName();
+
+console.log(cat instanceof Animal);//instanceof 用于判断一个变量是否某个对象的实例
+console.log(dog instanceof Animal);
+```
+
+* 模拟call，apply的this替换
+
+```js
+function Animal(name) {
+this.name = name;
+this.showName = function() {
+alert(this.name);
+};
+};
+
+function Cat(name) {
+this.superClass = Animal;
+this.superClass(name);
+delete superClass;
+}
+
+var cat = new Cat("Black Cat");
+cat.showName();
+```
+
+### 8.请解释 function prototype.blind的作用
+
+```js
+var foo = {
+ x: 3
+}
+console.log(this.x);
+}
+var bar = function(){
+bar(); // undefined
+var boundFunc = bar.bind(foo);
+boundFunc(); // 3(我们创建了一个新的函数，当它被执行的时候，它的 this 会被设置成 foo —— 而不是像我们调用 bar() 时的全局作用域。)
+```
+
+* `.bind()`创建了一个函数，当这个函数在被调用的时候，它的`this`关键词会被设置成被传入的值（这里指调用`bind()`时传入的参数）。因 此，我们传入想要的上下文，`this`(其实就是 myObj)，到`.bind()`函数中。然后，当回调函数被执行的时候，` this `便指向` myObj` 对象。
 
 
 
