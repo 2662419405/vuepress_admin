@@ -59,89 +59,44 @@ module.exports = {
       "/home/": [
         "",
         {
-          title: "css基础",
+          title: "前端基础",
           collapsable: true,
-          children: ["css"]
+          children: ["css","html"]
         },
         {
-          title: "html基础",
+          title: "js学习",
           collapsable: true,
-          children: ["html"]
+          children: ["jscj","jsgao","this","es6"]
         },
         {
-          title: "js初级",
+          title: "常用UI库",
           collapsable: true,
-          children: ["jscj"]
+          children: ["jquery","fullpage","bootstrap"]
         },
         {
-          title: "fullpage初级",
+          title: "版本控制",
           collapsable: true,
-          children: ["fullpage"]
+          children: ["svn","git"]
         },
         {
-          title: "jquery初级",
-          collapsable: true,
-          children: ["jquery"]
-        },
-        {
-          title: "js高级",
-          collapsable: true,
-          children: ["jsgao"]
-        },
-        {
-          title: "svn命令",
-          collapsable: true,
-          children: ["svn"]
-        },
-        {
-          title: "git命令",
-          collapsable: true,
-          children: ["git"]
-        },
-        {
-          title: "bootstarp初级",
-          collapsable: true,
-          children: ["bootstrap"]
-        },
-        {
-          title: "Less入门",
+          title: "css预处理",
           collapsable: true,
           children: ["Less"]
         },
         {
-          title: "我真的懂this吗",
+          title: "服务器基础",
           collapsable: true,
-          children: ["this"]
+          children: ["nginx"]
         },
         {
-          title: "es6初级",
+          title: "node",
           collapsable: true,
-          children: ["es6"]
+          children: ["npm","node","nodebao"]
         },
         {
-          title: "typescript初级",
+          title: "前端进阶",
           collapsable: true,
-          children: ["ts"]
-        },
-        {
-          title: "node入门",
-          collapsable: true,
-          children: ["node"]
-        },
-        {
-          title: "设计模式",
-          collapsable: true,
-          children: ["sheji"]
-        },
-        {
-          title: "npm包管理",
-          collapsable: true,
-          children: ["npm"]
-        },
-        {
-          title: "webpack打包",
-          collapsable: true,
-          children: ["webpack"]
+          children: ["sheji","webpack","ts"]
         },
         {
           title: "reactNative开发",
@@ -152,11 +107,6 @@ module.exports = {
           title: "React入门",
           collapsable: true,
           children: ["react"]
-        },
-        {
-          title: "node宝典",
-          collapsable: true,
-          children: ["nodebao"]
         },
         {
           title: "vscode入门",
