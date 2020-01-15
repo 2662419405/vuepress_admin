@@ -61,22 +61,22 @@ module.exports = {
         {
           title: "前端基础",
           collapsable: true,
-          children: ["css","html"]
+          children: ["jichu/css","jichu/html"]
         },
         {
           title: "js学习",
           collapsable: true,
-          children: ["jscj","jsgao","this","es6"]
+          children: ["jsstudy/jscj","jsstudy/jsgao","jsstudy/this","jsstudy/es6"]
         },
         {
           title: "常用UI库",
           collapsable: true,
-          children: ["jquery","fullpage","bootstrap"]
+          children: ["ui/jquery","ui/fullpage","ui/bootstrap"]
         },
         {
           title: "版本控制",
           collapsable: true,
-          children: ["svn","git"]
+          children: ["ban/svn","ban/git"]
         },
         {
           title: "css预处理",
@@ -84,29 +84,39 @@ module.exports = {
           children: ["Less"]
         },
         {
-          title: "服务器基础",
-          collapsable: true,
-          children: ["nginx","linux"]
-        },
-        {
           title: "node",
           collapsable: true,
-          children: ["npm","node","nodebao"]
+          children: ["node/npm","node/node","node/nodebao"]
         },
         {
           title: "前端进阶",
           collapsable: true,
-          children: ["sheji","webpack","ts","http"]
+          children: ["jin/sheji","jin/ts"]
         },
         {
-          title: "reactNative开发",
+          title: "网络基础",
           collapsable: true,
-          children: ["rn"]
+          children: ["wang/http","wang/request"]
+        },
+        {
+          title: "打包工具",
+          collapsable: true,
+          children: ["bao/webpack"]
+        },
+        {
+          title: "服务器基础",
+          collapsable: true,
+          children: ["fu/nginx","fu/linux"]
         },
         {
           title: "React入门",
           collapsable: true,
           children: ["react"]
+        },
+        {
+          title: "reactNative开发",
+          collapsable: true,
+          children: ["rn"]
         },
         {
           title: "vscode入门",
