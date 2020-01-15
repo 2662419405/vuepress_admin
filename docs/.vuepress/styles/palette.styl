@@ -70,12 +70,37 @@ blockquote > p{
   box-sizing: border-box;
 }
 
+.theme-container blockquote{
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  background: rgba(27,195,251,0.1);
+  margin: 1em 0;
+  padding: 16px;
+  border-left: 4px solid #1BC3FB;
+  border-radius: 4px;
+}
+
+.night .theme-container blockquote{
+    background: rgba(27,195,251,0.7);
+}
+
+.theme-container code{
+  padding: 3px 3px 0px 3px;
+  margin: 0px 2px;
+  border-radius: 2px;
+  background: rgba(27,195,251,0.1);  
+}
+
 @media screen and ( max-width:768px ){
     #valine-vuepress-comment{
     width: 85%; 
   }
   .juzhong{
     width: 85%;
+  }
+  .theme-container blockquote{
+    width: 90%;  
   }
 }
 
@@ -125,24 +150,10 @@ blockquote > p{
   opacity:0.9;  
 }
 
-.theme-container blockquote{
-  position: relative;
-  width: 100%;
-  font-size: 14px;
-  background: rgba(27,195,251,0.1);
-  margin: 1em 0;
-  padding: 16px;
-  border-left: 4px solid #1BC3FB;
-  border-radius: 4px;
+.night blockquote > p{
+  color: #111111;  
 }
 
-.night .theme-container blockquote{
-    background: rgba(27,195,251,0.5);
-}
-
-.theme-container code{
-  padding: 3px 3px 0px 3px;
-  margin: 0px 2px;
-  border-radius: 2px;
-  background: rgba(27,195,251,0.1);  
+.night .theme-default-content:not(.custom) > h1,.night  .theme-default-content:not(.custom) > h2,.night  .theme-default-content:not(.custom) > h3,.night  .theme-default-content:not(.custom) > h4,.night  .theme-default-content:not(.custom) > h5,.night  .theme-default-content:not(.custom) > h6{
+  color: $blackTitleColor;
 }
