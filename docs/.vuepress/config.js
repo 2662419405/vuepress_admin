@@ -96,7 +96,7 @@ module.exports = {
         {
           title: "前端进阶",
           collapsable: true,
-          children: ["sheji","webpack","ts"]
+          children: ["sheji","webpack","ts","http"]
         },
         {
           title: "reactNative开发",
