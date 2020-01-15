@@ -86,7 +86,7 @@ module.exports = {
         {
           title: "服务器基础",
           collapsable: true,
-          children: ["nginx"]
+          children: ["nginx","linux"]
         },
         {
           title: "node",
