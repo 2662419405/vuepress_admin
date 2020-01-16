@@ -6,7 +6,7 @@
 
 * 通过利用`addClass()`和`removeClass()`这两个`jQuery`方法。动态的改变元素的`class`属性可以很简单例如. 使用类`.active`来标记它 们的未激活和激活状态，等等
 
-### 2.你如何使用jQuery来提取一个HTML 标记的属性 例如. 链接的href?
+### 2.你如何使用jQuery来提取一个HTML 标记的属性 例如：链接的href?
 
 * `attr()`方法被用来提取任意一个HTML元素的一个属性的值. 你首先需要利用`jQuery`选择及选取到所有的链接或者一个特定的链接，然后你 可以应用`attr()`方法来获得他们的`href`属性的值。
 
@@ -58,7 +58,7 @@
 
 ### 8.谈一下Jquery中的bind,live,delegate,on的区别？
 
-1. `bind`：把事件绑定到每一个匹配的元素上，主要特点
+1. `bind`：把事件绑定到每一个匹配的元素上
 
 ```js
 主要特点：
@@ -112,7 +112,7 @@ $("li").live("click", function (event) {
 
 * 总结：只执行一次，事件绑定在根节点对象上。
 
-3. `delegate`：将事件绑定到指定的父元素上，和`live`类似但比较能活。
+3. `delegate`：将事件绑定到指定的父元素上，和`live`类似但比较灵活。
 
    ```js
    主要特点：
@@ -204,27 +204,26 @@ $(JSON.parse('{"0":1,"1":2,"2":3,"length":3}'));
 优点：
 1. 模板功能强大丰富，并且是声明式的，自带了丰富的Angular指令；
 2. 是一个比较完善的前端MV*框架，包含模板，数据双向绑定，路由，模块化，服务，过滤器，依赖注入等所有功能；
-3. 自定义Directive，比jQuery插件还灵活，但是需要深入了解Directive的一些特性，简单的封装容易，复杂一点官方没有提供详细的介
-绍文档，我们可以通过阅读源代码来找到某些我们需要的东西，如：在directive使用 $parse；
-4. ng模块化比较大胆的引入了Java的一些东西（依赖注入），能够很容易的写出可复用的代码，对于敏捷开发的团队来说非常有帮助，我
-们的项目从上线到目前，UI变化很大，在摸索中迭代产品，但是js的代码基本上很少改动。
-5. 补充：Angular支持单元测试和e2e-testing。
+3. 自定义Directive，比jQuery插件还灵活，但是需要深入了解Directive的一些特性，简单的封装容易，复杂一点官方没有提供详细的介绍文档，我们可以通过阅读源代码来找到某些我们需要的东西，如：在directive使用 $parse；
+4. ng模块化比较大胆的引入了Java的一些东西（依赖注入），能够很容易的写出可复用的代码，对于敏捷开发的团队来说非常有帮助，我们的项目从上线到目前，UI变化很大，在摸索中迭代产品，但是js的代码基本上很少改动。
+5. 补充：Angular支持单元测试和e2e-testing。angularjs是互联网巨人谷歌开发，这也意味着他有一个坚实的基础和社区支持。
 ```
 
 ```css
 缺点：
-1. 验证功能错误信息显示比较薄弱，需要写很多模板标签，没有jQuery Validate方便，所以我们自己封装了验证的错误信息提示，详细参
-考 why520crazy/w5c-validator-angular · GitHub ；
-2. ngView只能有一个，不能嵌套多个视图，虽然有 angular-ui/ui-router · GitHub 解决，但是貌似ui-router 对于URL的控制不是很灵
-活，必须是嵌套式的（也许我没有深入了解或者新版本有改进）；
-3. 对于特别复杂的应用场景，貌似性能有点问题，特别是在Windows下使用chrome浏览器，不知道是内存泄漏了还是什么其他问题，没有找
-到好的解决方案，奇怪的是在IE10下反而很快，对此还在观察中；
-4. 这次从1.0.X升级到1.2.X，貌似有比较大的调整，没有完美兼容低版本，升级之后可能会导致一个兼容性的BUG，具体详细信息参考官方
-文档 AngularJS ，对应的中文版本：Angular 1.0到1.2 迁移指南
-5. ng提倡在控制器里面不要有操作DOM的代码，对于一些jQuery 插件的使用，如果想不破坏代码的整洁性，需要写一些directive去封装插
-件，但是现在有很多插件的版本已经支持Angular了，如：jQuery File Upload Demo
-6. Angular 太笨重了，没有让用户选择一个轻量级的版本，当然1.2.X后，Angular也在做一些更改，比如把route，animate等模块独立出
-去，让用户自己去选择。
+1. 验证功能错误信息显示比较薄弱，需要写很多模板标签，没有jQuery Validate方便，所以我们自己封装了验证的错误信息提示，详细参考 why520crazy/w5c-validator-angular · GitHub ；
+2. ngView只能有一个，不能嵌套多个视图，虽然有 angular-ui/ui-router · GitHub 解决，但是貌似ui-router 对于URL的控制不是很灵活，必须是嵌套式的（也许我没有深入了解或者新版本有改进）；
+3. 对于特别复杂的应用场景，貌似性能有点问题，特别是在Windows下使用chrome浏览器，不知道是内存泄漏了还是什么其他问题，没有找到好的解决方案，奇怪的是在IE10下反而很快，对此还在观察中；
+4. 这次从1.0.X升级到1.2.X，貌似有比较大的调整，没有完美兼容低版本，升级之后可能会导致一个兼容性的BUG，具体详细信息参考官方文档 AngularJS ，对应的中文版本：Angular 1.0到1.2 迁移指南
+5. ng提倡在控制器里面不要有操作DOM的代码，对于一些jQuery 插件的使用，如果想不破坏代码的整洁性，需要写一些directive去封装插件，但是现在有很多插件的版本已经支持Angular了，如：jQuery File Upload Demo
+6. Angular 太笨重了，没有让用户选择一个轻量级的版本，当然1.2.X后，Angular也在做一些更改，比如把route，animate等模块独立出去，让用户自己去选择。
+
+以下为补充：
+7.angular 入门很容易 但深入后概念很多, 学习中较难理解
+8.文档例子非常少, 官方的文档基本只写了api, 一个例子都没有, 很多时候具体怎么用都是google、baidu来的
+9.对IE6/7 兼容不算特别好, 就是可以用jQuery自己手写代码解决一些
+10.指令的应用的最佳实践教程少, angular其实很灵活, 如果不看一些作者的使用原则,很容易写出四不像的代码, 例如js中还是像jQuery的思想有很多dom操作
+11.DI 依赖注入 如果代码压缩需要显示声明
 ```
 
 * 当然使用的人多才会暴露更多的问题，一起为这些问题寻找解决方案是一个社区的良性趋势，选择Angular，的确使我们的开发效率大大提高。
@@ -262,6 +261,12 @@ React的优势：
 2. `MVP`：是从`MVC`模式演变而来的，都是通过`Controller/Presenter`负责逻辑的处理+`Model`提供数据+`View`负责显示。 在`MVP`中，`Presenter`完全把`View`和`Model`进行了分离，主要的程序逻辑在`Presenter`里实现。 并且，`Presenter`和`View`是没有直接关联的，是通过定义好的接口进行交互，从而使得在变更`View`的时候可以保持`Presenter`不变。 `MVP`模式的框架：`Riot.js`。
 3. `MVVM`：`MVVM`是把`MVC`里的`Controller`和`MVP`里的`Presenter`改成了`ViewModel`。`Model+View+ViewModel`。 `View`的变化会自动更新到`ViewModel`,`ViewModel`的变化也会自动同步到`View`上显示。 这种自动同步是因为`ViewModel`中的属性实现了`Observer`，当属性变更时都能触发对应的操作。 `MVVM`模式的框架有：`AngularJS`+`Vue.js`和`Knockout`+`Ember.js`后两种知名度较低以及是早起的框架模式。
 
+::: tip 在此附上阮一峰大佬的图示
+
+<a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html">起飞</a>
+
+:::
+
 ### 13.原型是什么？原型链是什么？
 
 1. 原型是什么？
@@ -278,7 +283,7 @@ React的优势：
 
    ```html
    <span style="font-size:14px;">varPerson=function(){this.age="匿名"};
-   varStudent=function(){};
+   var Student=function(){};
    //创建继承关系,prototype执行Person的一个实例对象
    Student.prototype=new Person();
    </span> 
