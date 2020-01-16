@@ -282,7 +282,10 @@ React的优势：
    Student → Person → Object ，学生继承人类，人类继承对象类
 
    ```html
-   <span style="font-size:14px;">varPerson=function(){this.age="匿名"};
+   <span style="font-size:14px;">
+   var Person=function(){
+       this.age="匿名"
+   };
    var Student=function(){};
    //创建继承关系,prototype执行Person的一个实例对象
    Student.prototype=new Person();
@@ -301,8 +304,7 @@ React的优势：
 
 ```js
 //先看代码
-var Func=function(){
-};
+var Func=function(){};
 var func=new Func ();
 //new共经过了4几个阶段
 1、创建一个空对象
@@ -310,18 +312,17 @@ var obj=new Object();
 2、设置原型链
 obj.__proto__= Func.prototype;
 3、让Func中的this指向obj，并执行Func的函数体。
-var result =Func.call(obj); 
+var result=Func.call(obj); 
 4、判断Func的返回值类型：
 如果是值类型，返回obj。如果是引用类型，就返回这个引用类型的对象。
-if (typeof(result) == "object"){
+if(typeof(result)=="object"){
  func=result;
-}
-else{
- func=obj;;
+}else{
+ func=obj;
 } 
 ```
 
-### 15.WebSocket 如何兼容低浏览器？
+### 15.WebSocket 如何兼容低浏览器？(阿里)
 
 * `Adobe Flash Socket` 、 `ActiveX HTMLFile (IE) `、 基于`multipart`编码发送`XHR`、 基于长轮询的`XHR`
 
@@ -412,6 +413,14 @@ else{
   * PS: 这种用法并不仅仅局限于`input`元素, 其它的也是可以的
 
 ### 20.模块化开发怎么做？
+
+::: tip 放出链接帮助读者理解模块化开发
+
+<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html">模块化</a>	
+
+不理解里面的立即执行函数的走这边<a href="https://baijiahao.baidu.com/s?id=1627496475450434415&wfr=spider&for=pc">立即执行函数</a>	建议手写运行感受一下
+
+:::
 
 ```js
 立即执行函数,不暴露私有成员
