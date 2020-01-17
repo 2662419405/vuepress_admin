@@ -81,7 +81,7 @@ module.exports = {
         {
           title: "css预处理",
           collapsable: true,
-          children: ["Less"]
+          children: ["Less","Sass"]
         },
         {
           title: "node",
