@@ -1,6 +1,10 @@
 # 基础面试题's brother(part6)
 
-### 1.AMD、CMD规范区别？
+### 1.什么是AMD模块系统和CMD模块系统，以及AMD、CMD规范区别？
+
+* AMD 是 RequireJS 在推广过程中对模块定义的规范化产出
+* CMD是SeaJS在推广过程中对模块化定义的规范化产出
+  上述两种规范是服务于JavaScript的模块化开发，目前两种都能实现浏览器端的**模块化开发的目的**，不同之处是**CMD是懒执行,AMD是预执行**
 
 1.  对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式 不同）。CMD 推崇 as lazy as possible.
 
