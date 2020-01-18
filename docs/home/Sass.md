@@ -297,6 +297,340 @@ nav {
 }
 ```
 
+## 3.导入sass文件
+
+* css有一个特别不常用的特性，即`@import`规则，它允许在一个css文件中导入其他css文件。然而，后果是只有执行到`@import`时，浏览器才会去下载其他css文件，这导致页面加载起来特别慢。
+* sass也有一个@import规则，但不同的是，sass的@import规则在生成css文件时就把相关文件导入进来。这意味着所有相关的样式被归纳到了同一个css文件中，而无需发起额外的下载请求。另外，所有在被导入文件中定义的变量和混合器 均可在导入文件中使用。
+
+```css
+@import "colors";
+@import "mixins";
+@import "grid";
+/*你甚至可以省略后缀名*/
+/*举例来说，@import"sidebar";这条命令将把sidebar.scss文件中所有样式添加到当前样式表中。 
+*/
+colors.scss
+mixins.scss
+grid.scss
+```
+
+### 3.1 使用SASS部分文件
+
+* 本节将介绍<font color="#f00">如何使用sass的@import来处理多个sass文件。</font>首先，我们将学习编写那些被导入的sass文件，因为在一个大型sass项目中，这样的文件是你最常编写的那一类。接着，<font color="#f00">了解集中导入sass文件的方法，使你的样式可重用性更高</font>，包括声明可自定义的变量值，以及在某一个选择器范围内导入sass文件。最后，介绍<font color="#f00">如何在sass中使用css原生的@import命令。</font>
+* <font color="#f00">有些sass文件用于导入，你并不希望为每个这样的文件单独地生成一个css文件。对此，sass用一个特殊的约定来解决。</font>
+
+* 当通过`@import`把sass样式分散到多个文件时，你通常只想生成少数几个css文件。那些专门为`@import`命令而编写的sass文件，并不需要生成对应的独立css文件，这样的sass文件称为局部文件。对此，sass有一个特殊的约定来命名这些文件。
+* <font color="#f00">此约定即，sass局部文件的文件名以下划线开头。这样，sass就不会在编译时单独编译这个文件输出css，而只把这个文件用作导入。当你`@import`一个局部文件时，还可以不写文件的全名，即省略文件名开头的下划线。举例来说，你想导入`themes/_night-sky.scss`这个局部文件里的变量，你只需在样式表中写`@import "themes/night-sky";`。</font>
+* 局部文件可以被多个不同的文件引用。当一些样式需要在多个页面甚至多个项目中使用时，这非常有用。在这种情况下，有时需要在你的样式表中对导入的样式稍作修改，sass有一个功能刚好可以解决这个问题，即默认变量值。
+
+### 3.2 默认变量值
+
+* 一般情况下，你反复声明一个变量，只有最后一处声明有效且它会覆盖前边的值。
+* 超链接的color会被设置为red。这可能并不是你想要的结果，假如你写了一个可被他人通过@import导入的sass库文件，你可能希望导入者可以定制修改sass库文件中的某些值。<font color="#f00">使用sass的!default标签可以实现这个目的。</font>它很像css属性中!important标签的对立面，不同的是!default用于变量，含义是：<font color="#f00">如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值。</font>
+
+```css
+$link-color: blue; 
+$link-color: red;
+a { color: $link-color; } 
+
+$link-color: blue; $link-color: red;
+a { color: $link-color; } 
+```
+
+* 如果用户在导入你的sass局部文件之前声明了一个`$fancybox-width`变量，那么你的局部文件中对`$fancybox-width`赋值`400px`的操作就无效。如果用户没有做这样的声明，则`$fancybox-width`将默认为`400px`。
+
+### 3.3 嵌套导入
+
+* 跟原生的css不同，sass允许`@import`命令写在css规则内。这种导入方式下，生成对应的css文件时，局部文件会被直接插入到css规则内导入它的地方。举例说明，有一个名为`_blue-theme.scss`的局部文件，将他导入到一个CSS规则内，生成的结果跟在`.blue-theme`选择器里面写`_blue-theme.scss`文件的内容完全一样。
+
+```css
+aside {  
+    background: blue;      	
+    color: white; 
+} 
+
+.blue-theme {    	
+    aside {  		
+        background: blue; 
+        color:#fff; 
+    }
+} 
+```
+
+* 被导入的局部文件中定义的所有变量和混合器，也会在这个规则范围内生效。这些变量和混合器不会全局有效，这样我们就可以通过嵌套导入只对站点中某一特定区域运用某种颜色主题或其他通过变量配置的样式。
+
+### 3.4 原生的CSS导入
+
+* 由于SASS兼容原生CSS，所以它也支持原生的CSS@import。尽管通常在sass中使用@import时，sass会尝试找到对应的sass文件并导入进来，但在下列三种情况下会生成原生的CSS@import，尽管这会造成浏览器解析css时的额外下载：
+  * 被导入文件的名字以.css结尾；
+  * 被导入文件的名字是一个URL地址（比如`http://www.sass.hk/css/css.css`），由此可用谷歌字体API提供的相应服务；
+  * 被导入文件的名字是CSS的url()值。
+
+* 也就是说你不可以用sass的@import直接就去导入一个原始的CSS文件，因为sass会认为你想用CSS原生的@import。所以这个情况时，你可以把原始的CSS文件改名为.scss 后缀，就可以直接导入了
+
+## 4.静默注释
+
+* 注释可以帮助你组织样式，但是你不希望每个浏览网站源码的人都能看到所有注释。
+* 所以SASS提供了一种不同于CSS标准注释格式，即静默注释，其内容不会出现在生成的CSS文件中。
+* 他的注释语法跟js中单行注释语法相同，以//开头,注释内容直到行末。
+* 但实际上css的标准注释格式也可以在生成的css文件中抹去，当注释出现在原生CSS不允许的地方，如在css属性或选择器中,sass不知道该把他放在什么位置上的时候就会将这些注释抹去。
+
+```css
+body { 
+	color: #333; // 这种注释内容不会出现在生成的css文件中 	
+	padding: 0; /* 这种注释内容会出现在生成的css文件中 */ 
+} 
+
+body {
+  color /* 这块注释内容不会出现在生成的css中 */: #333;
+  padding: 1; /* 这块注释内容也不会出现在生成的css中 */ 0;
+}
+```
+
+## 5.混合器
+
+* 我们在做网页的时候总是有几处小小的样式是类似的，比如颜色或者字体。使用变量来统一处理是不错的选择。但是当样式变得越来越复杂的时候你需要大段大段的重用样式的代码，独立的变量就没有办法来应付这种情况了。所以你可以-通过sass的混合器来实现大段样式的重用
+* 混合器通过@mixin标识符定义。
+  * 这个标识符给一大段样式赋予一个名字，这样你就可以轻易地通过引用这个名字重用这段样式。
+* 通过@include来使用这个混合器
+  * @include调用会把混合器中的所有样式提取出来放在@include被调用的地方。
+
+```css
+/*混合器 rounded-corners*/
+@mixin rounded-corners {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/*引用混合器 rounded-corners*/
+.notice {
+  background-color: green;
+  border: 2px solid #00aa00;
+  @include rounded-corners;
+}
+/*实际样式*/
+.notice {
+  background-color: green;
+  border: 2px solid #00aa00;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+```
+
+### 5.1何时使用混合器
+
+* 由于混合器太好用，一不小心你可能会过度使用。大量的重用可能会导致生成的样式表过大，导致加载速度缓慢，所以我们通过这一节来讨论混合器的使用场景，避免滥用。
+
+* 判断一组属性是否应该组合成一个混合器，一条经验法则就是你能否为这个混合器想出一个好的名字。如果你能找到一个很好的短名字来描述这些属性修饰的样式，比如`rounded-cornersfancy-font`或者`no-bullets`，那么往往能够构造一个合适的混合器。如果你找不到，这时候构造一个混合器可能并不合适。
+
+* 混合器在某些方面跟css类很像。都是让你给一大段样式命名，所以在选择使用哪个的时候可能会产生疑惑。最重要的区别就是类名是在html文件中应用的，而混合器是在样式表中应用的。这就意味着类名具有语义化含义，而不仅仅是一种展示性的描述：用来描述html元素的含义而不是html元素的外观。而另一方面，混合器是展示性的描述，用来描述一条css规则应用之后会产生怎样的效果。
+
+* 在之前的例子中，`.notice`是一个有语义的类名。如果一个html元素有一个`notice`的类名，就表明了这个html元素的用途：向用户展示提醒信息。`rounded-corners`混合器是展示性的，它描述了包含它的css规则最终的视觉样式，尤其是边框角的视觉样式。混合器和类配合使用写出整洁的html和css，因为使用语义化的类名亦可以帮你避免重复使用混合器。为了保持你的html和css的易读性和可维护性，在写样式的过程中一定要铭记二者的区别。
+
+  
+
+  有时候仅仅把属性放在混合器中还远远不够，可喜的是，sass同样允许你把css规则放在混合器中。
+
+### 5.2 混合器中的CSS规则
+
+* 混合器中不仅可以包含属性，也可以包含css规则，包含选择器和选择器中的属性
+
+```css
+@mixin no-bullets {
+  list-style: none;
+  li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px;
+  }
+}
+
+ul.plain {
+  color: #444;
+  @include no-bullets;
+}
+
+ul.plain {
+  color: #444;
+  list-style: none;
+}
+ul.plain li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+}
+```
+
+* 混合器中的规则甚至可以使用sass的父选择器标识符&。使用起来跟不用混合器时一样，sass解开嵌套规则时，用父规则中的选择器替代&。
+* 如果一个混合器只包含css规则，不包含属性，那么这个混合器就可以在文档的顶部调用，写在所有的css规则之外。如果你只是为自己写一些混合器，这并没有什么大的用途，但是当你使用一个类似于Compass的库时，你会发现，这是提供样式的好方法，原因在于你可以选择是否使用这些样式。
+
+### 5.3 给混合器传参
+
+* 混合器并不一定总得生成相同的样式。可以通过在@include混合器时给混合器传参，来定制混合器生成的精确样式。当@include混合器时，参数其实就是可以赋值给css属性值的变量。这种方式跟JavaScript的function很像：
+
+```css
+@mixin link-colors($normal, $hover, $visited) {
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+```
+
+* 当混合器被@include时，你可以把它当作一个css函数来传参。如果你像下边这样写：
+
+```css
+a {
+  @include link-colors(blue, red, green);
+}
+
+/*Sass最终生成的是：*/
+a { color: blue; }
+a:hover { color: red; }
+a:visited { color: green; }
+```
+
+* 当你@include混合器时，有时候可能会很难区分每个参数是什么意思，参数之间是一个什么样的顺序。为了解决这个问题，sass允许通过语法$name: value的形式指定每个参数的值。这种形式的传参，参数顺序就不必再在乎了，只需要保证没有漏掉参数即可：
+
+```css
+a {
+    @include link-colors(
+      $normal: blue,
+      $visited: green,
+      $hover: red
+  );
+}
+```
+
+* 尽管给混合器加参数来实现定制很好，但是有时有些参数我们没有定制的需要，这时候也需要赋值一个变量就变成很痛苦的事情了。所以sass允许混合器声明时给参数赋默认值。
+
+### 5.4 默认参数值
+
+* 为了在@include混合器时不必传入所有的参数，我们可以给参数指定一个默认值。参数默认值使用$name: default-value的声明形式，默认值可以是任何有效的css属性值，甚至是其他参数的引用，如下代码：
+
+```css
+@mixin link-colors(
+    $normal,
+    $hover: $normal,
+    $visited: $normal
+  )
+{
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+
+如果像下边这样调用：@include link-colors(red) $hover和$visited也会被自动赋值为red。
+```
+
+## 6.使用选择器继承来精简CSS
+
+* 使用sass的时候，最后一个减少重复的主要特性就是选择器继承。选择器继承是说一个选择器可以继承为另一个选择器定义的所有样式。
+* 通过@extend这个语法实现
+
+```css
+/*通过选择器继承继承样式*/
+.error {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+```
+
+* `.seriousError`将会继承样式表中任何位置为`.error`定义的所有样式。以`class="seriousError" `修饰的html元素最终的展示效果就好像是`class="seriousError error"`。相关元素不仅会拥有一个`3px`宽的边框，而且这个边框将变成红色的，这个元素同时还会有一个浅红色的背景，因为这些都是在`.error`里边定义的样式。
+
+* `.seriousError`不仅会继承`.error`自身的所有样式，任何跟`.error`有关的组合选择器样式也会被`.seriousError`以组合选择器的形式继承
+
+```css
+/*.seriousError从.error继承样式*/
+.error a{  //应用到.seriousError a
+  color: red;
+  font-weight: 100;
+}
+h1.error { //应用到hl.seriousError
+  font-size: 1.2rem;
+}
+
+在class="seriousError"的html元素内的超链接也会变成红色和粗体。
+```
+
+### 6.1何时使用继承
+
+* 想象一下你正在编写一个页面，给html元素添加类名，你发现你的某个类（比如说.seriousError）另一个类（比如说.error）的细化。你会怎么做？
+
+
+
+* 你可以为这两个类分别写相同的样式，但是如果有大量的重复怎么办？使用sass时，我们提倡的就是不要做重复的工作。
+* 你可以使用一个选择器组（比如说.error.seriousError）给这两个选择器写相同的样式。如果.error的所有样式都在同一个地方，这种做法很好，但是如果是分散在样式表的不同地方呢？再这样做就困难多了。
+* 你可以使用一个混合器为这两个类提供相同的样式，但当.error的样式修饰遍布样式表中各处时，这种做法面临着跟使用选择器组一样的问题。这两个类也不是恰好有相同的 样式。你应该更清晰地表达这种关系。
+* 综上所述你应该使用@extend。让.seriousError从.error继承样式，使两者之间的关系非常清晰。更重要的是无论你在样式表的哪里使用.error .seriousError都会继承其中的样式。
+
+### 6.2 继承的高级用法
+
+* 任何css规则都可以继承其他规则，几乎任何css规则也都可以被继承。大多数情况你可能只想对类使用继承，但是有些场合你可能想做得更多。最常用的一种高级用法是继承一个html元素的样式。尽管默认的浏览器样式不会被继承，因为它们不属于样式表中的样式，但是你对html元素添加的所有样式都会被继承。
+
+```css
+.disabled {
+  color: gray;
+  @extend a;
+}
+```
+
+* 假如一条样式规则继承了一个复杂的选择器，那么它只会继承这个复杂选择器命中的元素所应用的样式。例如：`.s1 @extend .important .error`，那么`.important .error`和`h1.important.error`的样式都会被`.s1`所继承，但是`.important`或者`.error`下的样式则不会被继承。如果你希望`.s1`能够分别继承`.import`或者`.error`下的样式。
+
+* 如果一个选择器序列（#main .seriousError）`@extend`另一个选择器（.error），那么只有完全匹配`#main .seriousError`这个选择器的元素才会继承`.error`的样式，就像单个类名继承那样。拥有`class="seriousError"`的`#main`元素之外的元素不会受到影响。
+* 像`#main .error`这种选择器序列是不能被继承的。这是因为从`#main .error`中继承的样式一般情况下会跟直接从`.error`中继承的样式基本一致。
+
+### 6.3 继承的工作细节
+
+* 跟变量和混合器不同，继承不是仅仅用css样式替换@extend处的代码那么简单。
+* 关于@extend有两个要点应该知道。
+  * 跟混合器相比，继承生成的css代码相对更少。因为继承仅仅是重复选择器，而不会重复属性，所以使用继承往往比混合器生成的css体积更小。如果你非常关心你站点的速度，请牢记这一点。
+  * 继承遵从css层叠的规则。当两个不同的css规则应用到同一个html元素上时，并且这两个不同的css规则对同一属性的修饰存在不同的值，css层叠规则会决定应用哪个样式。相当直观：通常权重更高的选择器胜出，如果权重相同，定义在后边的规则胜出。
+* 混合器本身不会引起css层叠的问题，因为混合器把样式直接放到了css规则中，而继承存在样式层叠的问题。被继承的样式会保持原有定义位置和选择器权重不变。
+
+### 6.4 使用继承的最佳实践
+
+* 不要在css规则中使用后代选择器（比如.foo .bar）去继承css规则。如果你这么做，同时被继承的css规则有通过后代选择器修饰的样式，生成css中的选择器的数量很快就会失控：
+
+```css
+.foo .bar { @extend .baz; }
+.bip .baz { a: b; }
+```
+
+* 在上边的例子中，sass必须保证应用到.baz的样式同时也要应用到.foo .bar（位于class="foo"的元素内的class="bar"的元素）。例子中有一条应用到.bip .baz（位于class="bip"的元素内的class="baz"的元素）的css规则。当这条规则应用到.foo .bar时，可能存在三种情况
+
+```css
+<!-- 继承可能迅速变复杂 -->
+/*Case 1*/
+<div class="foo">
+  <div class="bip">
+    <div class="bar">...</div>
+  </div>
+</div>
+/*Case 2*/
+<div class="bip">
+  <div class="foo">
+    <div class="bar">...</div>
+  </div>
+</div>
+/*Case 3*/
+<div class="foo bip">
+  <div class="bar">...</div>
+</div>
+```
+
+* 为了应对这些情况，sass必须生成三种选择器组合（仅仅是.bip .foo .bar不能覆盖所有情况）。如果任何一条规则里边的后代选择器再长一点，sass需要考虑的情况就会更多。实际上sass并不总是会生成所有可能的选择器组合，即使是这样，选择器的个数依然可能会变得相当大，所以如果允许，尽可能避免这种用法。
+
+* 但是可以继承有后代选择器修饰规则的选择器，不管后代选择器多长，但有一个前提就是，不要用后代选择器去继承。
+
+
+
+> 本文引自[sass中文网](https://www.sass.hk/)
+
 
 
 
