@@ -2,11 +2,11 @@
 
 # 基础面试题's brother(part5)
 
-### 1.你如何利用jQuery来向一个元素中添加和移除CSS类? 
+## 1.你如何利用jQuery来向一个元素中添加和移除CSS类? 
 
 * 通过利用`addClass()`和`removeClass()`这两个`jQuery`方法。动态的改变元素的`class`属性可以很简单例如. 使用类`.active`来标记它 们的未激活和激活状态，等等
 
-### 2.你如何使用jQuery来提取一个HTML 标记的属性 例如：链接的href?
+## 2.你如何使用jQuery来提取一个HTML 标记的属性 例如：链接的href?
 
 * `attr()`方法被用来提取任意一个HTML元素的一个属性的值. 你首先需要利用`jQuery`选择及选取到所有的链接或者一个特定的链接，然后你 可以应用`attr()`方法来获得他们的`href`属性的值。
 
@@ -18,23 +18,23 @@
   });
   ```
 
-### 3.你如何使用jQuery设置一个属性值?
+## 3.你如何使用jQuery设置一个属性值?
 
 * 前面这个问题之后额外的一个后续问题是，`attr()`方法和`jQuery`中的其它方法一样，能力不止一样. 如果你在调用`attr()`的同时带上一个值 例如`.attr(name, value)`, 这里`name`是属性的名称，`value`是属性的新值。
 
-### 4.jQuery中 detach() 和 remove() 方法的区别是什么?
+## 4.jQuery中 detach() 和 remove() 方法的区别是什么?
 
 * 尽管`detach()`和`remove()`方法都被用来移除一个DOM元素, 两者之间的主要不同在于 `detach()`会保持对过去被解除元素的跟踪, 因此它可以被取消解除, 而`remove()`方法则会保持过去被移除对象的引用。你也还可以看看 用来向DOM中添加元素的`appendTo()`方法。
 
-### 5.你要是在一个 jQuery 事件处理程序里返回了 false 会怎样？
+## 5.你要是在一个 jQuery 事件处理程序里返回了 false 会怎样？
 
 * 这通常用于阻止事件向上冒泡。
 
-### 6.哪种方式更高效：document.getElementbyId("myId") 还是 $("#myId")？
+## 6.哪种方式更高效：document.getElementbyId("myId") 还是 $("#myId")？
 
 * 第一种，因为它直接调用了`JavaScript`引擎。
 
-### 7.事件是什么？如何阻止事件冒泡？
+## 7.事件是什么？如何阻止事件冒泡？
 
 * 事件是什么？
 
@@ -56,7 +56,7 @@
   event.cancelBubble = true;
   ```
 
-### 8.谈一下Jquery中的bind,live,delegate,on的区别？
+## 8.谈一下Jquery中的bind,live,delegate,on的区别？
 
 1. `bind`：把事件绑定到每一个匹配的元素上
 
@@ -168,7 +168,7 @@ $("li").live("click", function (event) {
      }
      ```
 
-### 9.Json格式是什么？
+## 9.Json格式是什么？
 
 * `JSON(JavaScript Object Notation)`是一种轻量级的数据交换格式。它是基于`JavaScript`的一个子集。数据格式简单, 易于读写, 占用带宽小。是前后台数据交互最常见的一种数据格式。
 
@@ -198,7 +198,7 @@ JSON.stringify($(array));
 $(JSON.parse('{"0":1,"1":2,"2":3,"length":3}'));
 ```
 
-### 10.Angular的优缺点
+## 10.Angular的优缺点
 
 ```css
 优点：
@@ -228,7 +228,7 @@ $(JSON.parse('{"0":1,"1":2,"2":3,"length":3}'));
 
 * 当然使用的人多才会暴露更多的问题，一起为这些问题寻找解决方案是一个社区的良性趋势，选择Angular，的确使我们的开发效率大大提高。
 
-### 11.React对比Angular的优势在哪
+## 11.React对比Angular的优势在哪
 
 ::: tip 友情提示
 
@@ -255,7 +255,7 @@ React的优势：
 3，模块化，可以编写独立的UI组件，并且可以复用，每个组件都可以进行独立的开发和测试，提高了代码的可维护性。
 ```
 
-### 12.框架模式
+## 12.框架模式
 
 1. `MVC`：`Model(模型)`+`View(视图)`+`controller(控制器)`，主要是基于分层的目的，让彼此的职责分开。`View`通过`Controller`来和`Model`联系，`Controller`是`View`和`Model`的协调者，`View`和`Model`不直接联系，基本联系都是单向的。 用户`User`通过控制器`Controller`来操作模板`Model`从而达到视图`View`的变化。
 2. `MVP`：是从`MVC`模式演变而来的，都是通过`Controller/Presenter`负责逻辑的处理+`Model`提供数据+`View`负责显示。 在`MVP`中，`Presenter`完全把`View`和`Model`进行了分离，主要的程序逻辑在`Presenter`里实现。 并且，`Presenter`和`View`是没有直接关联的，是通过定义好的接口进行交互，从而使得在变更`View`的时候可以保持`Presenter`不变。 `MVP`模式的框架：`Riot.js`。
@@ -267,7 +267,7 @@ React的优势：
 
 :::
 
-### 13.原型是什么？原型链是什么？
+## 13.原型是什么？原型链是什么？
 
 1. 原型是什么？
 
@@ -300,7 +300,7 @@ React的优势：
 
    <img src="https://raw.githubusercontent.com/Wangjiateng666/img/master/fifth-13-1.jpg"/>
 
-### 14.NEW操作符都干了什么？
+## 14.NEW操作符都干了什么？
 
 ```js
 //先看代码
@@ -322,11 +322,11 @@ if(typeof(result)=="object"){
 } 
 ```
 
-### 15.WebSocket 如何兼容低浏览器？(阿里)
+## 15.WebSocket 如何兼容低浏览器？(阿里)
 
 * `Adobe Flash Socket` 、 `ActiveX HTMLFile (IE) `、 基于`multipart`编码发送`XHR`、 基于长轮询的`XHR`
 
-### 16.Ajax怎样去交互，返回的信息是什么？
+## 16.Ajax怎样去交互，返回的信息是什么？
 
 * `ajax`技术之中，最核心的技术就是`XMLHttpRequest`，它最初的名称叫做`XMLHTTP`，是微软公司为了满足开发者的需要，1999 年在`IE5.0`浏览器中率先推出的。后来这个技术被上述的规范命名为`XMLHttpRequest`。它正是 `Ajax` 技术之所以与众不同的地方。简而言之， `XMLHttpRequest` 为运行于浏览器中的 `JavaScript`脚本提供了一种在页面之内与服务器通信的手段。页面内的`JavaScript`可以在不刷新页 面的情况下从服务器获取数据，或者向服务器提交数据。`XMLHttpRequest`的出现为`Web`开发提供了一种全新的可能性，甚至整个改变了人户 提供更好的交互体验。
 * 与传统的`Web`开发不同，`Ajax `并不是以一种基于静态页面的方式来看待`Web`应用，从`Ajax`的角度看来，`Web`应用应由少量的页面组成， 其中每个页面其实是一个更小型的`Ajax`应用。每个页面上面都包括有一些使用`JavaScript`开发的`Ajax`组件。这些组件使用`XMLHttpRequest `对象以异步的方式与服务器通信，从服务器获取需要的数据后使用`DOM API`来更新页面中的一部分内容。因此s`Ajax` 应用与 传统的`Web `应用的区别主要在三个地方：
@@ -334,7 +334,7 @@ if(typeof(result)=="object"){
   2. 使用异步方式与服务器通信，不需要打断用户的操作，具有更加迅速的的响应能力。 
   3. 应用仅由少量页面组成。大部分交互在页面之内完成，不需要切换整个页面。
 
-### 17.谈谈你对this的理解
+## 17.谈谈你对this的理解
 
 1. 函数(仅限于普通函数)创建时产生一个this,指向window
 2. (谁调用指向谁)当有事件绑定,并执行了事件处理程序时,谁绑定的事件,事件处理程序中的this就指向谁
@@ -476,7 +476,7 @@ if(typeof(result)=="object"){
      }
      ```
 
-### 18.JS事件绑定方式(主要有三种):
+## 18.JS事件绑定方式(主要有三种):
 
 1. 行内绑定(不建议)：无法实现标记和动作分离`(onclick=" ")`
 
@@ -486,7 +486,7 @@ if(typeof(result)=="object"){
 
     `说明:IE6/7/8 的兼容方式是: 对象名. attachEvent(“on事件名”,函数);`
 
-### 19.label的作用
+## 19.label的作用
 
 1. 实现语义化
 
@@ -518,7 +518,7 @@ if(typeof(result)=="object"){
   * 用法：`<label for="inputbox" accesskey="N">`姓名`</label>` `<input id="inputBox" tabindex="N" type="text">`局限性：accessKey 属性所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键。 
   * PS: 这种用法并不仅仅局限于`input`元素, 其它的也是可以的
 
-### 20.模块化开发怎么做？
+## 20.模块化开发怎么做？
 
 ::: tip 放出链接帮助读者理解模块化开发
 

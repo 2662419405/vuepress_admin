@@ -144,7 +144,8 @@ module.exports = {
             "fourth/second.md",
             "fourth/third.md",
             "fourth/fourth.md",
-            "fourth/fifth.md"
+            "fourth/fifth.md",
+            "fourth/sixth",
           ]
         },
         {
@@ -185,7 +186,7 @@ module.exports = {
             "fourth/third.md",
             "fourth/fourth.md",
             "fourth/fifth.md",
-            "fourth/sixth.md"
+            "fourth/sixth.md",
           ]
         },
         {

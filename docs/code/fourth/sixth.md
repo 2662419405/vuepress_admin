@@ -1,6 +1,6 @@
 # 基础面试题's brother(part6)
 
-### 1.什么是AMD模块系统和CMD模块系统，以及AMD、CMD规范区别？
+## 1.什么是AMD模块系统和CMD模块系统，以及AMD、CMD规范区别？
 
 * AMD 是 RequireJS 在推广过程中对模块定义的规范化产出
 * CMD是SeaJS在推广过程中对模块化定义的规范化产出
@@ -29,12 +29,12 @@
    })
    ```
 
-### 2.documen.write和 innerHTML的区别
+## 2.documen.write和 innerHTML的区别
 
 * `document.write`只能重绘整个页面
 * `innerHTML`可以重绘页面的一部分
 
-### 3.call() 和 .apply() 的区别？
+## 3.call() 和 .apply() 的区别？
 
 * 例子中用`add`来替换`sub`，`add.call(sub,3,1) == add(3,1)`，所以运行结果为:`alert(4); `
 
@@ -50,7 +50,7 @@
    add.call(sub,3,1); 
   ```
 
-### 4.滚动加载图片(懒加载)实现原理
+## 4.滚动加载图片(懒加载)实现原理
 
 ::: tip 仔细看哦，以后会用到的！！！
 
@@ -145,7 +145,7 @@
 
 :::
 
-### 5.POST、GET区别
+## 5.POST、GET区别
 
 1.  get是从服务器上获取数据，post是向服务器传送数据。
 2.  get是把参数数据队列加到提交表单的`ACTION`属性所指的`URL`中，值和表单内各个字段一一对应，在URL中可以看到。post是通过`HTTP post`机制，将表单内各个字段与其内容放置在`HTML HEADER`内一起传送到`ACTION`属性所指的`URL`地址。用户看不到这个过程
@@ -153,7 +153,7 @@
 4.  get传送的数据量较小，不能大于`2KB`。post传送的数据量较大，一般被默认为不受限制。但理论上，`IIS4`中最大量为80KB，`IIS5`中为 100KB
 5.  get安全性非常低，post安全性较高。但是执行效率却比Post方法好
 
-### 6.BOM和DOM
+## 6.BOM和DOM
 
 BOM中的对象
 
@@ -170,7 +170,7 @@ DOM文档对象模型
 * DOM是针对XML的基于树的API。描述了处理网页内容的方法和接口，是HTML和XML的API，DOM把整个页面规划成由节点层级构成的文档。 DOM本身是与语言无关的API，它并不与Java，JavaScript或其他语言绑定。
 * <a href="<http://blog.csdn.net/zhangzeyuaaa/article/details/17414711">来源</a>
 
-### 7.call和apply的区别是什么？第一个参数都有什么意义？
+## 7.call和apply的区别是什么？第一个参数都有什么意义？
 
 1. call方法:
 
@@ -243,7 +243,7 @@ var cat = new Cat("Black Cat");
 cat.showName();
 ```
 
-### 8.请解释 function prototype.blind的作用
+## 8.请解释 function prototype.blind的作用
 
 ```js
 var foo = {
@@ -259,11 +259,11 @@ boundFunc(); // 3(我们创建了一个新的函数，当它被执行的时候�
 
 * `.bind()`创建了一个函数，当这个函数在被调用的时候，它的`this`关键词会被设置成被传入的值（这里指调用`bind()`时传入的参数）。因 此，我们传入想要的上下文，`this`(其实就是 myObj)，到`.bind()`函数中。然后，当回调函数被执行的时候，` this `便指向` myObj` 对象。
 
-### 9.Attribute和property的区别是什么？
+## 9.Attribute和property的区别是什么？
 
 > 答案待考证
 
-### 10.如何添加html元素的事件，有几种方法？
+## 10.如何添加html元素的事件，有几种方法？
 
 1. 通过HTML元素属性。简单说来就是在html结构中，给你要添加事件的元素添加一个属性。
 
@@ -298,7 +298,7 @@ boundFunc(); // 3(我们创建了一个新的函数，当它被执行的时候�
 
    注意，IE模式需要加`on`
 
-### 11.ajax是什么？同步和异步的区别？
+## 11.ajax是什么？同步和异步的区别？
 
 1. `Ajax`的全称是`Asynchronous JavaScript and XML`中文名称定义为异步的`JavaScript`和`XML`。 `Ajax`是`Web2.0`技术的核心 由多种技术集合而成，使用`Ajax`技术不必刷新整个页面，只需对页面的局部进行更新，可以节省网络带宽，提高页面的加载速度，从而缩短用户等待时间，改善用户体验。
 2. 我们传统的web应用，当我们提交一个表单请求给服务器，服务器接收到请求之后，返回一个新的页面给浏览器，这种做法浪费了很多带宽，因为我们发送请求之前和获得的新页面两者中很多的`html`代码是相同的，由于每次用户的交互都需要向服务器发送请求，应用的访问时间取决于服务器的返回时间。而我们使用`Ajax`就不同了，`Ajax`只取回一些必须的数据，它使用`SOAP`、`XML`或者支持`json`的`Web Service`接口，我们在客户端利用`JavaScript`处理来自服务器的响应，这样客户端和服务器之间的数据交互就减少了，然后用户请求就得到了加速。
@@ -308,7 +308,7 @@ boundFunc(); // 3(我们创建了一个新的函数，当它被执行的时候�
   1. 同步：提交请求->等待服务器处理->处理完毕返回 这个期间客户端浏览器不能干任何事
   2. 异步: 请求通过事件触发->服务器处理（这是浏览器仍然可以作其他事情）->处理完毕
 
-### 12.Js的数据类型有哪些？Window.document的常用方法和属性？
+## 12.Js的数据类型有哪些？Window.document的常用方法和属性？
 
 * 六种数据类型：`undefined` `null` `Boolean` `number` `string`  `object`
 
