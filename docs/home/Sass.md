@@ -36,6 +36,28 @@
 
   css的文件体积和复杂度不可控、调试难度增加、成本等
 
+## 环境搭建
+
+Sass需要安装Ruby，但是为了方便这里只写出VSC插件
+
+* 在商店搜索Sass 点击install安装即可 此插件可将.sass或.scss编译为css
+* 在商店搜索Easy Sass 此插件可将.sass或.scss编译为.min.css，即压缩后
+
+## sass与scss
+
+有心的读者可能会注意到，在环境搭建里面提到了两个后缀名.sass和.scss，大家可能会问，这不是学的sass吗？后缀难道不就只有一种吗？怎么会有两种，下面跟大家阐述一下他们的区别
+
+* **Sass** (Syntactically Awesome StyleSheets)，是由buby语言编写的**一款css预处理语言**，和html一样**有严格的缩进风格**，和css编写规范有着很大的出入，是**不使用花括号和分号的**，所以不被广为接受。 **Sass** 是一款强化 CSS 的辅助工具，是对 CSS 的扩展，它在 CSS 语法的基础上增加了**变量 (variables)、嵌套 (nested rules)、混合 (mixins)、继承(extend)、导入 (inline imports)** 等高级功能，这些拓展令 CSS 更加强大与优雅。使用 Sass 以及 Sass 的样式库（如 Compass）有助于更好地组织管理样式文件，以及更高效地开发项目， 其后缀是.sass。
+* **SCSS** (Sassy CSS)，一款css预处理语言，SCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3，并且继承了 Sass 的强大功能。也就是说，任何标准的 CSS3 样式表都是具有相同语义的有效的 SCSS 文件。SCSS 需要使用分号和花括号而不是换行和缩进。SCSS 对空白符号不敏感，其实就和css3语法一样，其后缀名是分别为 .scss。
+
+* 总结：之所以不适用sass而使用scss就是因为sass有严格的缩进风格，而且不适用花括号和分号，这与css有很大出入，所以大家都会选择后者。
+
+::: tip 友情提示
+
+尽管我们使用sass编写css文件，但最终引入的是sass编译后的css或min.css，千万不要把sass文件直接引入，是不起任何作用的。
+
+:::
+
 ## 1.使用变量
 
 1. 可以把反复使用的css属性定义为变量，通过变量名来引用他们，无需重复书写这一属性值
