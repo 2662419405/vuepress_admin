@@ -35,6 +35,16 @@
 - [ ] 面试题全面性
 - [ ] 前端安全
 - [ ] 性能优化大全
+- [ ] D3
+- [ ] Echarts
+- [ ] Svg
+- [ ] jQuery mobile
+- [ ] Zepto
+- [ ] 时间轴
+- [ ] 懒加载
+- [ ] 瀑布流
+- [ ] Animate.js
+- [ ] Swiper.js
 
 
 :tada: 希望可以一直坚持下去
