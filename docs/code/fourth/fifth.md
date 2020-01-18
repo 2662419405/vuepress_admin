@@ -342,6 +342,38 @@ if(typeof(result)=="object"){
 4. 匿名函数可以使用bind()改变this的指向,call()和apply()可以改变函数中的this指向
 5. 使用new关键字创建一个实例对象,构造函数中的this指向了该实例对象,同时实例对象的this指向构造函数的原型对象
 
+> 在此需要补充：
+>
+> 最近在写part6的时候，遇到一个问题：js中的数据类型有几种。[part6第12题](http://shtodream.cn/code/fourth/sixth.html#_12-js的数据类型有哪些？window-document的常用方法和属性？)本来是很简单的回答自然是`string` `number` `undefined` `null` `Boolean` `object` ，但由`object`扩展出了很多的连带知识，其中包括广义对象，狭义对象，以及狭义对象与json对象的区别。当时看了很多资料，单纯的只看了上面提到的几个内容，今天在复习Js的时候发现提到了一个名词`函数上下文`，百度了一下发现指的就是this的指向，以后的面试题里，难免会遇到专业名词，所以特写下补充，希望读者们要有这个概念。并附上例题供大家参考。
+>
+> ```js
+> var obj = {
+> 	name : "xiaoming",
+> 	age : 21,
+> 	sex : "mela",
+> 	sayHello : function() {
+> 	alert("大家好，我是"+this.name+",我今年"+this.age+"岁了！")；
+> 	}
+> };
+> obj.sayHello();
+> //当一个函数当做对象的方法被调用时，这个函数里的this指的就是这个对象
+> //所以sayHello函数的上下文就是obj对象，既函数内部this执行obj（this===obj）
+> var fun = obj.sayHello;
+> fun();
+> //直接用圆括号调用，不是对象打点调用，此时this===window
+> //函数上下文是什么，取决于函数如何被调用，而不是函数如何定义
+> ```
+>
+> 记住五条规律：
+>
+> * <font color="#f00">函数直接圆括号调用，函数上下文就是window对象</font>
+> * <font color="#f00">函数当做对象的方法被对象打点语法调用时，函数上下文就是该对象</font>
+> * <font color="#f00">函数是事件处理函数，函数上下文就是触发这个事件的对象</font>
+> * <font color="#f00">定时器调用函数，上下文是window对象</font>
+> * <font color="#f00">数组中存放的函数，被数组索引之后加圆括号调用，函数上下文this代表这个数组</font>
+>
+> 引自[[LinHngJie]](https://blog.csdn.net/LinoHngJie/article/details/80358870)
+
 * 加分项
 
   1. 用于区分全局变量和局部变量,需要使用this
