@@ -364,15 +364,89 @@ if(typeof(result)=="object"){
 > //函数上下文是什么，取决于函数如何被调用，而不是函数如何定义
 > ```
 >
-> 记住五条规律：
+> 记住五条规律：为方便理解例题也放上
 >
 > * <font color="#f00">函数直接圆括号调用，函数上下文就是window对象</font>
+>
+>   ```js
+>   function fun(){
+>       var a = 200;
+>       alert(this.a);
+>   }
+>   
+>   var a = 6666;
+>   fun();
+>   ```
+>
 > * <font color="#f00">函数当做对象的方法被对象打点语法调用时，函数上下文就是该对象</font>
+>
+>   ```js
+>   function fun(){
+>       
+>       alert(this.a);
+>   }
+>   
+>   var obj = {
+>       "a" : 12,
+>       "b" : 2,
+>       "c" : fun
+>   }
+>   
+>   obj.c()；
+>   ```
+>
 > * <font color="#f00">函数是事件处理函数，函数上下文就是触发这个事件的对象</font>
+>
+>   ```js
+>       function fun(){
+>           this.style.background = "yellow";
+>       }
+>       var box1 = document.getElementById("box1");
+>       var box2 = document.getElementById("box2");
+>       var box3 = document.getElementById("box3");
+>       btn.onclick = fun;
+>   ```
+>
 > * <font color="#f00">定时器调用函数，上下文是window对象</font>
+>
+>   ```js
+>   var a = 456;
+>   setInterval(function(){
+>      var a = 123;
+>       alert(this.a)
+>   }, 1000)
+>   ```
+>
 > * <font color="#f00">数组中存放的函数，被数组索引之后加圆括号调用，函数上下文this代表这个数组</font>
 >
-> 引自[[LinHngJie]](https://blog.csdn.net/LinoHngJie/article/details/80358870)
+>   ```js
+>   function fun(){
+>   
+>       alert(this === arr);
+>       alert(arr.length);
+>   }
+>   var arr = [fun,2,3424,5];
+>   arr[0]();
+>   ```
+>
+> 面试题也经常考这类的题目
+>
+> ```js
+> function fun(m,n,o,p,q){
+>   alert(this.length);
+>     
+> }
+> 
+> function f(){
+>     arguments[0](1,2,3,4,5)
+> }
+> 
+> f(fun,5,6,7)
+> //这个this 是调用这个函数的 argument， 弹出来就是实参个数 4。
+> //如果是arguments.callee 呢  那就是形参个数。
+> ```
+>
+> 引自[[LinHngJie]](https://blog.csdn.net/LinoHngJie/article/details/80358870)，[[joyce123]](https://www.cnblogs.com/joyce123/p/7754851.html)
 
 * 加分项
 
