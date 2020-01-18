@@ -137,7 +137,7 @@ module.exports = {
           children: ["second"]
         },
         {
-          title: "基础面试题(二)",
+          title: "面试题.pdf",
           collapsable: true,
           children: [
             "fourth/first.md",
@@ -149,7 +149,7 @@ module.exports = {
           ]
         },
         {
-          title: "基础面试题(三)",
+          title: "前端面试题汇总.pdf",
           collapsable: true,
           children: ["chen"]
         },
