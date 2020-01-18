@@ -143,6 +143,8 @@
 
 <a href="https://www.degraeve.com/img2txt-yay.php?url=https%3A%2F%2Fraw.githubusercontent.com%2FWangjiateng666%2Fimg%2Fmaster%2F5.jpg&mode=A&size=100&charstr=ABCDEFGHIJKLMNOPQRSTUVWXYZ&order=O&invert=N">:candy::egg:</a>
 
+:ballot_box_with_check:
+
 :::
 
 ## 5.POST、GET区别
