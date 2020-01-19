@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     bigSize() {
-      if (this.fontSize > 30) {
+      if (this.fontSize > 27) {
         return false;
       }
       this.fontSize++;

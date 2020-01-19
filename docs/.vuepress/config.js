@@ -95,7 +95,7 @@ module.exports = {
         {
           title: "前端进阶",
           collapsable: true,
-          children: ["jin/sheji","jin/ts","jin/you"]
+          children: ["jin/sheji","jin/ts","jin/you","jin/anquan"]
         },
         {
           title: "网络基础",

