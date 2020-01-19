@@ -29,6 +29,8 @@
 - [x] 夜间模式
 - [x] nginx
 - [x] 网络基础
+- [x] linux基础
+- [x] 思维导图
 
 ## Loading中
 

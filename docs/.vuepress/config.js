@@ -9,8 +9,11 @@ module.exports = {
       "link",
       {
         rel: "icon",
-        href: `/favicon.ico`
-      }
+        href: `/.vuepress/favicon.ico`
+      },
+      ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js' }],
+      ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js' }],
+      ['link', { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css' }]
     ]
   ],
   dest: "./docs/.vuepress/dist",
@@ -29,8 +32,9 @@ module.exports = {
     nav: [
       { text: "首页", link: "/" },
       { text: "笔记文档", link: "/home/" },
-      { text: "面试题和技巧", link: "/code/" },
-      { text: "期末考试答案=-=", link: "/answer/" },
+      { text: "面试题", link: "/code/" },
+      { text: "思维导图", link: "/xmind/" },
+      { text: "答案整理", link: "/answer/" },
       { text: "源码", link: "https://github.com/2662419405/vuepress_admin" },
       {
         text: "SunHang",
@@ -124,46 +128,6 @@ module.exports = {
           children: ["vscode"]
         }
       ],
-      "/code/": [
-        "",
-        {
-          title: "44道js难题",
-          collapsable: true,
-          children: ["first"]
-        },
-        {
-          title: "基础面试题(一)",
-          collapsable: true,
-          children: ["second"]
-        },
-        {
-          title: "面试题.pdf",
-          collapsable: true,
-          children: [
-            "fourth/first.md",
-            "fourth/second.md",
-            "fourth/third.md",
-            "fourth/fourth.md",
-            "fourth/fifth.md",
-            "fourth/sixth",
-          ]
-        },
-        {
-          title: "前端面试题汇总.pdf",
-          collapsable: true,
-          children: ["chen"]
-        },
-        {
-          title: "反问面试官?",
-          collapsable: true,
-          children: ["fan"]
-        },
-        {
-          title: "2018大厂面试题汇总",
-          collapsable: true,
-          children: ["third"]
-        }
-      ],
       "/answer/": [""],
       "/code/": [
         "",
@@ -204,6 +168,9 @@ module.exports = {
           collapsable: true,
           children: ["third"]
         }
+      ],
+      "xmind":[
+        ""
       ]
     }
   },

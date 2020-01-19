@@ -55,4 +55,7 @@ export default {
   margin-left auto;
   margin-right auto;
 }
+.v .veditor{
+  background url("https://cdn.jsdelivr.net/gh/2662419405/imgPlus/tu.png") 100% 70% no-repeat !important;  
+}
 </style>
