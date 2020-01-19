@@ -9,7 +9,7 @@ module.exports = {
       "link",
       {
         rel: "icon",
-        href: `/.vuepress/favicon.ico`
+        href: `/favicon.ico`
       },
       ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js' }],
       ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js' }],
