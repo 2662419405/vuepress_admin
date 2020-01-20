@@ -19,7 +19,7 @@ after_success:
   - git commit -m ":apple:TravisCI 自动部署"
   - git push --force --quiet "https://${githubblog}@${GH_REF}" master:master
   - chmod 600 ~/.ssh/id_rsa
-  - ssh travis@114.115.182.108 -o StrictHostKeyChecking=no 'cd /usr/local/nginx/html/ && rm -rf sh && git clone https://github.com/2662419405/2662419405.github.io.git && mv 2662419405.github.io sh'
+  # - ssh root@114.115.182.108 -o StrictHostKeyChecking=no 'cd /usr/local/nginx/html/ && rm -rf sh && git clone https://github.com/2662419405/2662419405.github.io.git && mv 2662419405.github.io sh'
 env:
   global:
     - GH_REF: github.com/2662419405/vuepress.git
