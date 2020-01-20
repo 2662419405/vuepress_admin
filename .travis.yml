@@ -2,11 +2,16 @@ language: node_js
 node_js:
   - lts/*
 before_install:
+  - openssl aes-256-cbc -K $encrypted_5c89ab4eaf0a_key -iv $encrypted_5c89ab4eaf0a_iv
+    -in id_rsa.enc -out ~\/.ssh/id_rsa -d
   - npm install -g vuepress
 install:
   - yarn install # npm ci
 script:
   - npm run docs:build
+addons:
+  ssh_known_hosts:
+  - 114.115.182.108
 after_success:
   - cd docs/.vuepress/dist
   - echo 'shstudy.top' > CNAME
@@ -14,6 +19,8 @@ after_success:
   - git add .
   - git commit -m ":apple:TravisCI 自动部署"
   - git push --force --quiet "https://${githubblog}@${GH_REF}" master:master
+  - chmod 600 ~/.ssh/id_rsa
+  - ssh travis@114.115.182.108 -o StrictHostKeyChecking=no 'cd /usr/local/nginx/html/ && rm -rf sh && git clone https://github.com/2662419405/2662419405.github.io.git && mv 2662419405.github.io sh'
 env:
   global:
     - GH_REF: github.com/2662419405/vuepress.git
