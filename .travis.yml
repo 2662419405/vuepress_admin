@@ -3,7 +3,7 @@ node_js:
   - lts/*
 before_install:
   - openssl aes-256-cbc -K $encrypted_5c89ab4eaf0a_key -iv $encrypted_5c89ab4eaf0a_iv
-    -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+    -in id_rsa.enc -out ~/.ssh/id_rsa -d
   - npm install -g vuepress
 install:
   - yarn install # npm ci
