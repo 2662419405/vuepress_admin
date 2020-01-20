@@ -10,8 +10,7 @@ install:
 script:
   - npm run docs:build
 addons:
-  ssh_known_hosts:
-  - 114.115.182.108
+  ssh_known_hosts: 114.115.182.108
 after_success:
   - cd docs/.vuepress/dist
   - echo 'shstudy.top' > CNAME
