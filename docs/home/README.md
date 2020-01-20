@@ -16,7 +16,7 @@
 JS基础系列会参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank">MDN JavaScript</a>系列来整理。
 
 3. **框架系列：**
-关于React和Vue框架的一些知识整理,目前只整理了React
+关于React和Vue框架的一些知识整理,目前只整理了React(Vue也会尽快推出的)
 
 1. **面试题整理** 
 分享常见面试题，主要以 JavaScript 为主
