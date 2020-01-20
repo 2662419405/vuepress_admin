@@ -90,7 +90,7 @@ module.exports = {
         {
           title: "node",
           collapsable: true,
-          children: ["node/npm","node/node","node/nodebao"]
+          children: ["node/npm","node/pm2","node/chang","node/node","node/nodebao"]
         },
         {
           title: "前端进阶",
