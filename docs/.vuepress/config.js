@@ -105,7 +105,7 @@ module.exports = {
         {
           title: "打包工具",
           collapsable: true,
-          children: ["bao/webpack"]
+          children: ["bao/webpack","bao/zhuan"]
         },
         {
           title: "服务器基础",
