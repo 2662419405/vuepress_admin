@@ -98,6 +98,11 @@ module.exports = {
           children: ["jin/sheji","jin/ts","jin/you","jin/anquan","jin/ce"]
         },
         {
+          title: "高阶框架学习",
+          collapsable: true,
+          children: ["ku/study"]
+        },
+        {
           title: "网络基础",
           collapsable: true,
           children: ["wang/http","wang/request"]
@@ -111,11 +116,6 @@ module.exports = {
           title: "服务器基础",
           collapsable: true,
           children: ["fu/nginx","fu/linux"]
-        },
-        {
-          title: "高阶UI库学习",
-          collapsable: true,
-          children: ["ku/study"]
         },
         {
           title: "React入门",
