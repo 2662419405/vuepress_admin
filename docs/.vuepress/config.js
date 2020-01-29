@@ -113,6 +113,11 @@ module.exports = {
           children: ["fu/nginx","fu/linux"]
         },
         {
+          title: "高阶UI库学习",
+          collapsable: true,
+          children: ["ku/study"]
+        },
+        {
           title: "React入门",
           collapsable: true,
           children: ["react"]
