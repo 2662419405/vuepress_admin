@@ -48,6 +48,7 @@
 - [ ] 瀑布流
 - [ ] Animate.js
 - [ ] Swiper.js
+- [ ] taro学习
 
 
 :tada: 希望可以一直坚持下去

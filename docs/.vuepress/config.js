@@ -98,6 +98,11 @@ module.exports = {
           children: ["jin/sheji","jin/ts","jin/you","jin/anquan","jin/ce"]
         },
         {
+          title: "高阶框架学习",
+          collapsable: true,
+          children: ["ku/study"]
+        },
+        {
           title: "网络基础",
           collapsable: true,
           children: ["wang/http","wang/request"]
@@ -105,7 +110,7 @@ module.exports = {
         {
           title: "打包工具",
           collapsable: true,
-          children: ["bao/webpack"]
+          children: ["bao/webpack","bao/zhuan"]
         },
         {
           title: "服务器基础",
