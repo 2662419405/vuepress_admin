@@ -11,9 +11,29 @@ module.exports = {
         rel: "icon",
         href: `/favicon.ico`
       },
-      ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js' }],
-      ['script', { src: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js' }],
-      ['link', { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css' }]
+      [
+        "script",
+        {
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"
+        }
+      ],
+      [
+        "script",
+        {
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"
+        }
+      ],
+      [
+        "link",
+        {
+          rel: "stylesheet",
+          type: "text/css",
+          href:
+            "https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css"
+        }
+      ]
     ]
   ],
   dest: "./docs/.vuepress/dist",
@@ -34,7 +54,7 @@ module.exports = {
       { text: "笔记文档", link: "/home/" },
       { text: "面试题", link: "/code/" },
       { text: "思维导图", link: "/xmind/" },
-      { text: "答案整理", link: "/answer/" },
+      { text: "每日一题", link: "/once/" },
       { text: "源码", link: "https://github.com/2662419405/vuepress_admin" },
       {
         text: "SunHang",
@@ -65,37 +85,48 @@ module.exports = {
         {
           title: "前端基础",
           collapsable: true,
-          children: ["jichu/css","jichu/html"]
+          children: ["jichu/css", "jichu/html"]
         },
         {
           title: "js学习",
           collapsable: true,
-          children: ["jsstudy/jscj","jsstudy/jsgao","jsstudy/this","jsstudy/es6"]
+          children: [
+            "jsstudy/jscj",
+            "jsstudy/jsgao",
+            "jsstudy/this",
+            "jsstudy/es6"
+          ]
         },
         {
           title: "常用UI库",
           collapsable: true,
-          children: ["ui/jquery","ui/fullpage","ui/bootstrap"]
+          children: ["ui/jquery", "ui/fullpage", "ui/bootstrap"]
         },
         {
           title: "版本控制",
           collapsable: true,
-          children: ["ban/svn","ban/git"]
+          children: ["ban/svn", "ban/git"]
         },
         {
           title: "css预处理",
           collapsable: true,
-          children: ["Less","Sass"]
+          children: ["Less", "Sass"]
         },
         {
           title: "node",
           collapsable: true,
-          children: ["node/npm","node/pm2","node/chang","node/node","node/nodebao"]
+          children: [
+            "node/npm",
+            "node/pm2",
+            "node/chang",
+            "node/node",
+            "node/nodebao"
+          ]
         },
         {
           title: "前端进阶",
           collapsable: true,
-          children: ["jin/sheji","jin/ts","jin/you","jin/anquan","jin/ce"]
+          children: ["jin/sheji", "jin/ts", "jin/you", "jin/anquan", "jin/ce"]
         },
         {
           title: "高阶框架学习",
@@ -105,17 +136,17 @@ module.exports = {
         {
           title: "网络基础",
           collapsable: true,
-          children: ["wang/http","wang/request"]
+          children: ["wang/http", "wang/request"]
         },
         {
           title: "打包工具",
           collapsable: true,
-          children: ["bao/webpack","bao/zhuan"]
+          children: ["bao/webpack", "bao/zhuan"]
         },
         {
           title: "服务器基础",
           collapsable: true,
-          children: ["fu/nginx","fu/linux"]
+          children: ["fu/nginx", "fu/linux"]
         },
         {
           title: "React入门",
@@ -133,7 +164,10 @@ module.exports = {
           children: ["vscode"]
         }
       ],
-      "/answer/": [""],
+      "/once/": [
+        "",
+        { title: "1-10道题", collapsable: true, children: ["f_10/first.md"] }
+      ],
       "/code/": [
         "",
         {
@@ -155,7 +189,7 @@ module.exports = {
             "fourth/third.md",
             "fourth/fourth.md",
             "fourth/fifth.md",
-            "fourth/sixth.md",
+            "fourth/sixth.md"
           ]
         },
         {
@@ -176,13 +210,15 @@ module.exports = {
         {
           title: "城市面试题",
           collapsable: true,
-          children: ["city/Beijing.md",
-          "city/Hangzhou.md"]
+          children: ["city/Beijing.md", "city/Hangzhou.md"]
+        },
+        {
+          title: "答案整理",
+          collapsable: true,
+          children: ["answer"]
         }
       ],
-      "xmind":[
-        ""
-      ]
+      xmind: [""]
     }
   },
   markdown: {
