@@ -54,7 +54,7 @@ module.exports = {
       { text: "笔记文档", link: "/home/" },
       { text: "面试题", link: "/code/" },
       { text: "思维导图", link: "/xmind/" },
-      { text: "每日一题", link: "/once/" },
+      { text: "最后冲刺", link: "/once/" },
       { text: "源码", link: "https://github.com/2662419405/vuepress_admin" },
       {
         text: "SunHang",
@@ -166,7 +166,11 @@ module.exports = {
       ],
       "/once/": [
         "",
-        { title: "1-10道题", collapsable: true, children: ["f_10/first.md"] }
+        {
+          title: "精选面试题20道",
+          collapsable: true,
+          children: ["f_10/first.md"]
+        }
       ],
       "/code/": [
         "",

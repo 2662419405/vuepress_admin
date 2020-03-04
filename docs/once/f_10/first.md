@@ -1,4 +1,4 @@
-# html 页面导入样式时，使用link和@import有什么区别？
+# new的实现原理是什么?
 
 区别：
 1.link是HTML标签，@import是css提供的。
