@@ -169,7 +169,18 @@ module.exports = {
         {
           title: "精选面试题20道",
           collapsable: true,
-          children: ["f_10/first.md"]
+          children: [
+            "f_10/first.md",
+            "f_10/this.md",
+            "f_10/shen.md",
+            "f_10/fang.md",
+            "f_10/call.md",
+            "f_10/ke.md",
+            "f_10/bi.md",
+            "f_10/yi.md",
+            "f_10/cang.md",
+            "f_10/let.md"
+          ]
         }
       ],
       "/code/": [
