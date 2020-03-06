@@ -8,7 +8,7 @@
 
 1.3浏览器架构：
 
-![浏览器架构](<img src="https://raw.githubusercontent.com/2209951505/img/master/QQ%E6%88%AA%E5%9B%BE20200108195145.png"/>)
+<img style="zoom:50%" src="https://raw.githubusercontent.com/2209951505/img/master/QQ%E6%88%AA%E5%9B%BE20200108195145.png"/>
 
 4、ecmascript
 
@@ -1035,7 +1035,7 @@ BOM（浏览器对象模型 Browser Object Model：页面以外的所有对象�
 
 Body里的就是DOM  body以外的BOM 
 
-![bom对象](<img src="https://raw.githubusercontent.com/2209951505/img/master/%E5%9B%BE%E7%89%871.jpg"/>)
+<img style="zoom:50%"  src="https://raw.githubusercontent.com/2209951505/img/master/%E5%9B%BE%E7%89%871.jpg"/>
 
 ### 1. window对象
 
@@ -1179,7 +1179,7 @@ DOM文档对象模型Document Objec Model:当前载入页面所拥有的对象�
 
 ### 3. DOM树：
 
-![dom对象](<img src="https://raw.githubusercontent.com/2209951505/img/master/%E6%A0%91.png"/>)
+<img  style="zoom:50%"  src="https://raw.githubusercontent.com/2209951505/img/master/%E6%A0%91.png"/>
 
 HTML文档中的每一个元素都是一个节点，DOM中规定如下：
 
