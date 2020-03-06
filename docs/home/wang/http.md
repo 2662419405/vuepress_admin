@@ -102,6 +102,51 @@ username=jinqiao&password=1234
 **常用的状态码**
 
 <table>
+	<tr>
+      <td align="center" style="width:70px"><b>状态码</b></td>
+      <td align="center" style="width:140px"><b>状态码英文名称</b></td>
+      <td align="center"><b>中文描述</b></td>
+   </tr>
+	<tr>
+		<td align="center" style="width:70px">200</td>
+		<td align="center" style="width:140px">OK</td>
+		<td align="center">客户端请求成功</td>
+	</tr>
+	<tr>
+		<td align="center" style="width:70px">400</td>
+		<td align="center" style="width:140px">Bad Request</td>
+		<td align="center">客户端请求有语法错误，不能被服务器所理解</td>
+	</tr>
+	<tr>
+		<td align="center" style="width:70px">401</td>
+		<td align="center" style="width:140px">Unauthorized</td>
+		<td align="center">请求未经授权</td>
+	</tr>
+	<tr>
+		<td align="center" style="width:70px">403</td>
+		<td align="center" style="width:140px">Forbidden</td>
+		<td align="center">服务器收到请求，但是拒绝提供服务,比如说token失败,或者用户名密码错误等等</td>
+	</tr>
+	<tr>
+		<td align="center" style="width:70px">404</td>
+		<td align="center" style="width:140px">Not Found</td>
+		<td align="center">请求资源不存在，eg：输入了错误的URL</td>
+	</tr>
+	<tr>
+		<td align="center" style="width:70px">500</td>
+		<td align="center" style="width:140px">Internal Server Error</td>
+		<td align="center">服务器发生不可预期的错误</td>
+	</tr>
+	<tr>
+		<td align="center" style="width:70px">503</td>
+		<td align="center" style="width:140px">Server Unavailable</td>
+		<td align="center">服务器当前不能处理客户端的请求，一段时间后可能恢复正常</td>
+	</tr>
+</table>
+
+**状态码总览**
+
+<table>
    <tr>
       <td align="center" style="width:70px"><b>状态码</b></td>
       <td align="center" style="width:140px"><b>状态码英文名称</b></td>
