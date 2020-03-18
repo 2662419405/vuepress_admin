@@ -167,7 +167,7 @@ module.exports = {
       "/once/": [
         "",
         {
-          title: "精选面试题20道",
+          title: "精选面试题10道",
           collapsable: true,
           children: [
             "f_10/first.md",
@@ -181,6 +181,11 @@ module.exports = {
             "f_10/cang.md",
             "f_10/let.md"
           ]
+        },
+        {
+          title: "精选面试题10道(二)",
+          collapsable: true,
+          children: ["f_20/frist.md"]
         }
       ],
       "/code/": [
