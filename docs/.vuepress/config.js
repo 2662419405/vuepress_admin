@@ -185,7 +185,7 @@ module.exports = {
         {
           title: "精选面试题10道(二)",
           collapsable: true,
-          children: ["f_20/frist.md"]
+          children: ["f_20/frist.md", "f_20/second.md"]
         }
       ],
       "/code/": [
