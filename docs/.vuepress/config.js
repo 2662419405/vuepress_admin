@@ -149,6 +149,11 @@ module.exports = {
           children: ["fu/nginx", "fu/linux"]
         },
         {
+          title: "Vue入门",
+          collapsable: true,
+          children: ["vue/Vuex", "vue/vue-router"]
+        },
+        {
           title: "React入门",
           collapsable: true,
           children: ["react"]
