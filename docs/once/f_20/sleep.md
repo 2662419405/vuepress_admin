@@ -1,5 +1,7 @@
 # 1.实现一个sleep函数,sleep(1000)意味着等待1000毫秒,可以使用es6之后的语法
 
+## 第一种
+
 ```js
 function sleep(time) {
     return new Promise(resolve => {
@@ -14,7 +16,7 @@ sleep(1000).then(res => {
 })
 ```
 
-第二种
+## 第二种
 
 ```js
 function sleep(time) {
