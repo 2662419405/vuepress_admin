@@ -68,7 +68,7 @@ img-wrap{
 
 ## 7.如何让层在flash上显示
 
-给flash设置透明param value=transparent或者param value=opaque
+给flash设置透明`param value=transparent`或者`param value=opaque`
 
 ## 8.jQuery中有哪几种类型的选择器，他们的作用是什么？
 
@@ -82,15 +82,15 @@ img-wrap{
 
 CSS选择符：
 
-1. id选择器(# myid) 
-2. 类选择器(.myclassname) 
-3. 标签选择器(div, h1, p) 
-4. 相邻选择器(h1 + p) 
-5. 子选择器(ul > li) 
-6. 后代选择器(li a) 
-7. 通配符选择器( * ) 
-8. 属性选择器(a[rel = "external"]) 
-9. 伪类选择器(a: hover, li:nth-child) 
+1. id选择器`(# myid) `
+2. 类选择器`(.myclassname) `
+3. 标签选择器`(div, h1, p) `
+4. 相邻选择器`(h1 + p)` 
+5. 子选择器`(ul > li) `
+6. 后代选择器`(li a)` 
+7. 通配符选择器`( * ) `
+8. 属性选择器`(a[rel = "external"]) `
+9. 伪类选择器`(a: hover, li:nth-child) `
 
 可继承样式：
 
@@ -116,11 +116,11 @@ CSS权重 优先级算法：
 
 CSS3新增伪类举例： 
 
-* p:first-of-type 选择属于其父元素的首个<p>元素的每个<p>元素
-*  p:last-of-type 选择属于其父元素的最后<p>元素的每个<p>元素
-* p:only-of-type 选择属于其父元素唯一的<p>元素的每个<p>元素。 
-* p:only-child 选择属于其父元素的唯一子元素的每个<p>元素
-*  p:nth-child(2) 选择属于其父元素的第二个子元素的每个<p>元素。 
+* p:first-of-type 选择属于其父元素的首个`<p>`元素的每个`<p>`元素
+*  p:last-of-type 选择属于其父元素的最后`<p>`元素的每个`<p>`元素
+* p:only-of-type 选择属于其父元素唯一的`<p>`元素的每个`<p>`元素。 
+* p:only-child 选择属于其父元素的唯一子元素的每个`<p>`元素
+*  p:nth-child(2) 选择属于其父元素的第二个子元素的每个`<p>`元素。 
 * :enabled :disabled 控制表单控件的禁用状态
 * :checked 单选框或复选框被选中。
 
