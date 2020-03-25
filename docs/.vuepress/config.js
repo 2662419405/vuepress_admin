@@ -172,7 +172,7 @@ module.exports = {
       "/once/": [
         "",
         {
-          title: "精选面试题10道",
+          title: "精选面试题",
           collapsable: true,
           children: [
             "f_10/first.md",
@@ -184,13 +184,16 @@ module.exports = {
             "f_10/bi.md",
             "f_10/yi.md",
             "f_10/cang.md",
-            "f_10/let.md"
+            "f_10/let.md",
+            "f_10/frist_two.md",
+            "f_10/second_two.md",
+            "f_10/three_two.md"
           ]
         },
         {
-          title: "精选面试题10道(二)",
+          title: "最新和常问的问题",
           collapsable: true,
-          children: ["f_20/frist.md", "f_20/second.md", "f_20/three.md"]
+          children: ["f_20/sleep.md"]
         }
       ],
       "/code/": [
