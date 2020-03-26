@@ -199,7 +199,10 @@ module.exports = {
             "f_20/less-shan.md",
             "f_20/shu.md",
             "f_20/vue-sheng.md",
-            "f_20/yi.md"
+            "f_20/yi.md",
+            "f_20/wei.md",
+            "f_20/fen.md",
+            "f_20/vuex-demo.md"
           ]
         }
       ],
