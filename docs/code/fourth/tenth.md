@@ -36,7 +36,7 @@
 
    注意旧ie的方法：e.cancelBubble = true; 
 
-## 6.Ajax 是什么？Ajax 的交互模型？同步和异步的区别？如何解决跨域问题？Ajax的缺点
+## 6.Ajax 是什么？Ajax 的交互模式？同步和异步的区别？如何解决跨域问题？Ajax的缺点
 
 Ajax 是什么： 
 
