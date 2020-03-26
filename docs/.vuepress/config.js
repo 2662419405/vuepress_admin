@@ -193,7 +193,14 @@ module.exports = {
         {
           title: "最新和常问的问题",
           collapsable: true,
-          children: ["f_20/sleep.md", "f_20/jie.md"]
+          children: [
+            "f_20/sleep.md",
+            "f_20/jie.md",
+            "f_20/less-shan.md",
+            "f_20/shu.md",
+            "f_20/vue-sheng.md",
+            "f_20/yi.md"
+          ]
         }
       ],
       "/code/": [
