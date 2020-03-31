@@ -144,6 +144,11 @@ module.exports = {
           children: ["bao/webpack", "bao/zhuan"]
         },
         {
+          title: "性能优化",
+          collapsable: true,
+          children: ["youhua/First","youhua/Network", "youhua/Page","youhua/Js","youhua/Fuhe"]
+        },
+        {
           title: "服务器基础",
           collapsable: true,
           children: ["fu/nginx", "fu/linux"]
