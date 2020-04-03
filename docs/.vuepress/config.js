@@ -126,7 +126,7 @@ module.exports = {
         {
           title: "Vue学习",
           collapsable: true,
-          children:["Vue/chuji","Vue/zhongji","Vue/gaoji"]
+          children:["Vue/chuji"]
         },
         {
           title: "前端进阶",
