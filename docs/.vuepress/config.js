@@ -124,6 +124,11 @@ module.exports = {
           ]
         },
         {
+          title: "Vue学习",
+          collapsable: true,
+          children:["Vue/chuji","Vue/zhongji","Vue/gaoji"]
+        },
+        {
           title: "前端进阶",
           collapsable: true,
           children: ["jin/sheji", "jin/ts", "jin/you", "jin/anquan", "jin/ce"]
@@ -153,16 +158,7 @@ module.exports = {
           collapsable: true,
           children: ["fu/nginx", "fu/linux"]
         },
-        {
-          title: "Vue入门",
-          collapsable: true,
-          children: ["vue/Vuex", "vue/vue-router"]
-        },
-        {
-          title: "React入门",
-          collapsable: true,
-          children: ["react"]
-        },
+      
         {
           title: "reactNative开发",
           collapsable: true,
