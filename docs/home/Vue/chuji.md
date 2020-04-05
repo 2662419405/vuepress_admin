@@ -41,3 +41,131 @@ npm run dev
 >不要删除整个 src 文件夹，删除里面的源文件。我们会在接下来的步骤中使用示例代码   
 >替换默认源文件。    
 
+## Vue的v指令   
+### Vue的v指令使用
+### 1. v-bind (绑定元素)     
+#### 部分view代码   
+````   
+<p v-bind:title="message">测试哈哈</p>   
+````   
+#### 部分js代码   
+````   
+<script>
+   var vm=new Vue({ //创建了一个Vue实例对象--启动一个vue应用 
+       el:"#app", //reactDOM.render(组件,挂载点)
+       data:{//this.state={message:"hello world!"}
+          message:"hello World!",
+          seen:false,
+          stus:[
+              {id:"10001",name:"tom",age:19,sex:"男"},
+              {id:"10002",name:"jarry",age:21,sex:"男"},
+              {id:"10003",name:"susan",age:23,sex:"女"},
+              {id:"10004",name:"赵四",age:35,sex:"男"},
+              {id:"10005",name:"刘能",age:37,sex:"男"},
+          ]
+      }
+    }   
+    </script>
+````
+### 2. v-for(遍历数组对象)   
+用法: v-for="元素 in 数组"    
+例如遍历一个数组到li中:   
+#### 部分view代码   
+````   
+<ul>
+            <li v-for="value in stus" v-bind:key="value.id">
+               编号: {{value.id}}
+               姓名:{{value.name}}
+               性别:{{value.sex}}
+               年龄:{{value.age}}
+            </li>
+/ul>    
+````   
+#### 部分js代码   
+````   
+<script>
+   var vm=new Vue({ //创建了一个Vue实例对象--启动一个vue应用 
+       el:"#app", //reactDOM.render(组件,挂载点)
+       data:{//this.state={message:"hello world!"}
+          message:"hello World!",
+          seen:false,
+          stus:[
+              {id:"10001",name:"tom",age:19,sex:"男"},
+              {id:"10002",name:"jarry",age:21,sex:"男"},
+              {id:"10003",name:"susan",age:23,sex:"女"},
+              {id:"10004",name:"赵四",age:35,sex:"男"},
+              {id:"10005",name:"刘能",age:37,sex:"男"},
+          ]
+       },
+       methods:{
+           changeMessage(){
+               //实例对象代理了data上方法
+               console.log("当前实例对象 this",this)
+               this.message="你好吗"
+           }
+       }
+   })
+
+   console.log("vm",vm);
+ </script>   
+ ````    
+ ### 3. v-on 绑定vue事件   
+ #### 部分view代码   
+````   
+button v-on:click="changeMessage">点击改变message</button>   
+````   
+#### 部分js代码   
+````
+ <script>
+   var vm=new Vue({ //创建了一个Vue实例对象--启动一个vue应用 
+       el:"#app", //reactDOM.render(组件,挂载点)
+       data:{
+          message:"hello World!",
+       },
+     methods:{
+           changeMessage(){
+               this.message="你好吗"
+           }
+       }
+   })
+  </script>    
+ ````   
+ ### 4. v-if 从DOM中移除   
+ v-if 为true DOM添加到现有DOM  ,    
+       为false从现有DOM中移除   
+#### 部分view代码   
+       ````   
+       <p v-if="seen">天道酬勤</p>   
+       ````   
+#### 部分js代码   
+````
+<script>
+   var vm=new Vue({ //创建了一个Vue实例对象--启动一个vue应用 
+       el:"#app", //reactDOM.render(组件,挂载点)
+       data:{
+          seen:false
+          }
+     })
+</script>
+````     
+### 5. v-model 将表单项的value值绑定到变量上
+#### 部分js代码   
+````
+<p v-bind:title="message">测试</p>   
+````   
+#### 部分js代码   
+````   
+<sceipt>
+var vm=new Vue({ //创建了一个Vue实例对象--启动一个vue应用 
+       el:"#app", //reactDOM.render(组件,挂载点)
+       data:{
+            this.state={message:"hello world!"
+            }
+          }
+          
+    })
+</script>   
+````   
+### MVVM    
+M-->V-->V-->M  数据和DOM是绑定，数据改变DOM自动刷新    
+-->可以将开发中从大量的DOM操作中解放出来，使开发人员只关注数据处理和业务逻辑
