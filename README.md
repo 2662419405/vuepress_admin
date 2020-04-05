@@ -14,6 +14,10 @@
     <img width=60 height="60" src="https://cdn.jsdelivr.net/gh/2662419405/imgPlus/5.jpg">
 </a>
 
+<a href="https://github.com/c55403225" target="_blank">
+    <img width=60 height="60" src="https://avatars1.githubusercontent.com/u/58025606?s=400&v=4"/>
+</a>
+
 ## 完成的功能
 
 - [x] vuepress搭建成功
