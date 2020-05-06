@@ -1,0 +1,5 @@
+# react中component和pureComponent区别是什么？
+
+PureComponent自带通过props和state的浅对比来实现 shouldComponentUpate()，而Component没有
+
+比于Component，PureCompoent的性能表现将会更好

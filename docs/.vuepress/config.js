@@ -205,6 +205,16 @@ module.exports = {
             "f_20/fen.md",
             "f_20/vuex-demo.md"
           ]
+        },
+        {
+          title: "React问题",
+          collapsable: true,
+          children: [
+            "f_30/diff.md",
+            "f_30/dom.md",
+            "f_30/pure.md",
+            "f_30/redux.md"
+          ]
         }
       ],
       "/code/": [
