@@ -215,6 +215,13 @@ module.exports = {
             "f_30/pure.md",
             "f_30/redux.md"
           ]
+        },{
+          title: "遍历数组以及对象的方法",
+          collapsable: true,
+          children: [
+            "f_40/array.md",
+            "f_40/obj.md",
+          ]
         }
       ],
       "/code/": [
